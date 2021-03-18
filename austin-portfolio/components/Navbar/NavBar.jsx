@@ -11,6 +11,7 @@ const NavBar = () => {
         >
         <Box>
           <Link
+            color={"blue.900"}
             fontSize={"24"}
             fontWeight={"bold"}
             padding={"8px"}
@@ -29,6 +30,7 @@ const NavBar = () => {
 
         <Box>
           <Link
+            color={"blue.900"}
             fontSize={"24"}
             fontWeight={"bold"}
             padding={"8px"}
@@ -47,6 +49,7 @@ const NavBar = () => {
 
         <Box>
           <Link
+            color={"blue.900"}
             fontSize={"24"}
             fontWeight={"bold"}
             padding={"8px"}

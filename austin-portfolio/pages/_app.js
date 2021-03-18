@@ -1,9 +1,30 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import {ChakraProvider, extendTheme} from '@chakra-ui/react'
 import '../styles/globals.css'
+
+const WorkGalleryBox = {
+  baseStyle: {
+    height: '100%',
+    backgroundColor: "blue",
+  }
+}
+
+const theme = extendTheme({
+  colors: {
+    brand: {bgWhite: '#FAFAFF'},
+  },
+  components: {
+    Heading: {
+      baseStyle: {
+        color: "blue.900"
+      }
+    },
+    WorkGalleryBox
+  }
+})
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Component {...pageProps} />
     </ChakraProvider>
   )
