@@ -62,7 +62,11 @@ const ImageCarousel = () => {
       />
       {
         images.map((image, index) => (
-          <ImageOverlay src={image} active={index === 1}/>
+          <ImageOverlay
+            src={image}
+            arrangement={index}
+            active={index === 1}
+          />
         ))
       }
       <ChevronRightIcon
@@ -76,16 +80,31 @@ const ImageCarousel = () => {
   )
 }
 
-const ImageOverlay = ({ src, active }) => {
+const ImageOverlay = ({ src, active, arrangement, ...props }) => {
+  const translateX = arrangement === 0 ? 'translateX(30%)' : 'translateX(-30%)'
   return (
     <React.Fragment>
       {active
         ? (
-          <Img src={src} boxSize={"500px"} />
+          <Img
+            zIndex={1}
+            boxShadow="dark-lg"
+            src={src}
+            boxSize={"500px"}
+            transition={"0.2s ease-in-out"}
+          />
         )
         : (
           <React.Fragment>
-            <Img src={src} boxSize={"400px"}/>
+            <Img
+              src={src}
+              zIndex={-1}
+              transform={translateX}
+              boxShadow="dark-lg"
+              boxSize={"300px"}
+              opacity={0.5}
+              transition={"0.2s ease-in-out"}
+            />
           </React.Fragment>
         )
       }
