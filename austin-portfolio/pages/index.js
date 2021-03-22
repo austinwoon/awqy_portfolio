@@ -7,9 +7,11 @@ import {
 } from '@chakra-ui/react'
 import Intro from "../components/Intro/Intro";
 import Work from "../components/Work/Work";
+import React from 'react';
 
 
 export default function Home() {
+
   return (
     <Box>
       <Intro />

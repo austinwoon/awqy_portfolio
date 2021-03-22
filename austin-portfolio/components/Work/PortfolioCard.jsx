@@ -1,29 +1,66 @@
 import React from 'react';
-import {Heading, VStack, Box, Img, useStyleConfig} from '@chakra-ui/react'
+import {Heading, VStack, Box, Img, Flex, Wrap, Text, Link, WrapItem} from '@chakra-ui/react'
+import CustomTag from "./CustomTag";
 
-const PortfolioCard = ({title, img, description, technologies}) => {
-  const styles = useStyleConfig("WorkGalleryBox")
+const PortfolioCard = ({title, img, description, technologies, onOpen}) => {
 
   return (
-    <VStack
-      align={"start"}
+    <Flex
+      direction={'column'}
       padding={"5%"}
       boxShadow={"base"}
     >
-      <Box>
+      <Box
+        pb={'1'}
+        pt={'1'}
+      >
         <Img
           src={img}
           maxWidth={"300px"}
         />
       </Box>
 
-      <Box>
+      <Wrap
+        direction={"row"}
+        wrap={"wrap"}
+        pb={'1'}
+        pt={'1'}
+      >
+        {technologies.map(t => (
+          <WrapItem>
+            <CustomTag tagName={t} />
+          </WrapItem>
+          )
+        )}
+      </Wrap>
+
+      <Box
+        pb={'1'}
+        pt={'1'}
+      >
         <Heading size={"md"}>
           {title}
         </Heading>
       </Box>
 
-    </VStack>
+      <Box
+        pb={'1'}
+        pt={'1'}
+      >
+        <Text align={"justify"}>
+          {description}
+        </Text>
+      </Box>
+
+      <Flex
+        justify={'flex-end'}
+        pt={'1'}
+      >
+        <Link onClick={onOpen}>
+          View More
+        </Link>
+      </Flex>
+    </Flex>
   )
 }
 
