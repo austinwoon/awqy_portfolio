@@ -14,8 +14,9 @@ const ImageCarousel = () => {
   const {workSelected, setWork} = React.useContext(WorkSelectedContext)
   const imagesLength = workSelected.images.length
   const rawImagesArr = workSelected.images
-  const [images, setImages] = React.useState(workSelected.images.slice(0, 3))
+  const [indexes, setIndexes] = React.useState([0, 1, 2])
   const [startImageIndex, setStartImageIndex] = React.useState(0)
+  const [arrowClicked, setArrowClicked] = React.useState('right')
 
   const handleRightChevronClick = () => {
     setStartImageIndex(i => {
@@ -24,14 +25,7 @@ const ImageCarousel = () => {
       }
       return i + 1
     })
-
-    const middleIndex = startImageIndex + 1 > imagesLength - 1 ? 0 : startImageIndex + 1
-    const endIndex = middleIndex + 1 > imagesLength - 1 ? 0 : middleIndex + 1
-    setImages([
-      rawImagesArr[startImageIndex],
-      rawImagesArr[middleIndex],
-      rawImagesArr[endIndex]
-    ])
+    setArrowClicked('right')
   }
 
   const handleLeftChevronClick = () => {
@@ -41,15 +35,32 @@ const ImageCarousel = () => {
       }
       return i - 1
     })
-
-    const middleIndex = startImageIndex - 1 < 0 ? imagesLength - 1 : startImageIndex - 1
-    const endIndex = middleIndex - 1 < 0 ? imagesLength - 1 : middleIndex - 1
-    setImages([
-      rawImagesArr[startImageIndex],
-      rawImagesArr[middleIndex],
-      rawImagesArr[endIndex]
-    ])
+    setArrowClicked('left')
   }
+
+  React.useEffect(() => {
+    if (arrowClicked === 'right') {
+      const middleIndex = startImageIndex + 1 > imagesLength - 1 ? 0 : startImageIndex + 1
+      const endIndex = middleIndex + 1 > imagesLength - 1 ? 0 : middleIndex + 1
+      setIndexes([
+        startImageIndex,
+        middleIndex,
+        endIndex
+      ])
+    } else {
+      const middleIndex = startImageIndex - 1 < 0 ? imagesLength - 1 : startImageIndex - 1
+      const endIndex = middleIndex - 1 < 0 ? imagesLength - 1 : middleIndex - 1
+      setIndexes([
+        startImageIndex,
+        middleIndex,
+        endIndex
+      ])
+    }
+  }, [startImageIndex, arrowClicked])
+
+  React.useEffect( () => {
+    console.log(indexes)
+  }, [indexes])
 
   return (
     <Flex direction={'row'} align={'center'}>
@@ -59,13 +70,16 @@ const ImageCarousel = () => {
         onClick={() => {
           handleLeftChevronClick()
         }}
+        zIndex={100}
+        mr={20}
       />
       {
-        images.map((image, index) => (
+        indexes.map((index) => (
           <ImageOverlay
-            src={image}
-            arrangement={index}
-            active={index === 1}
+            src={rawImagesArr[index]}
+            key={`${index}`}
+            active={index === indexes[1]}
+            hide={indexes.findIndex(i => i === index) < 0}
           />
         ))
       }
@@ -75,39 +89,34 @@ const ImageCarousel = () => {
         onClick={() => {
           handleRightChevronClick()
         }}
+        zIndex={100}
+        ml={20}
       />
     </Flex>
   )
 }
 
-const ImageOverlay = ({ src, active, arrangement, ...props }) => {
-  const translateX = arrangement === 0 ? 'translateX(30%)' : 'translateX(-30%)'
+const ImageOverlay = ({ src, active, leftImage, rightImage, hide, ...props }) => {
+  let translateX = ''
+  //
+  // if (leftImage) {
+  //   translateX = 'translateX(30%)'
+  // } else if (rightImage) {
+  //   translateX = 'translateX(-30%)'
+  // }
+
   return (
     <React.Fragment>
-      {active
-        ? (
-          <Img
-            zIndex={1}
-            boxShadow="dark-lg"
-            src={src}
-            boxSize={"500px"}
-            transition={"0.2s ease-in-out"}
-          />
-        )
-        : (
-          <React.Fragment>
-            <Img
-              src={src}
-              zIndex={-1}
-              transform={translateX}
-              boxShadow="dark-lg"
-              boxSize={"300px"}
-              opacity={0.5}
-              transition={"0.2s ease-in-out"}
-            />
-          </React.Fragment>
-        )
-      }
+        <Img
+          src={src}
+          zIndex={active ? 1 : -1}
+          transform={active ? 'scale(1.5)': 'scale(1.0)'}
+          boxShadow={active ? "dark-lg" : 'lg' }
+          opacity={active ? 1 : 0.5}
+          boxSize={"250px"}
+          objectFit={'cover'}
+          transition={"0.3s ease-in-out"}
+        />
     </React.Fragment>
   )
 }
