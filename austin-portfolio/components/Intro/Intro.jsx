@@ -17,6 +17,7 @@ import { introduction } from '../../constants/introduction';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
 import Console from './Console';
+import Name from './Name';
 
 export const Intro = () => {
     return (
@@ -58,6 +59,8 @@ export const Intro = () => {
                         </Box>
                     </MotionBox>
                 </Flex>
+
+                <Name />
 
                 <Flex paddingTop="48px" justify={'center'}>
                     <VStack align={'flex-end'} marginRight="50px">
