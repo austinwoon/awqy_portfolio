@@ -1,33 +1,33 @@
-import {ChakraProvider, extendTheme} from '@chakra-ui/react'
-import '../styles/globals.css'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import '../styles/globals.css';
 
 const WorkGalleryBox = {
-  baseStyle: {
-    height: '100%',
-    backgroundColor: "blue",
-  }
-}
+    baseStyle: {
+        height: '100%',
+        backgroundColor: 'blue',
+    },
+};
 
 const theme = extendTheme({
-  colors: {
-    brand: {bgWhite: '#FAFAFF'},
-  },
-  components: {
-    Heading: {
-      baseStyle: {
-        color: "blue.900"
-      }
+    colors: {
+        brand: { bgWhite: '#FAFAFF' },
     },
-    WorkGalleryBox
-  }
-})
+    components: {
+        Heading: {
+            baseStyle: {
+                color: 'blue.900',
+            },
+        },
+        WorkGalleryBox,
+    },
+});
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
-  )
+    return (
+        <ChakraProvider theme={theme}>
+            <Component {...pageProps} />
+        </ChakraProvider>
+    );
 }
 
-export default MyApp
+export default MyApp;
