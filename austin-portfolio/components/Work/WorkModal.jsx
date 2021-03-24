@@ -4,12 +4,10 @@ import {
     ModalOverlay,
     ModalContent,
     ModalHeader,
-    ModalFooter,
     ModalBody,
     ModalCloseButton,
     Text,
     Flex,
-    Button,
     Divider,
     Heading,
     Box,
@@ -27,13 +25,20 @@ const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
 
     return (
-        <Modal isOpen={true} onClose={onClose} size={'full'}>
+        <Modal isOpen={isOpen} onClose={onClose} size={'full'}>
             <ModalOverlay />
             <ModalContent bgGradient="linear-gradient(190deg, blue.50, hsla(0,0%,45%,0) 100%)">
                 <ModalHeader margin={'auto'}>
-                    <Heading color="blue.700" mt={'5vh'} fontSize={'6xl'}>
-                        {workSelected.title}
-                    </Heading>
+                    <Box mt={'5vh'}>
+                        <Heading color="blue.700" mb={'2vh'} fontSize={'6xl'}>
+                            {workSelected.title}
+                        </Heading>
+                        <Flex justify={'center'}>
+                            {workSelected.links.map((linkInfo) => (
+                                <LinkIcon {...linkInfo} />
+                            ))}
+                        </Flex>
+                    </Box>
                 </ModalHeader>
                 <ModalCloseButton />
 
@@ -50,11 +55,6 @@ const WorkModal = ({ onClose, isOpen }) => {
                                 desc={desc.content}
                             />
                         ))}
-                        <Flex justify={'center'}>
-                            {workSelected.links.map((linkInfo) => (
-                                <LinkIcon {...linkInfo} />
-                            ))}
-                        </Flex>
                     </Flex>
                 </ModalBody>
             </ModalContent>

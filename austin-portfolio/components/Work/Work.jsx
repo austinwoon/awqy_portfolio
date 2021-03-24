@@ -8,6 +8,8 @@ import {
     GridItem,
     Stack,
     useDisclosure,
+    Wrap,
+    WrapItem,
 } from '@chakra-ui/react';
 import PortfolioCard from './PortfolioCard';
 import { works } from '../../constants/work';
@@ -24,36 +26,47 @@ const Work = () => {
     };
 
     return (
-        <WorkSelectedContext.Provider
-            value={{
-                workSelected,
-                setWork: setWorkSelected,
-            }}
-        >
-            <Box>
-                <Flex m={'0% 10% 0% 10%'} direction={'column'}>
-                    <Heading size={'2xl'}>Work</Heading>
+        <Box pb={10}>
+            <WorkSelectedContext.Provider
+                value={{
+                    workSelected,
+                    setWork: setWorkSelected,
+                }}
+            >
+                <Box>
+                    <Flex
+                        m={'0% 10% 0% 10%'}
+                        direction={'column'}
+                        justify={'center'}
+                        align={'center'}
+                    >
+                        <Heading size={'4xl'} pt={10} pb={10}>
+                            Portfolio
+                        </Heading>
 
-                    <Stack maxWidth={'500px'}>
-                        {works.map((work) => (
-                            <PortfolioCard
-                                img={work.img}
-                                title={work.title}
-                                description={work.summary}
-                                technologies={work.technologies}
-                                onOpen={() => handleViewMoreClick(work)}
-                            />
-                        ))}
-                    </Stack>
-                </Flex>
-            </Box>
+                        <Wrap spacing={'2.5%'} justify={'center'}>
+                            {works.map((work) => (
+                                <WrapItem w={'500px'}>
+                                    <PortfolioCard
+                                        img={work.img}
+                                        title={work.title}
+                                        summary={work.summary}
+                                        technologies={work.technologies}
+                                        onOpen={() => handleViewMoreClick(work)}
+                                    />
+                                </WrapItem>
+                            ))}
+                        </Wrap>
+                    </Flex>
+                </Box>
 
-            <WorkModal
-                workSelected={workSelected}
-                onClose={onClose}
-                isOpen={isOpen}
-            />
-        </WorkSelectedContext.Provider>
+                <WorkModal
+                    workSelected={workSelected}
+                    onClose={onClose}
+                    isOpen={isOpen}
+                />
+            </WorkSelectedContext.Provider>
+        </Box>
     );
 };
 

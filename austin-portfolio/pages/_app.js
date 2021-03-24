@@ -23,6 +23,16 @@ const theme = extendTheme({
                 color: '#425466',
             },
         },
+        Code: {
+            baseStyle: {
+                fontSize: '16px',
+            },
+            variants: {
+                subtle: {
+                    backgroundColor: 'transparent',
+                },
+            },
+        },
         WorkGalleryBox,
     },
 });

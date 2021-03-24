@@ -15,26 +15,37 @@ import {
 import NavBar from '../Navbar/NavBar';
 import { introduction } from '../../constants/introduction';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import MotionBox from '../FramerMotion/MotionBox';
+import Console from './Console';
 
 export const Intro = () => {
     return (
-        <Box width={'100vw'} backgroundColor={'brand.bgWhite'} padding={'24px'}>
+        <Box width={'100vw'} padding={'24px'}>
             <Flex justify={'center'}>
                 <NavBar />
             </Flex>
 
             <Box margin={'48px'}>
                 <Flex justify={'center'}>
-                    <Box
+                    <MotionBox
                         boxShadow={'0px 5px 5px rgba(0,0,0,0.15)'}
                         padding={'16px'}
                         borderRadius={'16px'}
-                        transition={'top ease-in-out 0.3s'}
                         top={0}
                         position={'relative'}
-                        _hover={{
-                            top: '-4px',
-                            boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+                        initial={{
+                            y: 100,
+                            scale: 0,
+                            opacity: 0,
+                        }}
+                        animate={{
+                            y: 0,
+                            opacity: 1,
+                            scale: 1,
+                        }}
+                        transition={{
+                            duration: 0.5,
+                            bounce: 1,
                         }}
                     >
                         <Box boxShadow={'inner'}>
@@ -45,7 +56,7 @@ export const Intro = () => {
                                 borderRadius={'16px'}
                             />
                         </Box>
-                    </Box>
+                    </MotionBox>
                 </Flex>
 
                 <Flex paddingTop="48px" justify={'center'}>
@@ -66,6 +77,10 @@ export const Intro = () => {
 
                 <Center>
                     <Divider padding={'12px'} maxWidth="10%" />
+                </Center>
+
+                <Center>
+                    <Console />
                 </Center>
 
                 <Stack
