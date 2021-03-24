@@ -32,8 +32,10 @@ const Name = () => {
     }, []);
 
     return (
-        <Flex align='center' h='40px'>
-            <Code color="blue.800" fontSize='6xl'>{name.slice(0, showNameIndex)}</Code>
+        <Flex align="center" h="40px">
+            <Code color="blue.800" fontSize="6xl">
+                {name.slice(0, showNameIndex)}
+            </Code>
             <Box bgColor={showCursor && 'blue.800'} w="15px" h="60px" />
         </Flex>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Flex, Text, Box, Code, Stack, Link } from '@chakra-ui/react';
 import MotionBox from '../FramerMotion/MotionBox';
 import { cursorBlinkTimeInterval } from '../../constants/introduction';
+import { loadingEntryProps } from '../../constants/framerMotion';
 
 const terminalText = [
     {
@@ -69,7 +70,11 @@ const Console = () => {
     }, []);
 
     return (
-        <Box maxWidth="50vw" boxShadow={'xl'}>
+        <MotionBox
+            {...loadingEntryProps}
+            maxWidth="50vw"
+            boxShadow={'xl'}
+        >
             <Flex
                 h={9}
                 borderTopLeftRadius={7}
@@ -173,7 +178,7 @@ const Console = () => {
                     );
                 })}
             </Flex>
-        </Box>
+        </MotionBox>
     );
 };
 

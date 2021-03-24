@@ -17,6 +17,7 @@ import { introduction } from '../../constants/introduction';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
 import Console from './Console';
+import { loadingEntryProps } from '../../constants/framerMotion';
 import Name from './Name';
 
 export const Intro = () => {
@@ -34,20 +35,7 @@ export const Intro = () => {
                         borderRadius={'16px'}
                         top={0}
                         position={'relative'}
-                        initial={{
-                            y: 100,
-                            scale: 0,
-                            opacity: 0,
-                        }}
-                        animate={{
-                            y: 0,
-                            opacity: 1,
-                            scale: 1,
-                        }}
-                        transition={{
-                            duration: 0.5,
-                            bounce: 1,
-                        }}
+                        {...loadingEntryProps}
                     >
                         <Box boxShadow={'inner'}>
                             <Img
