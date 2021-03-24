@@ -18,6 +18,11 @@ const theme = extendTheme({
                 color: 'blue.900',
             },
         },
+        Text: {
+            baseStyle: {
+                color: '#425466',
+            },
+        },
         WorkGalleryBox,
     },
 });

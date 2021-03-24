@@ -1,19 +1,17 @@
 import React from 'react';
 import { WorkSelectedContext } from './WorkSelectedContext';
-import { Img, Flex, forwardRef, Box } from '@chakra-ui/react';
+import {
+    Img,
+    Flex,
+    forwardRef,
+    Spacer,
+    Box,
+    IconButton,
+} from '@chakra-ui/react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { AnimatePresence, isValidMotionProp, motion } from 'framer-motion';
-
-const MotionBox = motion(
-    forwardRef((props, ref) => {
-        const chakraProps = Object.fromEntries(
-            // do not pass framer props to DOM element
-            Object.entries(props).filter(([key]) => !isValidMotionProp(key))
-        );
-        return <Box ref={ref} {...chakraProps} />;
-    })
-);
+import MotionBox from '../FramerMotion/MotionBox';
 
 const variants = {
     rightClick: {
@@ -33,10 +31,12 @@ const variants = {
     },
     left: {
         x: '-100%',
+        opacity: 0.3,
         boxShadow: '0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     },
     right: {
         x: '100%',
+        opacity: 0.3,
         boxShadow: '0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     },
 };
@@ -103,15 +103,31 @@ const ImageCarousel = () => {
         return 'right';
     };
 
+    // TODO : Dynamically adjust image box size according to view width
     const imageBoxSize = 300;
 
     return (
-        <Box>
+        <Box mt={'5vh'} mb={'5vh'}>
             <Flex justify={'center'} align={'center'}>
-                <ChevronLeftIcon onClick={handleLeftClick} boxSize={'75px'} />
-                <Box
+                <Spacer />
+                <IconButton
+                    aria-label={'chevron-left'}
+                    onClick={handleLeftClick}
+                    icon={<ChevronLeftIcon />}
+                    fontSize={'200px'}
+                    variant={'link'}
+                    _focus={{
+                        border: '0px',
+                    }}
+                    _hover={{}}
+                    color={'blue.700'}
+                />
+                <Spacer />
+                <Flex
                     position={'relative'}
-                    height={`${imageBoxSize}px`}
+                    justify={'center'}
+                    align={'center'}
+                    height={`25vh`}
                     width={`${imageBoxSize * 3}px`}
                 >
                     {rawImages.map((imageSrc, i) => (
@@ -127,7 +143,6 @@ const ImageCarousel = () => {
                             variants={variants}
                             position={'absolute'}
                             left={'35%'}
-                            border={'1px solid red'}
                         >
                             <Img
                                 src={imageSrc}
@@ -137,8 +152,20 @@ const ImageCarousel = () => {
                             />
                         </MotionBox>
                     ))}
-                </Box>
-                <ChevronRightIcon onClick={handleRightClick} boxSize={'75px'} />
+                </Flex>
+                <Spacer />
+                <IconButton
+                    aria-label={'chevron-left'}
+                    onClick={handleRightClick}
+                    icon={<ChevronRightIcon />}
+                    fontSize={'200px'}
+                    variant={'link'}
+                    _focus={{
+                        border: '0px',
+                    }}
+                    color={'blue.700'}
+                />
+                <Spacer />
             </Flex>
         </Box>
     );

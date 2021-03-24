@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import CustomTag from './CustomTag';
 
-const PortfolioCard = ({ title, img, description, technologies, onOpen }) => {
+const PortfolioCard = ({ title, img, summary, technologies, onOpen }) => {
     return (
         <Flex direction={'column'} padding={'5%'} boxShadow={'base'}>
             <Box pb={'1'} pt={'1'}>
@@ -32,7 +32,7 @@ const PortfolioCard = ({ title, img, description, technologies, onOpen }) => {
             </Box>
 
             <Box pb={'1'} pt={'1'}>
-                <Text align={'justify'}>{description}</Text>
+                <Text align={'justify'}>{summary}</Text>
             </Box>
 
             <Flex justify={'flex-end'} pt={'1'}>

@@ -39,7 +39,7 @@ const Work = () => {
                             <PortfolioCard
                                 img={work.img}
                                 title={work.title}
-                                description={work.description}
+                                description={work.summary}
                                 technologies={work.technologies}
                                 onOpen={() => handleViewMoreClick(work)}
                             />
