@@ -103,34 +103,41 @@ const ImageCarousel = () => {
         return 'right';
     };
 
+    const imageBoxSize = 300;
+
     return (
         <Box>
-            <Flex justify={'center'} align={'center'} position={'relative'}>
+            <Flex justify={'center'} align={'center'}>
                 <ChevronLeftIcon onClick={handleLeftClick} boxSize={'75px'} />
-                {positions['left']}
-
-                {rawImages.map((imageSrc, i) => (
-                    <MotionBox
-                        key={imageSrc}
-                        transition={{
-                            duration: 0.3,
-                        }}
-                        initial={{
-                            opacity: 1,
-                        }}
-                        animate={getAnimationStyle(i)}
-                        variants={variants}
-                        position={'absolute'}
-                        top={'100px'}
-                    >
-                        <Img
-                            src={imageSrc}
-                            alt={imageSrc}
-                            boxSize={'300px'}
-                            objectFit={'cover'}
-                        />
-                    </MotionBox>
-                ))}
+                <Box
+                    position={'relative'}
+                    height={`${imageBoxSize}px`}
+                    width={`${imageBoxSize * 3}px`}
+                >
+                    {rawImages.map((imageSrc, i) => (
+                        <MotionBox
+                            key={imageSrc}
+                            transition={{
+                                duration: 0.3,
+                            }}
+                            initial={{
+                                opacity: 1,
+                            }}
+                            animate={getAnimationStyle(i)}
+                            variants={variants}
+                            position={'absolute'}
+                            left={'35%'}
+                            border={'1px solid red'}
+                        >
+                            <Img
+                                src={imageSrc}
+                                alt={imageSrc}
+                                boxSize={`${imageBoxSize}px`}
+                                objectFit={'cover'}
+                            />
+                        </MotionBox>
+                    ))}
+                </Box>
                 <ChevronRightIcon onClick={handleRightClick} boxSize={'75px'} />
             </Flex>
         </Box>
