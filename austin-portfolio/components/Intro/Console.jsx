@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Text, Box, Code, Stack, Link } from '@chakra-ui/react';
 import MotionBox from '../FramerMotion/MotionBox';
-import { cursorBlinkTimeInterval } from '../../constants/introduction'
+import { cursorBlinkTimeInterval } from '../../constants/introduction';
 
 const terminalText = [
     {

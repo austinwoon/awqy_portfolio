@@ -60,22 +60,8 @@ export const Intro = () => {
                     </MotionBox>
                 </Flex>
 
-                <Name />
-
-                <Flex paddingTop="48px" justify={'center'}>
-                    <VStack align={'flex-end'} marginRight="50px">
-                        <Heading size={'4xl'}>AUSTIN</Heading>
-
-                        <Heading size={'4xl'}>WOON</Heading>
-                    </VStack>
-
-                    <VStack align={'flex-start'}>
-                        <Heading size={'xl'}>Introduction</Heading>
-
-                        <Text maxWidth={'25em'} align={'justify'}>
-                            {introduction}
-                        </Text>
-                    </VStack>
+                <Flex pt="48px" mb={5} justify={'center'}>
+                    <Name />
                 </Flex>
 
                 <Center>
