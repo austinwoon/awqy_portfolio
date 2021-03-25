@@ -1,32 +1,26 @@
-import { Link, Flex, Heading, Box, Spacer } from '@chakra-ui/layout';
+import { Link, Flex, Text, Box } from '@chakra-ui/layout';
 import React from 'react';
+import MotionBox from "../FramerMotion/MotionBox";
+import HoverLink from "../HoverLink/HoverLink";
 
-const LinkStyles = {
+const linkStyles = {
     color: 'blue.900',
-    fontSize: ['lg', '2xl', '3xl', '3xl'],
-    pl: ['2', '3', '3', '3'],
-    pr: ['2', '3', '3', '3'],
+    fontSize: ['lg', '2xl', '2xl', '2xl'],
+    pl: ['2', '3', '7', '10'],
+    pr: ['2', '3', '7', '10'],
     pb: '1',
     pt: '1',
-    fontWeight: 'bold',
     borderRadius: '8px',
-    _hover: {
-        backgroundColor: 'blue.900',
-        color: 'white',
-        transition: '0.35s ease',
-    },
     transition: '0.1s ease-in-out',
 };
+
 const NavBar = () => {
+    const [hovered, setHovered] = React.useState(false)
     return (
-        <Flex w="100%">
-            <Spacer />
-            <Link {...LinkStyles} href={'#about'}>About</Link>
-            <Spacer />
-            <Link {...LinkStyles} href={'#portfolio'}>Portfolio</Link>
-            <Spacer />
-            <Link {...LinkStyles}>Contact</Link>
-            <Spacer />
+        <Flex w='100vw' justify={'flex-end'}>
+            <HoverLink linkStyles={linkStyles} content={'About'} href={'#about'} />
+            <HoverLink linkStyles={linkStyles} content={'Portfolio'} href={'#portfolio'} />
+            <HoverLink linkStyles={linkStyles} content={'Contact'}/>
         </Flex>
     );
 };

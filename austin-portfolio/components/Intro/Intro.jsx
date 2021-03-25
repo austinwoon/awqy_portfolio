@@ -21,7 +21,6 @@ export const Intro = () => {
             padding={'24px'}
             overflow={'hidden'}
         >
-            <NavBar />
 
             <Box mt={rowMarginTop}>
                 <Flex justify={'center'}>
