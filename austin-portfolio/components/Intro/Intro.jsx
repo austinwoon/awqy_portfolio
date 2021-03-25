@@ -24,7 +24,15 @@ const rowMarginTop = ['2vh', '2vh', '2vh', '2vh'];
 
 export const Intro = () => {
     return (
-        <Box h="100vh" w={'100vw'} padding={'24px'} overflow={'hidden'}>
+        <Flex
+            direction="column"
+            align={'center'}
+            justify={'center'}
+            h="100vh"
+            w={'100vw'}
+            padding={'24px'}
+            overflow={'hidden'}
+        >
             <NavBar />
 
             <Box mt={rowMarginTop}>
@@ -97,7 +105,7 @@ export const Intro = () => {
                     </Link>
                 </Stack>
             </Box>
-        </Box>
+        </Flex>
     );
 };
 

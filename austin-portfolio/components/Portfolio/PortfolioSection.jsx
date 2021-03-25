@@ -11,6 +11,7 @@ import PortfolioCard from './PortfolioCard';
 import { works } from '../../constants/work';
 import WorkModal from '../WorkModal/WorkModal';
 import { WorkSelectedContext } from './WorkSelectedContext';
+import { headingSizes } from '../../util/fontSizes';
 
 const PortfolioSection = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,13 +37,19 @@ const PortfolioSection = () => {
                         justify={'center'}
                         align={'center'}
                     >
-                        <Heading size={'4xl'} pt={10} pb={10}>
+                        <Heading fontSize={headingSizes} pt={10} pb={10}>
                             Portfolio
                         </Heading>
 
-                        <Wrap spacing={'2.5%'} justify={'center'}>
+                        <Wrap
+                            spacing={'2.5%'}
+                            justify={'center'}
+                            align={'center'}
+                        >
                             {works.map((work) => (
-                                <WrapItem w={'500px'}>
+                                <WrapItem
+                                    w={['300px', '300px', '500px', '500px']}
+                                >
                                     <PortfolioCard
                                         img={work.img}
                                         title={work.title}
@@ -59,7 +66,7 @@ const PortfolioSection = () => {
                 <WorkModal
                     workSelected={workSelected}
                     onClose={onClose}
-                    isOpen={isOpen}
+                    isOpen={true}
                 />
             </WorkSelectedContext.Provider>
         </Box>

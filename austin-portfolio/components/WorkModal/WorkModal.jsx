@@ -13,13 +13,14 @@ import {
     Box,
     Link,
     Icon,
+    Spacer,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import ImageCarousel from './ImageCarousel';
 import { WorkSelectedContext } from '../Portfolio/WorkSelectedContext';
-import { works } from '../../constants/work';
 import { FaGithub } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
+import { headingSizes } from '../../util/fontSizes';
 
 const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
@@ -28,27 +29,48 @@ const WorkModal = ({ onClose, isOpen }) => {
         <Modal isOpen={isOpen} onClose={onClose} size={'full'}>
             <ModalOverlay />
             <ModalContent bgGradient="linear-gradient(190deg, blue.50, hsla(0,0%,45%,0) 100%)">
-                <ModalHeader margin={'auto'}>
-                    <Box mt={'5vh'}>
-                        <Heading color="blue.700" mb={'2vh'} fontSize={'6xl'}>
+                <ModalHeader>
+                    <Flex
+                        align={'center'}
+                        justify={'center'}
+                        direction={'column'}
+                        mt={'5vh'}
+                    >
+                        <Heading
+                            color="blue.700"
+                            mb={'2vh'}
+                            fontSize={headingSizes}
+                        >
                             {workSelected.title}
                         </Heading>
-                        <Flex justify={'center'}>
-                            {workSelected.links.map((linkInfo) => (
-                                <LinkIcon {...linkInfo} />
+                        <Flex justify={'center'} align={'center'}>
+                            {workSelected.links.map((linkInfo, i) => (
+                                <React.Fragment>
+                                    <LinkIcon
+                                        {...linkInfo}
+                                        mrStyle={
+                                            i !==
+                                                workSelected.links.length -
+                                                    1 && [
+                                                '30px',
+                                                '40px',
+                                                '40px',
+                                                '50px',
+                                            ]
+                                        }
+                                    />
+                                </React.Fragment>
                             ))}
                         </Flex>
-                    </Box>
+                    </Flex>
                 </ModalHeader>
-                <ModalCloseButton />
+
+                <ModalCloseButton size={'lg'} />
 
                 <ModalBody>
                     <Flex direction={'column'}>
                         <ImageCarousel images={workSelected.images} />
-                        <Divider
-                            margin="30px auto 30px auto"
-                            maxWidth={'50vw'}
-                        />
+                        <Divider margin="2vh auto 2vh auto" maxWidth={'50vw'} />
                         {workSelected.description.map((desc) => (
                             <Description
                                 header={desc.header}
@@ -62,12 +84,23 @@ const WorkModal = ({ onClose, isOpen }) => {
     );
 };
 
-const LinkIcon = ({ logo, link }) => {
+const LinkIcon = ({ logo, link, mrStyle }) => {
     const getButton = (logo) => {
         if (logo === 'Github') {
-            return <Icon color="blue.400" boxSize="50px" as={FaGithub} />;
+            return (
+                <Icon
+                    color="blue.400"
+                    boxSize={['30px', '40px', '40px', '50px']}
+                    as={FaGithub}
+                />
+            );
         }
-        return <ExternalLinkIcon color="blue.400" boxSize={'50px'} />;
+        return (
+            <ExternalLinkIcon
+                color="blue.400"
+                boxSize={['30px', '40px', '40px', '50px']}
+            />
+        );
     };
     // TODO: Sep this into a component to standardize animation
     return (
@@ -77,6 +110,7 @@ const LinkIcon = ({ logo, link }) => {
                 border: '0px',
             }}
             href={link}
+            mr={mrStyle}
         >
             <MotionBox
                 whileHover={{
@@ -94,7 +128,6 @@ const LinkIcon = ({ logo, link }) => {
                         duration: 0.1,
                     },
                 }}
-                ml={'50px'}
             >
                 {getButton(logo)}
             </MotionBox>

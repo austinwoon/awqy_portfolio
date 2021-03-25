@@ -23,7 +23,7 @@ const PortfolioCard = ({
     return (
         <Flex {...props} direction={'column'} padding={'5%'} boxShadow={'base'}>
             <Box margin={'auto'} pb={'1'} pt={'1'}>
-                <Img src={img} maxWidth={'300px'} />
+                <Img src={img} maxWidth={'100%'} />
             </Box>
 
             <Wrap direction={'row'} wrap={'wrap'} pb={'1'} pt={'1'}>
@@ -35,7 +35,7 @@ const PortfolioCard = ({
             </Wrap>
 
             <Box pb={'1'} pt={'1'}>
-                <Heading size={'md'}>{title}</Heading>
+                <Heading fontSize={['xl', 'xl', '3xl', '3xl']}>{title}</Heading>
             </Box>
 
             <Box pb={'1'} pt={'1'}>

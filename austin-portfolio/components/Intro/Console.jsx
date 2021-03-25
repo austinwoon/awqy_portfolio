@@ -103,9 +103,9 @@ const Console = () => {
             <Flex
                 direction={'column'}
                 bgColor={'#282a36'}
-                pt={5}
-                pl={10}
-                pr={10}
+                pt={[3, 3, 5, 5]}
+                pl={[5, 5, 10, 10]}
+                pr={[5, 5, 10, 10]}
                 borderBottomLeftRadius={7}
                 borderBottomRightRadius={7}
             >
@@ -118,8 +118,8 @@ const Console = () => {
                                 </Code>
                                 <Box
                                     bgColor={showCursor && '#f8f8f2'}
-                                    w="9px"
-                                    h="20px"
+                                    w={['5px', '5px', '9px', '9px']}
+                                    h={['18px', '20px', '25px', '25px']}
                                 />
                             </Flex>
                         );
