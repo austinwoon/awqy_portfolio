@@ -2,21 +2,17 @@ import React from 'react';
 import {
     Box,
     Heading,
-    Spacer,
     Flex,
-    Grid,
-    GridItem,
-    Stack,
     useDisclosure,
     Wrap,
     WrapItem,
 } from '@chakra-ui/react';
 import PortfolioCard from './PortfolioCard';
 import { works } from '../../constants/work';
-import WorkModal from './WorkModal';
+import WorkModal from '../WorkModal/WorkModal';
 import { WorkSelectedContext } from './WorkSelectedContext';
 
-const Work = () => {
+const PortfolioSection = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [workSelected, setWorkSelected] = React.useState(works[0]);
 
@@ -70,4 +66,4 @@ const Work = () => {
     );
 };
 
-export default Work;
+export default PortfolioSection;

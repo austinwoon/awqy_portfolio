@@ -1,5 +1,5 @@
 import React from 'react';
-import { WorkSelectedContext } from './WorkSelectedContext';
+import { WorkSelectedContext } from '../Portfolio/WorkSelectedContext';
 import {
     Img,
     Flex,

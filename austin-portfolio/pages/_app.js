@@ -1,13 +1,6 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import '../styles/globals.css';
 
-const WorkGalleryBox = {
-    baseStyle: {
-        height: '100%',
-        backgroundColor: 'blue',
-    },
-};
-
 const theme = extendTheme({
     colors: {
         brand: { bgWhite: '#FAFAFF' },
@@ -33,7 +26,6 @@ const theme = extendTheme({
                 },
             },
         },
-        WorkGalleryBox,
     },
 });
 

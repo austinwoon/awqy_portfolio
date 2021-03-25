@@ -20,18 +20,18 @@ import Console from './Console';
 import { loadingEntryProps } from '../../constants/framerMotion';
 import Name from './Name';
 
+const rowMarginTop = ['2vh', '2vh', '2vh', '2vh'];
+
 export const Intro = () => {
     return (
-        <Box width={'100vw'} padding={'24px'}>
-            <Flex justify={'center'}>
-                <NavBar />
-            </Flex>
+        <Box h="100vh" w={'100vw'} padding={'24px'} overflow={'hidden'}>
+            <NavBar />
 
-            <Box margin={'48px'}>
+            <Box mt={rowMarginTop}>
                 <Flex justify={'center'}>
                     <MotionBox
                         boxShadow={'0px 5px 5px rgba(0,0,0,0.15)'}
-                        padding={'16px'}
+                        padding={['8px', '8px', '12px', '12px']}
                         borderRadius={'16px'}
                         top={0}
                         position={'relative'}
@@ -42,30 +42,32 @@ export const Intro = () => {
                                 src={'/profile_pic.jpeg'}
                                 alt={'me'}
                                 maxWidth={'240px'}
+                                boxSize={['140px', '160px', '200px', '200px']}
                                 borderRadius={'16px'}
                             />
                         </Box>
                     </MotionBox>
                 </Flex>
 
-                <Flex pt="48px" mb={5} justify={'center'}>
+                <Flex mt={rowMarginTop} justify={'center'}>
                     <Name />
                 </Flex>
 
-                <Center>
-                    <Divider padding={'12px'} maxWidth="10%" />
-                </Center>
+                <Flex mt={rowMarginTop} justify={'center'}>
+                    <Divider maxWidth="50vw" />
+                </Flex>
 
-                <Center>
+                <Flex mt={rowMarginTop} justify={'center'}>
                     <Console />
-                </Center>
+                </Flex>
 
                 <Stack
                     spacing={16}
                     direction="row"
                     justify="center"
-                    paddingTop={'24px'}
+                    mt={rowMarginTop}
                 >
+                    {/*TODO: Link Styles*/}
                     <Link
                         isExternal
                         href={'https://linkedin.com/in/awqy'}

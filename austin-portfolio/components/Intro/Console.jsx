@@ -52,6 +52,18 @@ const terminalText = [
         end: true,
     },
 ];
+const consoleButtonStyles = {
+    display: 'inline-block',
+    h: ['10px', '10px', '12px', '12px'],
+    w: ['10px', '10px', '12px', '12px'],
+    margin: 1,
+    ml: [1, 1, 3, 3],
+    borderRadius: '50%',
+};
+const codeStyles = {
+    fontSize: ['xs', 'sm', 'md', 'lg'],
+};
+const codeSpacing = [3, 5, 7, 7];
 
 const Console = () => {
     const timer = React.useRef(null);
@@ -72,41 +84,20 @@ const Console = () => {
     return (
         <MotionBox
             {...loadingEntryProps}
-            maxWidth="50vw"
+            maxW={['100vw', '100vw', '60vw', '75vw']}
+            maxH={['100%', '100%', '100%', '100%']}
             boxShadow={'xl'}
         >
             <Flex
-                h={9}
+                h={[6, 6, 9, 9]}
                 borderTopLeftRadius={7}
                 borderTopRightRadius={7}
-                bgColor={'gray.100'}
+                bgColor={'gray.200'}
                 align={'center'}
             >
-                <Box
-                    display={'inline-block'}
-                    h={'12px'}
-                    w={'12px'}
-                    margin={1}
-                    ml={3}
-                    borderRadius={'50%'}
-                    bgColor={'#FF605C'}
-                />
-                <Box
-                    display={'inline-block'}
-                    h={'12px'}
-                    w={'12px'}
-                    margin={1}
-                    borderRadius={'50%'}
-                    bgColor={'#FFBD44'}
-                />
-                <Box
-                    display={'inline-block'}
-                    h={'12px'}
-                    w={'12px'}
-                    margin={1}
-                    borderRadius={'50%'}
-                    bgColor={'#00CA4E'}
-                />
+                <Box {...consoleButtonStyles} bgColor={'#FF605C'} />
+                <Box {...consoleButtonStyles} bgColor={'#FFBD44'} />
+                <Box {...consoleButtonStyles} bgColor={'#00CA4E'} />
             </Flex>
 
             <Flex
@@ -121,8 +112,8 @@ const Console = () => {
                 {terminalText.map((content) => {
                     if (content.end) {
                         return (
-                            <Flex pb={7} align="center">
-                                <Code color={'#f8f8f2'} mr={2}>
+                            <Flex pb={codeSpacing} align="center">
+                                <Code {...codeStyles} color={'#f8f8f2'} mr={2}>
                                     {content.header}
                                 </Code>
                                 <Box
@@ -134,10 +125,12 @@ const Console = () => {
                         );
                     }
                     return (
-                        <Stack spacing={0} pb={7}>
-                            <Code color={'#f8f8f2'}>{content.header}</Code>
+                        <Stack spacing={0} pb={codeSpacing}>
+                            <Code {...codeStyles} color={'#f8f8f2'}>
+                                {content.header}
+                            </Code>
 
-                            <Code color={'#f1fa8c'}>
+                            <Code {...codeStyles} color={'#f1fa8c'}>
                                 {content?.string && (
                                     <Box>{`"${content.string}"`}</Box>
                                 )}
@@ -167,7 +160,10 @@ const Console = () => {
                                             href={content.link.link}
                                             isExternal
                                         >
-                                            <Code color="#8be9fd">
+                                            <Code
+                                                {...codeStyles}
+                                                color="#8be9fd"
+                                            >
                                                 {`"${content.link.text}"`}
                                             </Code>
                                         </Link>
