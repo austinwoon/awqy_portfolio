@@ -34,11 +34,13 @@ const PortfolioCard = ({
                 direction={'column'}
                 padding={'5%'}
                 boxShadow={'base'}
+                borderRadius={6}
                 transition={'0.3s ease-in-out'}
-                _hover={{ boxShadow: 'lg' }}
+                _hover={{ boxShadow: 'lg', border: '1px solid lightgray' }}
                 style={{
                     cursor: 'pointer',
                 }}
+                bgColor={'brand.bgWhite'}
             >
                 <Box margin={'auto'} pb={'1'} pt={'1'}>
                     <Img src={img} maxWidth={'100%'} />

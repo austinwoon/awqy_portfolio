@@ -65,7 +65,7 @@ const codeStyles = {
 };
 const codeSpacing = [3, 5, 7, 7];
 
-const Console = () => {
+const Console = ({ ...props }) => {
     const timer = React.useRef(null);
     const [showCursor, setCursor] = React.useState(true);
 
@@ -85,8 +85,8 @@ const Console = () => {
         <MotionBox
             {...loadingEntryProps}
             maxW={['100vw', '100vw', '60vw', '75vw']}
-            maxH={['100%', '100%', '100%', '100%']}
             boxShadow={'xl'}
+            position={'relative'}
         >
             <Flex
                 h={[6, 6, 9, 9]}
@@ -94,6 +94,8 @@ const Console = () => {
                 borderTopRightRadius={7}
                 bgColor={'gray.200'}
                 align={'center'}
+                position={'absolute'}
+                w={'100%'}
             >
                 <Box {...consoleButtonStyles} bgColor={'#FF605C'} />
                 <Box {...consoleButtonStyles} bgColor={'#FFBD44'} />
@@ -103,11 +105,13 @@ const Console = () => {
             <Flex
                 direction={'column'}
                 bgColor={'#282a36'}
+                zIndex={100}
+                mt={[6, 6, 9, 9]}
                 pt={[3, 3, 5, 5]}
-                pl={[5, 5, 10, 10]}
                 pr={[5, 5, 10, 10]}
-                borderBottomLeftRadius={7}
-                borderBottomRightRadius={7}
+                pl={[5, 5, 10, 10]}
+                overflow={'auto'}
+                maxH={props.height}
             >
                 {terminalText.map((content) => {
                     if (content.end) {

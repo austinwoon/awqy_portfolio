@@ -1,24 +1,12 @@
 import React from 'react';
-import {
-    Box,
-    Flex,
-    Heading,
-    Center,
-    Icon,
-    Divider,
-    Img,
-    Link,
-    Stack,
-    Text,
-    VStack,
-} from '@chakra-ui/react';
+import { Box, Flex, Icon, Divider, Img, Link, Stack } from '@chakra-ui/react';
 import NavBar from '../Navbar/NavBar';
-import { introduction } from '../../constants/introduction';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
 import Console from './Console';
 import { loadingEntryProps } from '../../constants/framerMotion';
 import Name from './Name';
+import { hoverStyle, tapBounceStyle } from '../../util/framerMotionStyles';
 
 const rowMarginTop = ['2vh', '2vh', '2vh', '2vh'];
 
@@ -39,18 +27,17 @@ export const Intro = () => {
                 <Flex justify={'center'}>
                     <MotionBox
                         boxShadow={'0px 5px 5px rgba(0,0,0,0.15)'}
-                        padding={['8px', '8px', '12px', '12px']}
+                        padding={['1vh', '1vh', '1vh', '1vh']}
                         borderRadius={'16px'}
                         top={0}
                         position={'relative'}
+                        boxSize={['20vh']}
                         {...loadingEntryProps}
                     >
                         <Box boxShadow={'inner'}>
                             <Img
                                 src={'/profile_pic.jpeg'}
                                 alt={'me'}
-                                maxWidth={'240px'}
-                                boxSize={['140px', '160px', '200px', '200px']}
                                 borderRadius={'16px'}
                             />
                         </Box>
@@ -58,7 +45,7 @@ export const Intro = () => {
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
-                    <Name />
+                    <Name height={['4vh', '4vh', '5vh', '5vh']} />
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
@@ -66,7 +53,7 @@ export const Intro = () => {
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
-                    <Console />
+                    <Console height={'40vh'} />
                 </Flex>
 
                 <Stack
@@ -74,35 +61,39 @@ export const Intro = () => {
                     direction="row"
                     justify="center"
                     mt={rowMarginTop}
+                    height={'5vh'}
                 >
-                    {/*TODO: Link Styles*/}
-                    <Link
-                        isExternal
-                        href={'https://linkedin.com/in/awqy'}
-                        transition={'top ease-in-out 0.3s'}
-                        color={'blue.900'}
-                        top={0}
-                        position={'relative'}
-                        _hover={{
-                            top: '-4px',
-                        }}
-                    >
-                        <Icon as={FaLinkedinIn} w={'8'} h={'8'} />
-                    </Link>
+                    <MotionBox {...tapBounceStyle} {...hoverStyle}>
+                        <Link
+                            isExternal
+                            href={'https://linkedin.com/in/awqy'}
+                            transition={'top ease-in-out 0.3s'}
+                            color={'blue.900'}
+                            top={0}
+                            position={'relative'}
+                            _hover={{
+                                top: '-4px',
+                            }}
+                        >
+                            <Icon as={FaLinkedinIn} boxSize={[6, 8, 8, 8]} />
+                        </Link>
+                    </MotionBox>
 
-                    <Link
-                        isExternal
-                        href={'https://github.com/austinwoon'}
-                        transition={'top ease-in-out 0.3s'}
-                        color={'blue.900'}
-                        top={0}
-                        position={'relative'}
-                        _hover={{
-                            top: '-4px',
-                        }}
-                    >
-                        <Icon as={FaGithub} w={'8'} h={'8'} />
-                    </Link>
+                    <MotionBox {...tapBounceStyle} {...hoverStyle}>
+                        <Link
+                            isExternal
+                            href={'https://github.com/austinwoon'}
+                            transition={'top ease-in-out 0.3s'}
+                            color={'blue.900'}
+                            top={0}
+                            position={'relative'}
+                            _hover={{
+                                top: '-4px',
+                            }}
+                        >
+                            <Icon as={FaGithub} boxSize={[6, 8, 8, 8]} />
+                        </Link>
+                    </MotionBox>
                 </Stack>
             </Box>
         </Flex>
