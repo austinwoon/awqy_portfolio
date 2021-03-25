@@ -14,7 +14,6 @@ import CustomTag from './CustomTag';
 import { fontSizes } from '../../utils/fontSizes';
 import MotionBox from '../FramerMotion/MotionBox';
 import { tapBounceStyle, hoverStyle } from '../../utils/framerMotionStyles';
-import {v4 as uuidv4} from "uuid";
 
 const PortfolioCard = ({
     title,
@@ -24,7 +23,6 @@ const PortfolioCard = ({
     onOpen,
     ...props
 }) => {
-    const techKeys = technologies.map((t) => ({name: t, key: uuidv4()}))
     return (
         <MotionBox
             {...props}
@@ -49,8 +47,8 @@ const PortfolioCard = ({
                 </Box>
 
                 <Wrap direction={'row'} wrap={'wrap'} pb={'1'} pt={'1'}>
-                    {techKeys.map(({name, key}) => (
-                        <WrapItem key={key}>
+                    {technologies.map((name) => (
+                        <WrapItem key={name+title}>
                             <CustomTag tagName={name} />
                         </WrapItem>
                     ))}

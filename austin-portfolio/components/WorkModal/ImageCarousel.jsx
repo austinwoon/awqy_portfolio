@@ -13,7 +13,6 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useSwipeable } from 'react-swipeable';
 import MotionBox from '../FramerMotion/MotionBox';
 import { tapBounceStyle } from '../../utils/framerMotionStyles';
-import {getUuid} from "../../utils/getUuid.ts"
 
 const chevronStyles = {
     fontSize: '12vw',
@@ -37,10 +36,9 @@ const imageBoxSizes = {
 
 const ImageCarousel = () => {
     const {
-        workSelected: { images: rawImages },
+        workSelected: { images },
         setWork,
     } = React.useContext(WorkSelectedContext);
-    const images = getUuid(rawImages)
     const [variants, setVariants] = React.useState({
         rightClick: {
             opacity: 0.5,
@@ -212,8 +210,8 @@ const ImageCarousel = () => {
                             position={'absolute'}
                         >
                             <Img
-                                src={image.item}
-                                alt={image.item}
+                                src={image.src}
+                                alt={image.alt}
                                 boxSize={[
                                     `${imageBoxSizes['sm']}px`,
                                     `${imageBoxSizes['md']}px`,
@@ -259,8 +257,6 @@ const ImageDotIndicator = ({ activeIndex }) => {
         workSelected: { images },
     } = React.useContext(WorkSelectedContext);
 
-    const imagesUuid = getUuid(images);
-
     const circleStyles = {
         display: 'inline-block',
         h: ['10px', '10px', '12px', '12px'],
@@ -270,10 +266,10 @@ const ImageDotIndicator = ({ activeIndex }) => {
 
     return (
         <Stack direction={'row'}>
-            {imagesUuid.map((v, i) => (
+            {images.map((v, i) => (
                 <Box
                     {...circleStyles}
-                    key={v.uuid}
+                    key={i+'dot'}
                     bgColor={activeIndex === i ? 'gray.300' : 'gray.200'}
                 />
             ))}
