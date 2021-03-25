@@ -1,6 +1,13 @@
 import React from 'react';
 import { WorkSelectedContext } from '../Portfolio/WorkSelectedContext';
-import { Img, Flex, IconButton, useMediaQuery } from '@chakra-ui/react';
+import {
+    Img,
+    Box,
+    Flex,
+    IconButton,
+    Stack,
+    useMediaQuery,
+} from '@chakra-ui/react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useSwipeable } from 'react-swipeable';
@@ -155,83 +162,108 @@ const ImageCarousel = () => {
     }, [isSmallerThan1370]);
 
     return (
-        <Flex
-            mt={[
-                `${imageBoxSizes['sm'] * (imageScaleIncrement - 1)}px`,
-                `${imageBoxSizes['md'] * (imageScaleIncrement - 1)}px`,
-                `${imageBoxSizes['lg'] * (imageScaleIncrement - 1)}px`,
-                `${imageBoxSizes['xl'] * (imageScaleIncrement - 1)}px`,
-            ]}
-            mb={[
-                `${imageBoxSizes['sm'] * (imageScaleIncrement - 1)}px`,
-                `${imageBoxSizes['md'] * (imageScaleIncrement - 1)}px`,
-                `${imageBoxSizes['lg'] * (imageScaleIncrement - 1)}px`,
-                `${imageBoxSizes['xl'] * (imageScaleIncrement - 1)}px`,
-            ]}
-            justify={'center'}
-            align={'center'}
-        >
-            {!isMobile && (
-                <IconButton
-                    {...chevronStyles}
-                    aria-label={'chevron-left'}
-                    onClick={handleLeftClick}
-                    icon={<ChevronLeftIcon />}
-                />
-            )}
-            <Flex
-                position={'relative'}
-                justify={'center'}
-                align={'center'}
-                height={`25vh`}
-                width={isMobile ? '100vw' : '60vw'}
-                maxWidth={[
-                    `${imageBoxSizes['sm'] * 3}px`,
-                    `${imageBoxSizes['md'] * 3}px`,
-                    `${imageBoxSizes['lg'] * 3}px`,
-                    `${imageBoxSizes['xl'] * 3}px`,
-                ]}
-                {...swipeHandler}
-            >
-                {rawImages.map((imageSrc, i) => (
-                    <MotionBox
-                        key={imageSrc}
-                        transition={{
-                            ease: 'backInOut',
-                            bounce: 100,
-                            duration: 0.4,
-                        }}
-                        initial={{
-                            opacity: 1,
-                        }}
-                        animate={getAnimationStyle(i)}
-                        variants={variants}
-                        position={'absolute'}
-                    >
-                        <Img
-                            src={imageSrc}
-                            alt={imageSrc}
-                            boxSize={[
-                                `${imageBoxSizes['sm']}px`,
-                                `${imageBoxSizes['md']}px`,
-                                `${imageBoxSizes['lg']}px`,
-                                `${imageBoxSizes['xl']}px`,
-                            ]}
-                            objectFit={'cover'}
-                            onClick={() => handleClickImage(i)}
-                        />
-                    </MotionBox>
-                ))}
+        <Flex direction={'column'} justify={'center'} align={'center'}>
+            <Flex justify={'center'} align={'center'}>
+                {!isMobile && (
+                    <IconButton
+                        {...chevronStyles}
+                        aria-label={'chevron-left'}
+                        onClick={handleLeftClick}
+                        icon={<ChevronLeftIcon />}
+                    />
+                )}
+                <Flex
+                    position={'relative'}
+                    justify={'center'}
+                    align={'center'}
+                    height={[
+                        `${imageBoxSizes['sm'] * imageScaleIncrement}px`,
+                        `${imageBoxSizes['md'] * imageScaleIncrement}px`,
+                        `${imageBoxSizes['lg'] * imageScaleIncrement}px`,
+                        `${imageBoxSizes['xl'] * imageScaleIncrement}px`,
+                    ]}
+                    width={isMobile ? '100vw' : '60vw'}
+                    maxWidth={[
+                        `${imageBoxSizes['sm'] * 3}px`,
+                        `${imageBoxSizes['md'] * 3}px`,
+                        `${imageBoxSizes['lg'] * 3}px`,
+                        `${imageBoxSizes['xl'] * 3}px`,
+                    ]}
+                    {...swipeHandler}
+                >
+                    {rawImages.map((imageSrc, i) => (
+                        <MotionBox
+                            key={imageSrc}
+                            transition={{
+                                ease: 'backInOut',
+                                bounce: 100,
+                                duration: 0.4,
+                            }}
+                            initial={{
+                                opacity: 1,
+                            }}
+                            animate={getAnimationStyle(i)}
+                            variants={variants}
+                            position={'absolute'}
+                        >
+                            <Img
+                                src={imageSrc}
+                                alt={imageSrc}
+                                boxSize={[
+                                    `${imageBoxSizes['sm']}px`,
+                                    `${imageBoxSizes['md']}px`,
+                                    `${imageBoxSizes['lg']}px`,
+                                    `${imageBoxSizes['xl']}px`,
+                                ]}
+                                objectFit={'cover'}
+                                onClick={() => handleClickImage(i)}
+                            />
+                        </MotionBox>
+                    ))}
+                </Flex>
+                {!isMobile && (
+                    <IconButton
+                        aria-label={'chevron-left'}
+                        onClick={handleRightClick}
+                        icon={<ChevronRightIcon />}
+                        {...chevronStyles}
+                    />
+                )}
             </Flex>
-            {!isMobile && (
-                <IconButton
-                    aria-label={'chevron-left'}
-                    onClick={handleRightClick}
-                    icon={<ChevronRightIcon />}
-                    {...chevronStyles}
-                />
-            )}
+            <Box
+                mt={[
+                    `${imageBoxSizes['sm'] * (imageScaleIncrement - 1)}px`,
+                    `${imageBoxSizes['md'] * (imageScaleIncrement - 1)}px`,
+                    `${imageBoxSizes['lg'] * (imageScaleIncrement - 1)}px`,
+                    `${imageBoxSizes['xl'] * (imageScaleIncrement - 1)}px`,
+                ]}
+            >
+                <ImageDotIndicator activeIndex={positions['middle']} />
+            </Box>
         </Flex>
+    );
+};
+
+const ImageDotIndicator = ({ activeIndex }) => {
+    const {
+        workSelected: { images },
+    } = React.useContext(WorkSelectedContext);
+    const circleStyles = {
+        display: 'inline-block',
+        h: ['10px', '10px', '12px', '12px'],
+        w: ['10px', '10px', '12px', '12px'],
+        borderRadius: '50%',
+    };
+
+    return (
+        <Stack direction={'row'}>
+            {images.map((v, i) => (
+                <Box
+                    {...circleStyles}
+                    bgColor={activeIndex === i ? 'gray.300' : 'gray.200'}
+                />
+            ))}
+        </Stack>
     );
 };
 
