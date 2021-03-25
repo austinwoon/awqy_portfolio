@@ -6,8 +6,20 @@ import { loadingEntryProps } from '../../constants/framerMotion';
 
 const terminalText = [
     {
+        header: '> Austin.education',
+        string:
+            'B.Sc. Information Systems, Software Development Major - Singapore Management University',
+    },
+    {
         header: '> Austin.country',
         string: 'Singapore',
+    },
+    {
+        header: '> Austin.resume',
+        link: {
+            text: 'austin_resume.pdf',
+            link: '/austin_resume.pdf',
+        },
     },
     {
         header: '> Austin.interests',
@@ -20,18 +32,6 @@ const terminalText = [
             'ultimate frisbee',
             'drinking?',
         ],
-    },
-    {
-        header: '> Austin.education',
-        string:
-            'B.Sc. Information Systems, Software Development Major - Singapore Management University',
-    },
-    {
-        header: '> Austin.resume',
-        link: {
-            text: 'austin_resume.pdf',
-            link: '/austin_resume.pdf',
-        },
     },
     {
         header: '> Austin.skills',

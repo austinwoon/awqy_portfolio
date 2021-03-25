@@ -32,7 +32,7 @@ const Name = ({ ...props }) => {
     }, []);
 
     return (
-        <Flex align="center">
+        <Flex align="center" height={props.height}>
             <Code color="blue.800" fontSize={props.height}>
                 {name.slice(0, showNameIndex)}
             </Code>
