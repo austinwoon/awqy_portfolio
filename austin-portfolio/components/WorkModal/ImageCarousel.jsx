@@ -1,17 +1,9 @@
 import React from 'react';
 import { WorkSelectedContext } from '../Portfolio/WorkSelectedContext';
-import {
-    Img,
-    Flex,
-    forwardRef,
-    Spacer,
-    Box,
-    IconButton,
-    useMediaQuery,
-} from '@chakra-ui/react';
+import { Img, Flex, IconButton, useMediaQuery } from '@chakra-ui/react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { AnimatePresence, isValidMotionProp, motion } from 'framer-motion';
+import { useSwipeable } from 'react-swipeable';
 import MotionBox from '../FramerMotion/MotionBox';
 
 const chevronStyles = {
@@ -28,7 +20,7 @@ const imageScaleIncrement = 1.3;
 
 // TODO : Dynamically adjust image box size according to view width
 const imageBoxSizes = {
-    sm: 100,
+    sm: 150,
     md: 150,
     lg: 250,
     xl: 300,
@@ -39,7 +31,6 @@ const ImageCarousel = () => {
         workSelected: { images: rawImages },
         setWork,
     } = React.useContext(WorkSelectedContext);
-
     const [variants, setVariants] = React.useState({
         rightClick: {
             opacity: 0.5,
@@ -67,9 +58,6 @@ const ImageCarousel = () => {
             boxShadow: '0 6px 20px 0 rgba(0, 0, 0, 0.19)',
         },
     });
-
-    const [isSmallerThan1370] = useMediaQuery(['(max-width: 1370px)']);
-
     // TODO (Austin) : remove hard coded stuff, this assumes always min 3 images
     const [positions, setPositions] = React.useState({
         left: 0,
@@ -77,13 +65,29 @@ const ImageCarousel = () => {
         right: 2,
     });
 
+    const [isSmallerThan1370, isMobile] = useMediaQuery([
+        '(max-width: 1370px)',
+        '(max-width: 400px)',
+    ]);
+    const swipeHandler = useSwipeable({
+        onSwiped: ({ dir }) => {
+            if (dir === 'Right') {
+                handleRightClick();
+            }
+
+            if (dir === 'Left') {
+                handleLeftClick();
+            }
+        },
+        trackMouse: true,
+        preventDefaultTouchmoveEvent: true,
+    });
     const isHidden = (index, positions) => {
         return (
             Object.values(positions).findIndex((i) => Number(i) === index) ===
             -1
         );
     };
-
     const cyclicIndexSetter = (index, direction) => {
         index = Number(index);
         if (direction === 'left') {
@@ -98,7 +102,6 @@ const ImageCarousel = () => {
             return index + 1;
         }
     };
-
     const handleRightClick = () => {
         setPositions((positions) => ({
             left: cyclicIndexSetter(positions['left'], 'right'),
@@ -106,7 +109,6 @@ const ImageCarousel = () => {
             right: cyclicIndexSetter(positions['right'], 'right'),
         }));
     };
-
     const handleLeftClick = () => {
         setPositions((positions) => ({
             left: cyclicIndexSetter(positions['left'], 'left'),
@@ -114,7 +116,6 @@ const ImageCarousel = () => {
             right: cyclicIndexSetter(positions['right'], 'left'),
         }));
     };
-
     const getAnimationStyle = (index) => {
         if (isHidden(index, positions)) {
             return 'hidden';
@@ -125,7 +126,6 @@ const ImageCarousel = () => {
         }
         return 'right';
     };
-
     const handleClickImage = (clickedImageIndex) => {
         if (clickedImageIndex === positions.right) {
             handleRightClick();
@@ -171,30 +171,35 @@ const ImageCarousel = () => {
             justify={'center'}
             align={'center'}
         >
-            <IconButton
-                {...chevronStyles}
-                aria-label={'chevron-left'}
-                onClick={handleLeftClick}
-                icon={<ChevronLeftIcon />}
-            />
+            {!isMobile && (
+                <IconButton
+                    {...chevronStyles}
+                    aria-label={'chevron-left'}
+                    onClick={handleLeftClick}
+                    icon={<ChevronLeftIcon />}
+                />
+            )}
             <Flex
                 position={'relative'}
                 justify={'center'}
                 align={'center'}
                 height={`25vh`}
-                width={'60vw'}
+                width={isMobile ? '100vw' : '60vw'}
                 maxWidth={[
                     `${imageBoxSizes['sm'] * 3}px`,
                     `${imageBoxSizes['md'] * 3}px`,
                     `${imageBoxSizes['lg'] * 3}px`,
                     `${imageBoxSizes['xl'] * 3}px`,
                 ]}
+                {...swipeHandler}
             >
                 {rawImages.map((imageSrc, i) => (
                     <MotionBox
                         key={imageSrc}
                         transition={{
-                            duration: 0.3,
+                            ease: 'backInOut',
+                            bounce: 100,
+                            duration: 0.4,
                         }}
                         initial={{
                             opacity: 1,
@@ -218,12 +223,14 @@ const ImageCarousel = () => {
                     </MotionBox>
                 ))}
             </Flex>
-            <IconButton
-                aria-label={'chevron-left'}
-                onClick={handleRightClick}
-                icon={<ChevronRightIcon />}
-                {...chevronStyles}
-            />
+            {!isMobile && (
+                <IconButton
+                    aria-label={'chevron-left'}
+                    onClick={handleRightClick}
+                    icon={<ChevronRightIcon />}
+                    {...chevronStyles}
+                />
+            )}
         </Flex>
     );
 };
