@@ -48,6 +48,7 @@ const PortfolioSection = () => {
                         >
                             {works.map((work) => (
                                 <WrapItem
+                                    key={work.uuid}
                                     w={['300px', '300px', '500px', '500px']}
                                 >
                                     <PortfolioCard

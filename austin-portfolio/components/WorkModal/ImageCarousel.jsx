@@ -268,6 +268,7 @@ const ImageDotIndicator = ({ activeIndex }) => {
             {images.map((v, i) => (
                 <Box
                     {...circleStyles}
+                    key={v}
                     bgColor={activeIndex === i ? 'gray.300' : 'gray.200'}
                 />
             ))}

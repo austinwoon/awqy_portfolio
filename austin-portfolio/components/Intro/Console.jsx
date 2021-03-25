@@ -3,18 +3,22 @@ import { Flex, Text, Box, Code, Stack, Link } from '@chakra-ui/react';
 import MotionBox from '../FramerMotion/MotionBox';
 import { cursorBlinkTimeInterval } from '../../constants/introduction';
 import { loadingEntryProps } from '../../constants/framerMotion';
+import {v4 as uuidv4} from "uuid";
 
 const terminalText = [
     {
+        uuid: uuidv4(),
         header: '> Austin.education',
         string:
             'B.Sc. Information Systems, Software Development Major - Singapore Management University',
     },
     {
+        uuid: uuidv4(),
         header: '> Austin.country',
         string: 'Singapore',
     },
     {
+        uuid: uuidv4(),
         header: '> Austin.resume',
         link: {
             text: 'austin_resume.pdf',
@@ -22,6 +26,7 @@ const terminalText = [
         },
     },
     {
+        uuid: uuidv4(),
         header: '> Austin.interests',
         arr: [
             'coffee',
@@ -35,6 +40,7 @@ const terminalText = [
         ],
     },
     {
+        uuid: uuidv4(),
         header: '> Austin.skills',
         arr: [
             'React',
@@ -49,6 +55,7 @@ const terminalText = [
         ],
     },
     {
+        uuid: uuidv4(),
         header: '>',
         end: true,
     },
@@ -117,7 +124,7 @@ const Console = ({ ...props }) => {
                 {terminalText.map((content) => {
                     if (content.end) {
                         return (
-                            <Flex pb={codeSpacing} align="center">
+                            <Flex pb={codeSpacing} align="center" key={content.uuid}>
                                 <Code {...codeStyles} color={'#f8f8f2'} mr={2}>
                                     {content.header}
                                 </Code>
@@ -143,14 +150,14 @@ const Console = ({ ...props }) => {
                                     content.arr.map((item, i) => {
                                         let str = `"${item}"`;
                                         if (i === 0) {
-                                            return '[' + str + ', ';
+                                            return (<span key={str}>{'[' + str + ', '}</span>);
                                         } else if (
                                             i ===
                                             content.arr.length - 1
                                         ) {
-                                            return str + ']';
+                                            return (<span key={str}>{str + ']'}</span>);
                                         }
-                                        return str + ', ';
+                                        return (<span key={str}>{str + ', '}</span>);
                                     })}
                                 {content?.link && (
                                     <MotionBox

@@ -1,5 +1,8 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export const works = [
     {
+        uuid: uuidv4(),
         title: 'SADeaf Web Platform',
         img: '/sadeaf/admin.png',
         summary:
@@ -38,6 +41,7 @@ export const works = [
         ],
     },
     {
+        uuid: uuidv4(),
         title: 'SADeaf Web Platform',
         img: '/sadeaf/admin.png',
         summary:
@@ -76,6 +80,7 @@ export const works = [
         ],
     },
     {
+        uuid: uuidv4(),
         title: 'SADeaf Web Platform',
         img: '/sadeaf/admin.png',
         summary:
@@ -114,6 +119,7 @@ export const works = [
         ],
     },
     {
+        uuid: uuidv4(),
         title: 'SADeaf Web Platform',
         img: '/sadeaf/admin.png',
         summary:
@@ -152,6 +158,7 @@ export const works = [
         ],
     },
     {
+        uuid: uuidv4(),
         title: 'SADeaf Web Platform',
         img: '/sadeaf/admin.png',
         summary:

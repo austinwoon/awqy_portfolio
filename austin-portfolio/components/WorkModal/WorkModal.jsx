@@ -46,7 +46,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                         </Heading>
                         <Flex justify={'center'} align={'center'}>
                             {workSelected.links.map((linkInfo, i) => (
-                                <React.Fragment>
+                                <React.Fragment key={linkInfo.link}>
                                     <LinkIcon
                                         {...linkInfo}
                                         mrStyle={
@@ -74,6 +74,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                         <Divider margin="2vh auto 2vh auto" maxWidth={'50vw'} />
                         {workSelected.description.map((desc) => (
                             <Description
+                                key={desc.header}
                                 header={desc.header}
                                 desc={desc.content}
                             />
