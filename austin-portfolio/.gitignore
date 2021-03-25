@@ -33,6 +33,5 @@ yarn-error.log*
 # vercel
 .vercel
 
-*.idea
 .DS_Store
 *.xml
