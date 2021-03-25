@@ -20,8 +20,8 @@ import ImageCarousel from './ImageCarousel';
 import { WorkSelectedContext } from '../Portfolio/WorkSelectedContext';
 import { FaGithub } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
-import { fontSizes, headingSizes } from '../../util/fontSizes';
-import { hoverStyle, tapBounceStyle } from '../../util/framerMotionStyles';
+import { fontSizes, headingSizes } from '../../utils/fontSizes';
+import { hoverStyle, tapBounceStyle } from '../../utils/framerMotionStyles';
 
 const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);

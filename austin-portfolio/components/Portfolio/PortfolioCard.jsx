@@ -11,9 +11,9 @@ import {
     WrapItem,
 } from '@chakra-ui/react';
 import CustomTag from './CustomTag';
-import { fontSizes } from '../../util/fontSizes';
+import { fontSizes } from '../../utils/fontSizes';
 import MotionBox from '../FramerMotion/MotionBox';
-import { tapBounceStyle, hoverStyle } from '../../util/framerMotionStyles';
+import { tapBounceStyle, hoverStyle } from '../../utils/framerMotionStyles';
 import {v4 as uuidv4} from "uuid";
 
 const PortfolioCard = ({

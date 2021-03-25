@@ -12,7 +12,8 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useSwipeable } from 'react-swipeable';
 import MotionBox from '../FramerMotion/MotionBox';
-import { tapBounceStyle } from '../../util/framerMotionStyles';
+import { tapBounceStyle } from '../../utils/framerMotionStyles';
+import {getUuid} from "../../utils/getUuid.ts"
 
 const chevronStyles = {
     fontSize: '12vw',
@@ -39,6 +40,7 @@ const ImageCarousel = () => {
         workSelected: { images: rawImages },
         setWork,
     } = React.useContext(WorkSelectedContext);
+    const images = getUuid(rawImages)
     const [variants, setVariants] = React.useState({
         rightClick: {
             opacity: 0.5,
@@ -75,7 +77,7 @@ const ImageCarousel = () => {
 
     const [isSmallerThan1370, isMobile] = useMediaQuery([
         '(max-width: 1370px)',
-        '(max-width: 400px)',
+        '(max-width: 450px)',
     ]);
     const swipeHandler = useSwipeable({
         onSwiped: ({ dir }) => {
@@ -100,11 +102,11 @@ const ImageCarousel = () => {
         index = Number(index);
         if (direction === 'left') {
             if (index === 0) {
-                return rawImages.length - 1;
+                return images.length - 1;
             }
             return index - 1;
         } else if (direction === 'right') {
-            if (index === rawImages.length - 1) {
+            if (index === images.length - 1) {
                 return 0;
             }
             return index + 1;
@@ -185,7 +187,7 @@ const ImageCarousel = () => {
                         `${imageBoxSizes['lg'] * imageScaleIncrement}px`,
                         `${imageBoxSizes['xl'] * imageScaleIncrement}px`,
                     ]}
-                    width={isMobile ? '100vw' : '60vw'}
+                    width={isMobile ? '95vw' : '60vw'}
                     maxWidth={[
                         `${imageBoxSizes['sm'] * 3}px`,
                         `${imageBoxSizes['md'] * 3}px`,
@@ -194,9 +196,9 @@ const ImageCarousel = () => {
                     ]}
                     {...swipeHandler}
                 >
-                    {rawImages.map((imageSrc, i) => (
+                    {images.map((image, i) => (
                         <MotionBox
-                            key={imageSrc}
+                            key={image.uuid}
                             transition={{
                                 ease: 'backInOut',
                                 bounce: 100,
@@ -210,8 +212,8 @@ const ImageCarousel = () => {
                             position={'absolute'}
                         >
                             <Img
-                                src={imageSrc}
-                                alt={imageSrc}
+                                src={image.item}
+                                alt={image.item}
                                 boxSize={[
                                     `${imageBoxSizes['sm']}px`,
                                     `${imageBoxSizes['md']}px`,
@@ -256,6 +258,9 @@ const ImageDotIndicator = ({ activeIndex }) => {
     const {
         workSelected: { images },
     } = React.useContext(WorkSelectedContext);
+
+    const imagesUuid = getUuid(images);
+
     const circleStyles = {
         display: 'inline-block',
         h: ['10px', '10px', '12px', '12px'],
@@ -265,10 +270,10 @@ const ImageDotIndicator = ({ activeIndex }) => {
 
     return (
         <Stack direction={'row'}>
-            {images.map((v, i) => (
+            {imagesUuid.map((v, i) => (
                 <Box
                     {...circleStyles}
-                    key={v}
+                    key={v.uuid}
                     bgColor={activeIndex === i ? 'gray.300' : 'gray.200'}
                 />
             ))}

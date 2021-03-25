@@ -124,7 +124,7 @@ const Console = ({ ...props }) => {
                 {terminalText.map((content) => {
                     if (content.end) {
                         return (
-                            <Flex pb={codeSpacing} align="center" key={content.uuid}>
+                            <Flex pb={codeSpacing} align="center" key={content.uuid+'terminalText'}>
                                 <Code {...codeStyles} color={'#f8f8f2'} mr={2}>
                                     {content.header}
                                 </Code>
@@ -137,7 +137,7 @@ const Console = ({ ...props }) => {
                         );
                     }
                     return (
-                        <Stack spacing={0} pb={codeSpacing}>
+                        <Stack spacing={0} pb={codeSpacing} key={content.uuid+'terminalText'}>
                             <Code {...codeStyles} color={'#f8f8f2'}>
                                 {content.header}
                             </Code>

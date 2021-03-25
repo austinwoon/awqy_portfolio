@@ -6,7 +6,7 @@ import MotionBox from '../FramerMotion/MotionBox';
 import Console from './Console';
 import { loadingEntryProps } from '../../constants/framerMotion';
 import Name from './Name';
-import { hoverStyle, tapBounceStyle } from '../../util/framerMotionStyles';
+import { hoverStyle, tapBounceStyle } from '../../utils/framerMotionStyles';
 
 const rowMarginTop = ['2vh', '2vh', '2vh', '2vh'];
 
