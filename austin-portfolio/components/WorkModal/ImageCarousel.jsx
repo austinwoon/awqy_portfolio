@@ -269,7 +269,7 @@ const ImageDotIndicator = ({ activeIndex }) => {
             {images.map((v, i) => (
                 <Box
                     {...circleStyles}
-                    key={i+'dot'}
+                    key={v.uuid+i+'dot'}
                     bgColor={activeIndex === i ? 'gray.300' : 'gray.200'}
                 />
             ))}

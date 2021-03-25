@@ -46,7 +46,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                         </Heading>
                         <Flex justify={'center'} align={'center'}>
                             {workSelected.links.map((linkInfo, i) => (
-                                <React.Fragment key={linkInfo.link}>
+                                <React.Fragment key={linkInfo.link+i}>
                                     <LinkIcon
                                         {...linkInfo}
                                         mrStyle={
