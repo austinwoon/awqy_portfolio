@@ -11,6 +11,9 @@ import {
     WrapItem,
 } from '@chakra-ui/react';
 import CustomTag from './CustomTag';
+import { fontSizes } from '../../util/fontSizes';
+import MotionBox from '../FramerMotion/MotionBox';
+import { tapBounceStyle, hoverStyle } from '../../util/framerMotionStyles';
 
 const PortfolioCard = ({
     title,
@@ -21,31 +24,53 @@ const PortfolioCard = ({
     ...props
 }) => {
     return (
-        <Flex {...props} direction={'column'} padding={'5%'} boxShadow={'base'}>
-            <Box margin={'auto'} pb={'1'} pt={'1'}>
-                <Img src={img} maxWidth={'100%'} />
-            </Box>
+        <MotionBox
+            {...props}
+            {...tapBounceStyle}
+            {...hoverStyle}
+            onClick={onOpen}
+        >
+            <Flex
+                direction={'column'}
+                padding={'5%'}
+                boxShadow={'base'}
+                transition={'0.3s ease-in-out'}
+                _hover={{ boxShadow: 'lg' }}
+                style={{
+                    cursor: 'pointer',
+                }}
+            >
+                <Box margin={'auto'} pb={'1'} pt={'1'}>
+                    <Img src={img} maxWidth={'100%'} />
+                </Box>
 
-            <Wrap direction={'row'} wrap={'wrap'} pb={'1'} pt={'1'}>
-                {technologies.map((t) => (
-                    <WrapItem>
-                        <CustomTag tagName={t} />
-                    </WrapItem>
-                ))}
-            </Wrap>
+                <Wrap direction={'row'} wrap={'wrap'} pb={'1'} pt={'1'}>
+                    {technologies.map((t) => (
+                        <WrapItem>
+                            <CustomTag tagName={t} />
+                        </WrapItem>
+                    ))}
+                </Wrap>
 
-            <Box pb={'1'} pt={'1'}>
-                <Heading fontSize={['xl', 'xl', '3xl', '3xl']}>{title}</Heading>
-            </Box>
+                <Box mb={'2%'} mt={'2%'}>
+                    <Heading fontSize={['xl', 'xl', '3xl', '3xl']}>
+                        {title}
+                    </Heading>
+                </Box>
 
-            <Box pb={'1'} pt={'1'}>
-                <Text align={'justify'}>{summary}</Text>
-            </Box>
+                <Box mb={'2%'} mt={'2%'}>
+                    <Text align={'justify'} fontSize={fontSizes}>
+                        {summary}
+                    </Text>
+                </Box>
 
-            <Flex justify={'flex-end'} pt={'1'}>
-                <Link onClick={onOpen}>View More</Link>
+                <Flex justify={'flex-end'} pt={'1'}>
+                    <Link onClick={onOpen} fontSize={fontSizes}>
+                        View More
+                    </Link>
+                </Flex>
             </Flex>
-        </Flex>
+        </MotionBox>
     );
 };
 

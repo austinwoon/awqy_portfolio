@@ -218,6 +218,9 @@ const ImageCarousel = () => {
                                     `${imageBoxSizes['lg']}px`,
                                     `${imageBoxSizes['xl']}px`,
                                 ]}
+                                style={{
+                                    cursor: 'pointer',
+                                }}
                                 objectFit={'cover'}
                                 onClick={() => handleClickImage(i)}
                             />

@@ -7,7 +7,7 @@ export const tapBounceStyle = {
         stiffness: 20,
     },
     whileTap: {
-        scale: 0.8,
+        scale: 1.0,
         transition: {
             duration: 0.1,
         },
@@ -16,7 +16,6 @@ export const tapBounceStyle = {
 
 export const hoverStyle = {
     whileHover: {
-        y: '-15%',
         scale: 1.05,
     },
 };

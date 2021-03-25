@@ -20,7 +20,7 @@ import ImageCarousel from './ImageCarousel';
 import { WorkSelectedContext } from '../Portfolio/WorkSelectedContext';
 import { FaGithub } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
-import { headingSizes } from '../../util/fontSizes';
+import { fontSizes, headingSizes } from '../../util/fontSizes';
 import { hoverStyle, tapBounceStyle } from '../../util/framerMotionStyles';
 
 const WorkModal = ({ onClose, isOpen }) => {
@@ -124,9 +124,8 @@ const Description = ({ header, desc }) => {
         <Flex mb="5" direction={'column'} align={'center'} justify={'center'}>
             <Heading mb={'5'}>{header}</Heading>
             <Text
-                fontSize="xl"
-                margin={'auto'}
-                maxWidth={'50vw'}
+                fontSize={fontSizes}
+                maxWidth={['100vw', '100vw', '50vw', '50vw']}
                 align={'justify'}
             >
                 {desc}
