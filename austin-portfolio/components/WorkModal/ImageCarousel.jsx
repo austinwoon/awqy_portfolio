@@ -12,6 +12,7 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useSwipeable } from 'react-swipeable';
 import MotionBox from '../FramerMotion/MotionBox';
+import { tapBounceStyle } from '../../util/framerMotionStyles';
 
 const chevronStyles = {
     fontSize: '12vw',
@@ -165,12 +166,14 @@ const ImageCarousel = () => {
         <Flex direction={'column'} justify={'center'} align={'center'}>
             <Flex justify={'center'} align={'center'}>
                 {!isMobile && (
-                    <IconButton
-                        {...chevronStyles}
-                        aria-label={'chevron-left'}
-                        onClick={handleLeftClick}
-                        icon={<ChevronLeftIcon />}
-                    />
+                    <MotionBox {...tapBounceStyle}>
+                        <IconButton
+                            aria-label={'chevron-left'}
+                            onClick={handleLeftClick}
+                            icon={<ChevronLeftIcon />}
+                            {...chevronStyles}
+                        />
+                    </MotionBox>
                 )}
                 <Flex
                     position={'relative'}
@@ -222,12 +225,14 @@ const ImageCarousel = () => {
                     ))}
                 </Flex>
                 {!isMobile && (
-                    <IconButton
-                        aria-label={'chevron-left'}
-                        onClick={handleRightClick}
-                        icon={<ChevronRightIcon />}
-                        {...chevronStyles}
-                    />
+                    <MotionBox {...tapBounceStyle}>
+                        <IconButton
+                            aria-label={'chevron-right'}
+                            onClick={handleRightClick}
+                            icon={<ChevronRightIcon />}
+                            {...chevronStyles}
+                        />
+                    </MotionBox>
                 )}
             </Flex>
             <Box

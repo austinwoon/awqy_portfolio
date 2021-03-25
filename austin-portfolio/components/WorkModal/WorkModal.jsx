@@ -21,6 +21,7 @@ import { WorkSelectedContext } from '../Portfolio/WorkSelectedContext';
 import { FaGithub } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
 import { headingSizes } from '../../util/fontSizes';
+import { hoverStyle, tapBounceStyle } from '../../util/framerMotionStyles';
 
 const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
@@ -102,7 +103,6 @@ const LinkIcon = ({ logo, link, mrStyle }) => {
             />
         );
     };
-    // TODO: Sep this into a component to standardize animation
     return (
         <Link
             isExternal
@@ -112,23 +112,7 @@ const LinkIcon = ({ logo, link, mrStyle }) => {
             href={link}
             mr={mrStyle}
         >
-            <MotionBox
-                whileHover={{
-                    y: '-15%',
-                    scale: 1.05,
-                }}
-                transition={{
-                    duration: 0.3,
-                    stiffness: 20,
-                }}
-                whileTap={{
-                    y: '-10%',
-                    scale: 0.8,
-                    transition: {
-                        duration: 0.1,
-                    },
-                }}
-            >
+            <MotionBox {...hoverStyle} {...tapBounceStyle}>
                 {getButton(logo)}
             </MotionBox>
         </Link>
