@@ -15,14 +15,15 @@ const LinkStyles = {
         color: 'white',
         transition: '0.35s ease',
     },
+    transition: '0.1s ease-in-out',
 };
 const NavBar = () => {
     return (
         <Flex w="100%">
             <Spacer />
-            <Link {...LinkStyles}>About</Link>
+            <Link {...LinkStyles} href={'#about'}>About</Link>
             <Spacer />
-            <Link {...LinkStyles}>Portfolio</Link>
+            <Link {...LinkStyles} href={'#portfolio'}>Portfolio</Link>
             <Spacer />
             <Link {...LinkStyles}>Contact</Link>
             <Spacer />
