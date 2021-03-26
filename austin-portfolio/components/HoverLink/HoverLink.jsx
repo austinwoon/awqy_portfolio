@@ -48,29 +48,36 @@ const HoverLink = ({
                     hovered={hovered}
                     setHovered={setHovered}
                     content={content}
+                    href={'mailto:austinwoonquanyi@gmail.com'}
                 />
             )}
         </Box>
     );
 };
 
-const LinkContents = ({ fontStyles, hovered, setHovered, content }) => {
+const LinkContents = ({
+    fontStyles,
+    hovered,
+    setHovered,
+    content,
+    href = '',
+}) => {
     return (
         <React.Fragment>
-            <Text
+            <Link
                 {...fontStyles}
                 _hover={{
                     underline: false,
-                    cursor: 'pointer',
                 }}
                 _focus={{
                     border: '0px',
                 }}
+                href={href}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >
                 {content}
-            </Text>
+            </Link>
             <MotionBox
                 h={'20%'}
                 width={'100%'}
