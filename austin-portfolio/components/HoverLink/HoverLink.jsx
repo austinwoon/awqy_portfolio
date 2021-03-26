@@ -21,7 +21,7 @@ const HoverLink = ({
     onClick,
     content,
     scrollId = '',
-    scrollOffset = '',
+    scrollOffset = 0,
     ...props
 }) => {
     const [hovered, setHovered] = React.useState(false);
