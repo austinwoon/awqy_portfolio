@@ -1,5 +1,5 @@
 import React from 'react';
-import { WorkSelectedContext } from '../Portfolio/WorkSelectedContext';
+import { WorkSelectedContext } from '../Contexts/WorkSelectedContext';
 import {
     Img,
     Box,
@@ -77,6 +77,7 @@ const ImageCarousel = () => {
         '(max-width: 1370px)',
         '(max-width: 450px)',
     ]);
+
     const swipeHandler = useSwipeable({
         onSwiped: ({ dir }) => {
             if (dir === 'Right') {

@@ -10,7 +10,7 @@ import {
 import PortfolioCard from './PortfolioCard';
 import { works } from '../../constants/work';
 import WorkModal from '../WorkModal/WorkModal';
-import { WorkSelectedContext } from './WorkSelectedContext';
+import { WorkSelectedContext } from '../Contexts/WorkSelectedContext';
 import { headingSizes } from '../../utils/fontSizes';
 
 const PortfolioSection = () => {

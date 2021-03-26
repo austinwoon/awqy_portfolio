@@ -42,48 +42,8 @@ export const Intro = () => {
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
-                    <Console height={'40vh'} />
+                    <Console height={'45vh'} />
                 </Flex>
-
-                <Stack
-                    spacing={16}
-                    direction="row"
-                    justify="center"
-                    mt={rowMarginTop}
-                    height={'5vh'}
-                >
-                    <MotionBox {...tapBounceStyle} {...hoverStyle}>
-                        <Link
-                            isExternal
-                            href={'https://linkedin.com/in/awqy'}
-                            transition={'top ease-in-out 0.3s'}
-                            color={'blue.900'}
-                            top={0}
-                            position={'relative'}
-                            _hover={{
-                                top: '-4px',
-                            }}
-                        >
-                            <Icon as={FaLinkedinIn} boxSize={[6, 8, 8, 8]} />
-                        </Link>
-                    </MotionBox>
-
-                    <MotionBox {...tapBounceStyle} {...hoverStyle}>
-                        <Link
-                            isExternal
-                            href={'https://github.com/austinwoon'}
-                            transition={'top ease-in-out 0.3s'}
-                            color={'blue.900'}
-                            top={0}
-                            position={'relative'}
-                            _hover={{
-                                top: '-4px',
-                            }}
-                        >
-                            <Icon as={FaGithub} boxSize={[6, 8, 8, 8]} />
-                        </Link>
-                    </MotionBox>
-                </Stack>
             </Box>
         </Flex>
     );
