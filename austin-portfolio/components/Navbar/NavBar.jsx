@@ -7,7 +7,7 @@ import { Icon, Link, Box, Flex, Stack, IconButton } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { MediaQueryContext } from '../Contexts/MediaQueryContext';
-import { animateScroll as scroll } from 'react-scroll';
+import { scroller } from 'react-scroll';
 import { AnimatePresence } from 'framer-motion';
 
 const fontStyles = {
@@ -26,6 +26,7 @@ const boxStyles = {
     pb: '1',
     pt: '1',
 };
+const portfolioOffsetScroll = -70;
 const NavBar = ({ refs }) => {
     const [isMenuOpen, setMenuOpen] = React.useState(false);
     const { isMobile } = React.useContext(MediaQueryContext);
@@ -98,7 +99,7 @@ const NavBar = ({ refs }) => {
                             fontStyles={fontStyles}
                             content={'Portfolio'}
                             scrollId={'portfolio'}
-                            scrollOffset={-70}
+                            scrollOffset={portfolioOffsetScroll}
                         />
 
                         <HoverLink
@@ -123,7 +124,7 @@ const NavBar = ({ refs }) => {
 const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
     const scrollToAbout = () => {
         toggleMenuOpen();
-        scroll.scrollTo(refs.aboutRef.current.getBoundingClientRect().y, {
+        scroller.scrollTo('about', {
             smooth: true,
             duration: 500,
         });
@@ -131,9 +132,10 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
 
     const scrollToPortfolio = () => {
         toggleMenuOpen();
-        scroll.scrollTo(refs.portfolioRef.current.getBoundingClientRect().y, {
+        scroller.scrollTo('portfolio', {
             smooth: true,
             duration: 500,
+            offset: portfolioOffsetScroll,
         });
     };
 
@@ -206,7 +208,7 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                                 fontStyles={mobileMenuFontStyles}
                                 content={'Portfolio'}
                                 onClick={scrollToPortfolio}
-                                scrollOffset={-70}
+                                scrollOffset={portfolioOffsetScroll}
                             />
                         </Box>
 

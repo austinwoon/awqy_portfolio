@@ -4,6 +4,7 @@ import React from 'react';
 import Footer from '../components/Footer/Footer';
 import NavBar from '../components/Navbar/NavBar';
 import { MediaQueryContext } from '../components/Contexts/MediaQueryContext';
+import { Element } from 'react-scroll';
 import dynamic from 'next/dynamic';
 
 const DynamicIntro = dynamic(() => import('../components/Intro/Intro'));
@@ -32,32 +33,30 @@ export default function Home() {
 
     return (
         <MediaQueryContext.Provider value={{ isMobile }}>
-            <Box>
-                <Head>
-                    <title>Austin Portfolio</title>
-                </Head>
-                <Box bgGradient="linear-gradient(190deg, blue.50, hsla(0,0%,45%,0) 100%)">
-                    <Box
-                        zIndex={5}
-                        className={scrolled && 'glassMorphism'}
-                        position={'fixed'}
-                        borderRadius={['8px', '8px', '10px', '10px']}
-                        pt={['0.25vh', '0.5vh', '1vh', '1vh']}
-                        pb={['0.25vh', '0.5vh', '1vh', '1vh']}
-                        w={'100%'}
-                    >
-                        <NavBar refs={{ aboutRef, portfolioRef }} />
-                    </Box>
-
-                    <Box id={'about'} ref={aboutRef}>
-                        <DynamicIntro />
-                    </Box>
-
-                    <Box id={'portfolio'} ref={portfolioRef}>
-                        <DynamicPortfolioSection />
-                    </Box>
-                    <Footer />
+            <Head>
+                <title>Austin Portfolio</title>
+            </Head>
+            <Box bgGradient="linear-gradient(190deg, blue.50, hsla(0,0%,45%,0) 100%)">
+                <Box
+                    zIndex={5}
+                    className={scrolled && 'glassMorphism'}
+                    position={'fixed'}
+                    borderRadius={['8px', '8px', '10px', '10px']}
+                    pt={['0.25vh', '0.5vh', '1vh', '1vh']}
+                    pb={['0.25vh', '0.5vh', '1vh', '1vh']}
+                    w={'100%'}
+                >
+                    <NavBar refs={{ aboutRef, portfolioRef }} />
                 </Box>
+
+                <Element id={'about'} ref={aboutRef}>
+                    <DynamicIntro />
+                </Element>
+
+                <Element id={'portfolio'} ref={portfolioRef}>
+                    <DynamicPortfolioSection />
+                </Element>
+                <Footer />
             </Box>
         </MediaQueryContext.Provider>
     );

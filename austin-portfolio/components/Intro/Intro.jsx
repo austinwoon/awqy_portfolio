@@ -66,7 +66,10 @@ export const Intro = () => {
                             duration={500}
                         >
                             <Flex direction={'column'} align={'center'}>
-                                <Code fontSize={'xl'} letterSpacing={2}>
+                                <Code
+                                    fontSize={['md', 'md', 'xl', 'xl']}
+                                    letterSpacing={2}
+                                >
                                     View My Work
                                 </Code>
 
