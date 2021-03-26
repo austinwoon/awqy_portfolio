@@ -8,8 +8,6 @@ const Name = ({ ...props }) => {
     const cursorTimer = React.useRef(null);
     const [showNameIndex, setShowNameIndex] = React.useState(0);
     const [showCursor, setShowCursor] = React.useState(true);
-    const [wait, setWait] = React.useState(true);
-    // const timer = React.useRef(null);
 
     React.useEffect(() => {
         setTimeout(() => {

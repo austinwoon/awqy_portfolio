@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Flex, Icon, Divider, Img, Link, Stack } from '@chakra-ui/react';
-import NavBar from '../Navbar/NavBar';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { Box, Flex, Divider, Img, Code } from '@chakra-ui/react';
 import MotionBox from '../FramerMotion/MotionBox';
 import Console from './Console';
 import { loadingEntryProps } from '../../constants/framerMotion';
 import Name from './Name';
-import { hoverStyle, tapBounceStyle } from '../../utils/framerMotionStyles';
+import { ArrowDownIcon } from '@chakra-ui/icons';
+import * as PropTypes from 'prop-types';
+import { Link as LinkSmoothScroll } from 'react-scroll';
 
 const rowMarginTop = ['2vh', '2vh', '2vh', '2vh'];
 
@@ -17,7 +17,6 @@ export const Intro = () => {
             align={'center'}
             justify={'center'}
             h="100vh"
-            w={'100vw'}
             padding={'24px'}
             overflow={'hidden'}
         >
@@ -34,7 +33,7 @@ export const Intro = () => {
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
-                    <Name height={['4vh', '4vh', '5vh', '5vh']} />
+                    <Name height={['3.5vh', '3.5vh', '5vh', '5vh']} />
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
@@ -42,48 +41,43 @@ export const Intro = () => {
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
-                    <Console height={'40vh'} />
+                    <Console height={'45vh'} />
                 </Flex>
 
-                <Stack
-                    spacing={16}
-                    direction="row"
-                    justify="center"
-                    mt={rowMarginTop}
-                    height={'5vh'}
-                >
-                    <MotionBox {...tapBounceStyle} {...hoverStyle}>
-                        <Link
-                            isExternal
-                            href={'https://linkedin.com/in/awqy'}
-                            transition={'top ease-in-out 0.3s'}
-                            color={'blue.900'}
-                            top={0}
-                            position={'relative'}
-                            _hover={{
-                                top: '-4px',
-                            }}
+                <Flex mt={rowMarginTop} justify={'center'}>
+                    <MotionBox
+                        whileHover={{
+                            y: 10,
+                        }}
+                        _hover={{
+                            cursor: 'pointer',
+                        }}
+                        transition={{
+                            duration: 1,
+                            stiffness: 100,
+                            repeat: 1,
+                            repeatType: 'reverse',
+                        }}
+                    >
+                        <LinkSmoothScroll
+                            offset={-70}
+                            to={'portfolio'}
+                            smooth={true}
+                            duration={500}
                         >
-                            <Icon as={FaLinkedinIn} boxSize={[6, 8, 8, 8]} />
-                        </Link>
-                    </MotionBox>
+                            <Flex direction={'column'} align={'center'}>
+                                <Code
+                                    fontSize={['md', 'md', 'xl', 'xl']}
+                                    letterSpacing={2}
+                                >
+                                    View My Work
+                                </Code>
 
-                    <MotionBox {...tapBounceStyle} {...hoverStyle}>
-                        <Link
-                            isExternal
-                            href={'https://github.com/austinwoon'}
-                            transition={'top ease-in-out 0.3s'}
-                            color={'blue.900'}
-                            top={0}
-                            position={'relative'}
-                            _hover={{
-                                top: '-4px',
-                            }}
-                        >
-                            <Icon as={FaGithub} boxSize={[6, 8, 8, 8]} />
-                        </Link>
+                                <ArrowDownIcon fontSize={'3vh'} />
+                            </Flex>
+                        </LinkSmoothScroll>
                     </MotionBox>
-                </Stack>
+                </Flex>
             </Box>
         </Flex>
     );

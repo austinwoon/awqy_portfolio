@@ -1,6 +1,11 @@
 import React from 'react';
 import { FaVuejs, FaReact, FaAws } from 'react-icons/fa';
-import { SiGithubactions, SiGraphql, SiTerraform } from 'react-icons/si';
+import {
+    SiGithubactions,
+    SiGraphql,
+    SiTerraform,
+    SiSpring,
+} from 'react-icons/si';
 import { Tag, TagLabel, Icon } from '@chakra-ui/react';
 
 const ICON_MAPPINGS = {
@@ -10,6 +15,7 @@ const ICON_MAPPINGS = {
     'Github Actions': { icon: SiGithubactions, color: 'blue.500' },
     GraphQL: { icon: SiGraphql, color: 'pink.500' },
     Terraform: { icon: SiTerraform, color: 'blue.600' },
+    Spring: { icon: SiSpring, color: 'green.600' },
 };
 
 const CustomTag = ({ tagName }) => {
