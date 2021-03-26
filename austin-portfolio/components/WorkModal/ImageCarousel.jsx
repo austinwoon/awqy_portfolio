@@ -212,7 +212,13 @@ const ImageCarousel = () => {
                             <Img
                                 src={image.src}
                                 alt={image.alt}
-                                boxSize={[
+                                height={[
+                                    `${(imageBoxSizes['sm'] / 4) * 3}px`,
+                                    `${(imageBoxSizes['md'] / 4) * 3}px`,
+                                    `${(imageBoxSizes['lg'] / 4) * 3}px`,
+                                    `${(imageBoxSizes['xl'] / 4) * 3}px`,
+                                ]}
+                                width={[
                                     `${imageBoxSizes['sm']}px`,
                                     `${imageBoxSizes['md']}px`,
                                     `${imageBoxSizes['lg']}px`,
