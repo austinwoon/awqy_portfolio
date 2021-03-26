@@ -8,6 +8,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { MediaQueryContext } from '../Contexts/MediaQueryContext';
 import { animateScroll as scroll } from 'react-scroll';
+import { AnimatePresence } from 'framer-motion';
 
 const fontStyles = {
     color: 'blue.900',
@@ -16,7 +17,7 @@ const fontStyles = {
 };
 const mobileMenuFontStyles = {
     color: 'blue.900',
-    fontWeight: 'bold',
+    fontWeight: 'medium',
     fontSize: '6xl',
 };
 const boxStyles = {
@@ -136,6 +137,14 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
         });
     };
 
+    const colSpacing = [4, 4, 7, 7];
+
+    const variants = {
+        active: {
+            left: 0,
+        },
+    };
+
     return (
         <Box>
             <IconButton
@@ -148,50 +157,69 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                 mr={5}
                 onClick={toggleMenuOpen}
             />
-            {isMenuOpen && (
-                <Stack
-                    bgColor={'brand.bgWhite'}
-                    align={'center'}
-                    justify={'center'}
-                    h={'100vh'}
-                    w="100vw"
-                    top={0}
-                    left={0}
-                    position={'fixed'}
-                    zIndex={300}
-                    spacing={['10', '10', '20']}
-                >
-                    <IconButton
-                        as={CloseIcon}
-                        bgColor="transparent"
-                        onClick={toggleMenuOpen}
-                        boxSize={'75px'}
-                        _hover={{
-                            bgColor: 'transparent',
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <MotionBox
+                        bgColor={'brand.bgWhite'}
+                        alignItems={'center'}
+                        justifyContent={'center'}
+                        display={'flex'}
+                        flexDirection={'column'}
+                        h={'100vh'}
+                        w="100vw"
+                        animate={isMenuOpen && 'active'}
+                        initial={{
+                            top: 0,
                         }}
-                    />
+                        exit={{
+                            x: 1000,
+                        }}
+                        transition={{
+                            duration: 0.5,
+                        }}
+                        variants={variants}
+                        position={'fixed'}
+                        zIndex={300}
+                    >
+                        <IconButton
+                            as={CloseIcon}
+                            bgColor="transparent"
+                            onClick={toggleMenuOpen}
+                            boxSize={'75px'}
+                            _hover={{
+                                bgColor: 'transparent',
+                            }}
+                            m={colSpacing}
+                        />
 
-                    <HoverLink
-                        onClick={toggleMenuOpen}
-                        fontStyles={mobileMenuFontStyles}
-                        content={'About'}
-                        onClick={scrollToAbout}
-                    />
+                        <Box m={colSpacing}>
+                            <HoverLink
+                                onClick={toggleMenuOpen}
+                                fontStyles={mobileMenuFontStyles}
+                                content={'About'}
+                                onClick={scrollToAbout}
+                            />
+                        </Box>
 
-                    <HoverLink
-                        fontStyles={mobileMenuFontStyles}
-                        content={'Portfolio'}
-                        onClick={scrollToPortfolio}
-                        scrollOffset={-70}
-                    />
+                        <Box m={colSpacing}>
+                            <HoverLink
+                                fontStyles={mobileMenuFontStyles}
+                                content={'Portfolio'}
+                                onClick={scrollToPortfolio}
+                                scrollOffset={-70}
+                            />
+                        </Box>
 
-                    <HoverLink
-                        fontStyles={mobileMenuFontStyles}
-                        content={'Contact'}
-                        href={'mailto:austinwoonquanyi@gmail.com'}
-                    />
-                </Stack>
-            )}
+                        <Box m={colSpacing}>
+                            <HoverLink
+                                fontStyles={mobileMenuFontStyles}
+                                content={'Contact'}
+                                href={'mailto:austinwoonquanyi@gmail.com'}
+                            />
+                        </Box>
+                    </MotionBox>
+                )}
+            </AnimatePresence>
         </Box>
     );
 };
