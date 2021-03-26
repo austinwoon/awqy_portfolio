@@ -1,31 +1,33 @@
 import { Link, Flex, Text, Box } from '@chakra-ui/layout';
 import React from 'react';
-import MotionBox from "../FramerMotion/MotionBox";
+import MotionBox from '../FramerMotion/MotionBox';
 
 const variants = {
-    'hidden' : {
+    hidden: {
         opacity: 0,
-        width: '0%'
+        width: '0%',
     },
-    'active': {
+    active: {
         opacity: 1,
-        width: '110%'
-    }
-}
+        width: '110%',
+    },
+};
 
-const HoverLink = ({linkStyles, content, href, ...props }) => {
-    const [hovered, setHovered] = React.useState(false)
+const HoverLink = ({ linkProps, content, href, ...props }) => {
+    const [hovered, setHovered] = React.useState(false);
     return (
-        <Link {...linkStyles}
+        <Link
+            {...linkProps}
             _hover={{
-                underline: false
+                underline: false,
             }}
-              _focus={{
-                  border: '0px'
-              }}
-              href={href}
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}>
+            _focus={{
+                border: '0px',
+            }}
+            href={href}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
             <Text>{content}</Text>
             <MotionBox
                 h={'20%'}
@@ -33,10 +35,10 @@ const HoverLink = ({linkStyles, content, href, ...props }) => {
                 bgColor={'blue.500'}
                 animate={hovered ? 'active' : 'hidden'}
                 variants={variants}
-                transition={{duration: 0.4}}
+                transition={{ duration: 0.4 }}
             />
         </Link>
-    )
-}
+    );
+};
 
-export default HoverLink
+export default HoverLink;

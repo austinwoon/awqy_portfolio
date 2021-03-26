@@ -24,10 +24,26 @@ export const works = [
         ],
         technologies: ['Vue', 'AWS', 'Terraform', 'Github Actions', 'GraphQL'],
         images: [
-            {uuid: uuidv4(), src:'/sadeaf/admin.png', alt: '/sadeaf/admin.png'},
-            {uuid: uuidv4(), src:'/sadeaf/Rocky_balboa.jpeg', alt: '/sadeaf/Rocky_balboa.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/download.jpeg', alt: '/sadeaf/download.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/1800.jpeg', alt: '/sadeaf/1800.jpeg'},
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/admin.png',
+                alt: '/sadeaf/admin.png',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/Rocky_balboa.jpeg',
+                alt: '/sadeaf/Rocky_balboa.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/download.jpeg',
+                alt: '/sadeaf/download.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/1800.jpeg',
+                alt: '/sadeaf/1800.jpeg',
+            },
         ],
         links: [
             {
@@ -63,10 +79,26 @@ export const works = [
         ],
         technologies: ['Vue', 'AWS', 'Terraform', 'Github Actions', 'GraphQL'],
         images: [
-            {uuid: uuidv4(), src:'/sadeaf/admin.png', alt: '/sadeaf/admin.png'},
-            {uuid: uuidv4(), src:'/sadeaf/Rocky_balboa.jpeg', alt: '/sadeaf/Rocky_balboa.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/download.jpeg', alt: '/sadeaf/download.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/1800.jpeg', alt: '/sadeaf/1800.jpeg'},
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/admin.png',
+                alt: '/sadeaf/admin.png',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/Rocky_balboa.jpeg',
+                alt: '/sadeaf/Rocky_balboa.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/download.jpeg',
+                alt: '/sadeaf/download.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/1800.jpeg',
+                alt: '/sadeaf/1800.jpeg',
+            },
         ],
         links: [
             {
@@ -102,10 +134,26 @@ export const works = [
         ],
         technologies: ['Vue', 'AWS', 'Terraform', 'Github Actions', 'GraphQL'],
         images: [
-            {uuid: uuidv4(), src:'/sadeaf/admin.png', alt: '/sadeaf/admin.png'},
-            {uuid: uuidv4(), src:'/sadeaf/Rocky_balboa.jpeg', alt: '/sadeaf/Rocky_balboa.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/download.jpeg', alt: '/sadeaf/download.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/1800.jpeg', alt: '/sadeaf/1800.jpeg'},
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/admin.png',
+                alt: '/sadeaf/admin.png',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/Rocky_balboa.jpeg',
+                alt: '/sadeaf/Rocky_balboa.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/download.jpeg',
+                alt: '/sadeaf/download.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/1800.jpeg',
+                alt: '/sadeaf/1800.jpeg',
+            },
         ],
         links: [
             {
@@ -141,10 +189,26 @@ export const works = [
         ],
         technologies: ['Vue', 'AWS', 'Terraform', 'Github Actions', 'GraphQL'],
         images: [
-            {uuid: uuidv4(), src:'/sadeaf/admin.png', alt: '/sadeaf/admin.png'},
-            {uuid: uuidv4(), src:'/sadeaf/Rocky_balboa.jpeg', alt: '/sadeaf/Rocky_balboa.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/download.jpeg', alt: '/sadeaf/download.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/1800.jpeg', alt: '/sadeaf/1800.jpeg'},
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/admin.png',
+                alt: '/sadeaf/admin.png',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/Rocky_balboa.jpeg',
+                alt: '/sadeaf/Rocky_balboa.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/download.jpeg',
+                alt: '/sadeaf/download.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/1800.jpeg',
+                alt: '/sadeaf/1800.jpeg',
+            },
         ],
         links: [
             {
@@ -180,10 +244,26 @@ export const works = [
         ],
         technologies: ['Vue', 'AWS', 'Terraform', 'Github Actions', 'GraphQL'],
         images: [
-            {uuid: uuidv4(), src:'/sadeaf/admin.png', alt: '/sadeaf/admin.png'},
-            {uuid: uuidv4(), src:'/sadeaf/Rocky_balboa.jpeg', alt: '/sadeaf/Rocky_balboa.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/download.jpeg', alt: '/sadeaf/download.jpeg'},
-            {uuid: uuidv4(), src:'/sadeaf/1800.jpeg', alt: '/sadeaf/1800.jpeg'},
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/admin.png',
+                alt: '/sadeaf/admin.png',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/Rocky_balboa.jpeg',
+                alt: '/sadeaf/Rocky_balboa.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/download.jpeg',
+                alt: '/sadeaf/download.jpeg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/1800.jpeg',
+                alt: '/sadeaf/1800.jpeg',
+            },
         ],
         links: [
             {
