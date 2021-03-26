@@ -10,6 +10,6 @@ export const loadingEntryProps = {
     transition: {
         duration: 0.5,
         bounce: 1,
-        ease: 'backInOut'
+        ease: 'backInOut',
     },
-}
+};

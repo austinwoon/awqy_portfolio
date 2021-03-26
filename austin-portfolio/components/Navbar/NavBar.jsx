@@ -1,32 +1,46 @@
-import { Link, Flex, Heading, Box, Spacer } from '@chakra-ui/layout';
+import { Stack, Flex, Text, Box, Spacer } from '@chakra-ui/layout';
 import React from 'react';
+import HoverLink from '../HoverLink/HoverLink';
 
-const LinkStyles = {
-    color: 'blue.900',
-    fontSize: ['lg', '2xl', '3xl', '3xl'],
-    pl: ['2', '3', '3', '3'],
-    pr: ['2', '3', '3', '3'],
-    pb: '1',
-    pt: '1',
-    fontWeight: 'bold',
-    borderRadius: '8px',
-    _hover: {
-        backgroundColor: 'blue.900',
-        color: 'white',
-        transition: '0.35s ease',
-    },
-};
-const NavBar = () => {
+const NavBar = ({ refs }) => {
+    const boxStyles = {
+        pl: ['2', '3', '7', '10'],
+        pr: ['2', '3', '7', '10'],
+        pb: '1',
+        pt: '1',
+    };
+    const fontStyles = {
+        color: 'blue.900',
+        fontSize: ['lg', 'xl', '2xl', '2xl'],
+    };
+
     return (
-        <Flex w="100%">
-            <Spacer />
-            <Link {...LinkStyles}>About</Link>
-            <Spacer />
-            <Link {...LinkStyles}>Portfolio</Link>
-            <Spacer />
-            <Link {...LinkStyles}>Contact</Link>
-            <Spacer />
-        </Flex>
+        <Stack
+            w="100vw"
+            justify={['center', 'center', 'flex-end', 'flex-end']}
+            direction={'row'}
+        >
+            <HoverLink
+                boxStyles={boxStyles}
+                fontStyles={fontStyles}
+                content={'About'}
+                scrollId={'about'}
+            />
+
+            <HoverLink
+                boxStyles={boxStyles}
+                fontStyles={fontStyles}
+                content={'Portfolio'}
+                scrollId={'portfolio'}
+                scrollOffset={-70}
+            />
+
+            <HoverLink
+                boxStyles={boxStyles}
+                fontStyles={fontStyles}
+                content={'Contact'}
+            />
+        </Stack>
     );
 };
 

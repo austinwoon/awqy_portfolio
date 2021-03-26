@@ -48,7 +48,7 @@ const PortfolioCard = ({
 
                 <Wrap direction={'row'} wrap={'wrap'} pb={'1'} pt={'1'}>
                     {technologies.map((name) => (
-                        <WrapItem key={name+title}>
+                        <WrapItem key={name + title}>
                             <CustomTag tagName={name} />
                         </WrapItem>
                     ))}
