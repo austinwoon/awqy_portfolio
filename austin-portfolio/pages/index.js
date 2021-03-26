@@ -8,8 +8,8 @@ import NavBar from '../components/Navbar/NavBar';
 
 export default function Home() {
     const [scrolled, setScrolled] = React.useState(false);
-    const aboutRef = React.useRef()
-    const portfolioRef = React.useRef()
+    const aboutRef = React.useRef();
+    const portfolioRef = React.useRef();
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -35,13 +35,13 @@ export default function Home() {
                     className={scrolled && 'glassMorphism'}
                     borderRadius={['8px', '8px', '20px', '20px']}
                     position={'fixed'}
-                    pt={['0.25vh', '0,5vh', '1vh', '1vh']}
-                    pb={['0.25vh', '0,5vh', '1vh', '1vh']}
+                    pt={['0.25vh', '0.5vh', '1vh', '1vh']}
+                    pb={['0.25vh', '0.5vh', '1vh', '1vh']}
                     left={'50%'}
                     transform="translateX(-50%)"
                     w={'100vw'}
                 >
-                    <NavBar refs={{aboutRef, portfolioRef}}/>
+                    <NavBar refs={{ aboutRef, portfolioRef }} />
                 </Box>
 
                 <Box id={'about'} ref={aboutRef}>

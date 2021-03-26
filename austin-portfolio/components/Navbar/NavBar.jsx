@@ -2,29 +2,16 @@ import { Stack, Flex, Text, Box, Spacer } from '@chakra-ui/layout';
 import React from 'react';
 import HoverLink from '../HoverLink/HoverLink';
 
-
-const NavBar = ({refs}) => {
-
-
-    const handleClickAbout = () => {
-        console.log('hello')
-        refs.aboutRef.current.scrollIntoView({behavior: 'smooth'})
-    }
-
-    const handleClickPortfolio = () => {
-        refs.portfolioRef.current.scrollIntoView()
-    }
-
-    const linkProps = {
-        color: 'blue.900',
-        fontSize: ['lg', 'xl', '2xl', '2xl'],
+const NavBar = ({ refs }) => {
+    const boxStyles = {
         pl: ['2', '3', '7', '10'],
         pr: ['2', '3', '7', '10'],
         pb: '1',
         pt: '1',
-        borderRadius: '8px',
-        transition: '0.1s ease-in-out',
-        onClick: handleClickAbout,
+    };
+    const fontStyles = {
+        color: 'blue.900',
+        fontSize: ['lg', 'xl', '2xl', '2xl'],
     };
 
     return (
@@ -34,18 +21,25 @@ const NavBar = ({refs}) => {
             direction={'row'}
         >
             <HoverLink
-                linkProps={linkProps}
+                boxStyles={boxStyles}
+                fontStyles={fontStyles}
                 content={'About'}
-                href={'#about'}
+                scrollId={'about'}
             />
 
             <HoverLink
-                linkProps={linkProps}
+                boxStyles={boxStyles}
+                fontStyles={fontStyles}
                 content={'Portfolio'}
-                href={'#portfolio'}
+                scrollId={'portfolio'}
+                scrollOffset={-70}
             />
 
-            <HoverLink linkProps={linkProps} content={'Contact'} />
+            <HoverLink
+                boxStyles={boxStyles}
+                fontStyles={fontStyles}
+                content={'Contact'}
+            />
         </Stack>
     );
 };
