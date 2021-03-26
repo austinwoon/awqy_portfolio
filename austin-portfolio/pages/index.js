@@ -1,11 +1,15 @@
 import Head from 'next/head';
 import { Box, useMediaQuery } from '@chakra-ui/react';
-import Intro from '../components/Intro/Intro';
-import PortfolioSection from '../components/Portfolio/PortfolioSection';
 import React from 'react';
 import Footer from '../components/Footer/Footer';
 import NavBar from '../components/Navbar/NavBar';
 import { MediaQueryContext } from '../components/Contexts/MediaQueryContext';
+import dynamic from 'next/dynamic';
+
+const DynamicIntro = dynamic(() => import('../components/Intro/Intro'));
+const DynamicPortfolioSection = dynamic(() =>
+    import('../components/Portfolio/PortfolioSection')
+);
 
 export default function Home() {
     const [isMobile] = useMediaQuery(['(max-width: 900px)']);
@@ -46,10 +50,11 @@ export default function Home() {
                     </Box>
 
                     <Box id={'about'} ref={aboutRef}>
-                        <Intro />
+                        <DynamicIntro />
                     </Box>
+
                     <Box id={'portfolio'} ref={portfolioRef}>
-                        <PortfolioSection />
+                        <DynamicPortfolioSection />
                     </Box>
                     <Footer />
                 </Box>
