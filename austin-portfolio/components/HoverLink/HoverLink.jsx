@@ -50,6 +50,10 @@ const HoverLink = ({
                     h={'20%'}
                     width={'100%'}
                     bgColor={'blue.500'}
+                    initial={{
+                        opacity: 0,
+                        width: '0%',
+                    }}
                     animate={hovered ? 'active' : 'hidden'}
                     variants={variants}
                     transition={{ duration: 0.4 }}
