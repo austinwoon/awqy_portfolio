@@ -64,20 +64,21 @@ const LinkContents = ({
 }) => {
     return (
         <React.Fragment>
-            <Link
+            <Text
                 {...fontStyles}
                 _hover={{
                     underline: false,
+                    cursor: 'pointer',
                 }}
                 _focus={{
                     border: '0px',
                 }}
-                href={href}
+                href={href && href}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >
                 {content}
-            </Link>
+            </Text>
             <MotionBox
                 h={'20%'}
                 width={'100%'}
