@@ -61,6 +61,7 @@ const LinkContents = ({
     setHovered,
     content,
     href = '',
+    onClick = () => {},
 }) => {
     return (
         <React.Fragment>
@@ -74,6 +75,7 @@ const LinkContents = ({
                     border: '0px',
                 }}
                 href={href && href}
+                onClick={onClick}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >

@@ -17,7 +17,6 @@ export const Intro = () => {
             align={'center'}
             justify={'center'}
             h="100vh"
-            w={'100vw'}
             padding={'24px'}
             overflow={'hidden'}
         >

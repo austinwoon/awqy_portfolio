@@ -13,6 +13,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useSwipeable } from 'react-swipeable';
 import MotionBox from '../FramerMotion/MotionBox';
 import { tapBounceStyle } from '../../utils/framerMotionStyles';
+import { MediaQueryContext } from '../Contexts/MediaQueryContext';
 
 const chevronStyles = {
     fontSize: '12vw',
@@ -37,8 +38,9 @@ const imageBoxSizes = {
 const ImageCarousel = () => {
     const {
         workSelected: { images },
-        setWork,
     } = React.useContext(WorkSelectedContext);
+    const { isMobile } = React.useContext(MediaQueryContext);
+
     const [variants, setVariants] = React.useState({
         rightClick: {
             opacity: 0.5,
@@ -73,10 +75,7 @@ const ImageCarousel = () => {
         right: 2,
     });
 
-    const [isSmallerThan1370, isMobile] = useMediaQuery([
-        '(max-width: 1370px)',
-        '(max-width: 450px)',
-    ]);
+    const [isSmallerThan1370] = useMediaQuery(['(max-width: 1370px)']);
 
     const swipeHandler = useSwipeable({
         onSwiped: ({ dir }) => {
