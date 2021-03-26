@@ -10,10 +10,8 @@ import {
     Flex,
     Divider,
     Heading,
-    Box,
     Link,
     Icon,
-    Spacer,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import ImageCarousel from './ImageCarousel';
