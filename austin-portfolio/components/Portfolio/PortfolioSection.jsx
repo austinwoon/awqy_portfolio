@@ -42,7 +42,7 @@ const PortfolioSection = () => {
                         </Heading>
 
                         <Wrap
-                            spacing={'2.5%'}
+                            spacing={['5%', '4%', '2.5%', '2.5%']}
                             justify={'center'}
                             align={'center'}
                         >

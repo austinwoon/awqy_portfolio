@@ -22,6 +22,7 @@ const HoverLink = ({
     content,
     scrollId = '',
     scrollOffset = 0,
+    href,
     ...props
 }) => {
     const [hovered, setHovered] = React.useState(false);
@@ -48,7 +49,8 @@ const HoverLink = ({
                     hovered={hovered}
                     setHovered={setHovered}
                     content={content}
-                    href={'mailto:austinwoonquanyi@gmail.com'}
+                    onClick={onClick}
+                    href={href}
                 />
             )}
         </Box>
@@ -63,24 +65,29 @@ const LinkContents = ({
     href = '',
     onClick = () => {},
 }) => {
+    const LinkContentProps = {
+        ...fontStyles,
+        hovered,
+        setHovered,
+        onClick,
+        href,
+        onMouseEnter: () => setHovered(true),
+        onMouseLeave: () => setHovered(false),
+        _hover: {
+            underline: false,
+            cursor: 'pointer',
+        },
+        _focus: {
+            border: '0px',
+        },
+    };
     return (
         <React.Fragment>
-            <Text
-                {...fontStyles}
-                _hover={{
-                    underline: false,
-                    cursor: 'pointer',
-                }}
-                _focus={{
-                    border: '0px',
-                }}
-                href={href && href}
-                onClick={onClick}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-            >
-                {content}
-            </Text>
+            {href ? (
+                <Link {...LinkContentProps}>{content}</Link>
+            ) : (
+                <Text {...LinkContentProps}>{content}</Text>
+            )}
             <MotionBox
                 h={'20%'}
                 width={'100%'}

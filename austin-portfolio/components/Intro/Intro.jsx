@@ -33,7 +33,7 @@ export const Intro = () => {
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
-                    <Name height={['4vh', '4vh', '5vh', '5vh']} />
+                    <Name height={['3.5vh', '3.5vh', '5vh', '5vh']} />
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>

@@ -48,7 +48,7 @@ const NavBar = ({ refs }) => {
                     bgColor={'gray.300'}
                     w="3px"
                     opacity={0.8}
-                    h={[6, 6, 10, 10]}
+                    h={[5, 5, 6, 6]}
                 />
 
                 <Flex align={'center'}>
@@ -104,6 +104,7 @@ const NavBar = ({ refs }) => {
                             boxStyles={boxStyles}
                             fontStyles={fontStyles}
                             content={'Contact'}
+                            href={'mailto:austinwoonquanyi@gmail.com'}
                         />
                     </Stack>
                 ) : (
@@ -120,6 +121,7 @@ const NavBar = ({ refs }) => {
 
 const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
     const scrollToAbout = () => {
+        toggleMenuOpen();
         scroll.scrollTo(refs.aboutRef.current.getBoundingClientRect().y, {
             smooth: true,
             duration: 500,
@@ -154,9 +156,10 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                     h={'100vh'}
                     w="100vw"
                     top={0}
-                    left={'-50%'}
+                    left={0}
                     position={'fixed'}
                     zIndex={300}
+                    spacing={['10', '10', '20']}
                 >
                     <IconButton
                         as={CloseIcon}
@@ -168,25 +171,24 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                         }}
                     />
 
-                    <a onClick={scrollToAbout}>hello</a>
-                    <a onClick={scrollToPortfolio}>hello</a>
                     <HoverLink
                         onClick={toggleMenuOpen}
                         fontStyles={mobileMenuFontStyles}
                         content={'About'}
-                        scrollId={'about'}
+                        onClick={scrollToAbout}
                     />
 
                     <HoverLink
                         fontStyles={mobileMenuFontStyles}
                         content={'Portfolio'}
-                        scrollId={'portfolio'}
+                        onClick={scrollToPortfolio}
                         scrollOffset={-70}
                     />
 
                     <HoverLink
                         fontStyles={mobileMenuFontStyles}
                         content={'Contact'}
+                        href={'mailto:austinwoonquanyi@gmail.com'}
                     />
                 </Stack>
             )}
