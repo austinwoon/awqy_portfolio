@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import ImageCarousel from './ImageCarousel';
-import { WorkSelectedContext } from '../Portfolio/WorkSelectedContext';
+import { WorkSelectedContext } from '../Contexts/WorkSelectedContext';
 import { FaGithub } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
 import { fontSizes, headingSizes } from '../../utils/fontSizes';
@@ -74,7 +74,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                         <Divider margin="2vh auto 2vh auto" maxWidth={'50vw'} />
                         {workSelected.description.map((desc) => (
                             <Description
-                                key={desc.header}
+                                key={desc.header + workSelected.uuid}
                                 header={desc.header}
                                 desc={desc.content}
                             />

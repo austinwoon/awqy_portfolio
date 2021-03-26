@@ -6,11 +6,12 @@ const Footer = () => {
             align="center"
             justify={'center'}
             bgColor={'transparent'}
+            mt={5}
         >
             <Text fontSize={'lg'} pb={2}>
-                Made by Austin Woon © {new Date().getFullYear()}
+                Made by Austin Woon Quan © {new Date().getFullYear()}
             </Text>
-            <Text as={'sub'}>React, Chakra UI, FramerMotion</Text>
+            <Text as={'sub'}>Built With React, Chakra UI, FramerMotion</Text>
         </Flex>
     );
 };

@@ -20,49 +20,88 @@ const HoverLink = ({
     boxStyles,
     onClick,
     content,
-    scrollId,
-    scrollOffset,
+    scrollId = '',
+    scrollOffset = 0,
+    href,
     ...props
 }) => {
     const [hovered, setHovered] = React.useState(false);
 
     return (
         <Box {...boxStyles}>
-            <LinkSmoothScroll
-                offset={scrollOffset}
-                to={scrollId}
-                smooth={true}
-                duration={500}
-            >
-                <Text
-                    {...fontStyles}
-                    _hover={{
-                        underline: false,
-                        cursor: 'pointer',
-                    }}
-                    _focus={{
-                        border: '0px',
-                    }}
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}
+            {scrollId ? (
+                <LinkSmoothScroll
+                    offset={scrollOffset}
+                    to={scrollId}
+                    smooth={true}
+                    duration={500}
                 >
-                    {content}
-                </Text>
-                <MotionBox
-                    h={'20%'}
-                    width={'100%'}
-                    bgColor={'blue.900'}
-                    transform={`translateX(-${(hoverWidth - 100) / 2}%)`}
-                    initial={{
-                        opacity: 0,
-                        width: '0%',
-                    }}
-                    animate={hovered ? 'active' : 'hidden'}
-                    variants={variants}
-                    transition={{ duration: 0.4 }}
+                    <LinkContents
+                        fontStyles={fontStyles}
+                        hovered={hovered}
+                        setHovered={setHovered}
+                        content={content}
+                    />
+                </LinkSmoothScroll>
+            ) : (
+                <LinkContents
+                    fontStyles={fontStyles}
+                    hovered={hovered}
+                    setHovered={setHovered}
+                    content={content}
+                    onClick={onClick}
+                    href={href}
                 />
-            </LinkSmoothScroll>
+            )}
         </Box>
+    );
+};
+
+const LinkContents = ({
+    fontStyles,
+    hovered,
+    setHovered,
+    content,
+    href = '',
+    onClick = () => {},
+}) => {
+    const LinkContentProps = {
+        ...fontStyles,
+        hovered,
+        setHovered,
+        onClick,
+        href,
+        onMouseEnter: () => setHovered(true),
+        onMouseLeave: () => setHovered(false),
+        _hover: {
+            underline: false,
+            cursor: 'pointer',
+        },
+        _focus: {
+            border: '0px',
+        },
+    };
+    return (
+        <React.Fragment>
+            {href ? (
+                <Link {...LinkContentProps}>{content}</Link>
+            ) : (
+                <Text {...LinkContentProps}>{content}</Text>
+            )}
+            <MotionBox
+                h={'20%'}
+                width={'100%'}
+                bgColor={'blue.900'}
+                transform={`translateX(-${(hoverWidth - 100) / 2}%)`}
+                initial={{
+                    opacity: 0,
+                    width: '0%',
+                }}
+                animate={hovered ? 'active' : 'hidden'}
+                variants={variants}
+                transition={{ duration: 0.4 }}
+            />
+        </React.Fragment>
     );
 };
 

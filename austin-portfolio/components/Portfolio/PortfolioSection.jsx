@@ -8,9 +8,9 @@ import {
     WrapItem,
 } from '@chakra-ui/react';
 import PortfolioCard from './PortfolioCard';
-import { works } from '../../constants/work';
+import { works } from '../../constants/works';
 import WorkModal from '../WorkModal/WorkModal';
-import { WorkSelectedContext } from './WorkSelectedContext';
+import { WorkSelectedContext } from '../Contexts/WorkSelectedContext';
 import { headingSizes } from '../../utils/fontSizes';
 
 const PortfolioSection = () => {
@@ -42,7 +42,7 @@ const PortfolioSection = () => {
                         </Heading>
 
                         <Wrap
-                            spacing={'2.5%'}
+                            spacing={['5%', '4%', '2.5%', '2.5%']}
                             justify={'center'}
                             align={'center'}
                         >
