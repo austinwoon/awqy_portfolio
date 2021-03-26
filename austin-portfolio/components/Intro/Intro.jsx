@@ -24,21 +24,12 @@ export const Intro = () => {
             <Box mt={rowMarginTop}>
                 <Flex justify={'center'}>
                     <MotionBox
-                        boxShadow={'0px 5px 5px rgba(0,0,0,0.15)'}
-                        padding={['1vh', '1vh', '1vh', '1vh']}
-                        borderRadius={'16px'}
                         top={0}
                         position={'relative'}
                         boxSize={['20vh']}
                         {...loadingEntryProps}
                     >
-                        <Box boxShadow={'inner'}>
-                            <Img
-                                src={'/profile_pic.jpeg'}
-                                alt={'me'}
-                                borderRadius={'16px'}
-                            />
-                        </Box>
+                        <Img src={'/me.png'} alt={'me'} borderRadius={'16px'} />
                     </MotionBox>
                 </Flex>
 
