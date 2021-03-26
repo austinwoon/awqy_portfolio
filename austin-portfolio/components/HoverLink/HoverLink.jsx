@@ -24,6 +24,7 @@ const HoverLink = ({
     ...props
 }) => {
     const [hovered, setHovered] = React.useState(false);
+
     return (
         <Box {...boxStyles}>
             <LinkSmoothScroll
@@ -49,7 +50,7 @@ const HoverLink = ({
                 <MotionBox
                     h={'20%'}
                     width={'100%'}
-                    bgColor={'blue.500'}
+                    bgColor={'blue.900'}
                     initial={{
                         opacity: 0,
                         width: '0%',

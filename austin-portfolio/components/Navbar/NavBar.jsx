@@ -11,6 +11,7 @@ const NavBar = ({ refs }) => {
     };
     const fontStyles = {
         color: 'blue.900',
+        fontWeight: 'bold',
         fontSize: ['lg', 'xl', '2xl', '2xl'],
     };
 
