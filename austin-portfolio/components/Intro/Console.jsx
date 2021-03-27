@@ -92,6 +92,7 @@ const Console = ({ ...props }) => {
     return (
         <MotionBox
             {...loadingEntryProps}
+            opacity={0}
             maxW={['100vw', '100vw', '60vw', '75vw']}
             boxShadow={'xl'}
             position={'relative'}

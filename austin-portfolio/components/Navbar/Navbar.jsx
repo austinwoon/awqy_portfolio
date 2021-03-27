@@ -1,13 +1,9 @@
 import React from 'react';
-import Logo from '../Logo/Logo';
-import MotionBox from '../FramerMotion/MotionBox';
-import { hoverStyle, tapBounceStyle } from '../../utils/framerMotionStyles';
-import { Icon, Link, Box, Flex, Stack, IconButton } from '@chakra-ui/react';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { Box, Flex, Stack, IconButton } from '@chakra-ui/react';
+import { FaLinkedinIn } from 'react-icons/fa';
 import { MediaQueryContext } from '../../contexts/MediaQueryContext';
-import dynamic from 'next/dynamic';
-const HamburgerMenu = dynamic(() => import('./HamburgerMenu'), { ssr: false });
-const DesktopMenu = dynamic(() => import('./DesktopMenu'), { ssr: false });
+import { HamburgerMenu } from './HamburgerMenu';
+import { DesktopMenu } from './DesktopMenu';
 
 const fontStyles = {
     color: 'blue.900',
@@ -36,6 +32,7 @@ const Navbar = ({ refs }) => {
         <Flex
             align={'center'}
             justify={'space-between'}
+            overflow={'hidden'}
             style={
                 scrolled
                     ? {
