@@ -7,7 +7,12 @@ import { MediaQueryContext } from '../contexts/MediaQueryContext';
 import { Element } from 'react-scroll';
 import dynamic from 'next/dynamic';
 
-const DynamicIntro = dynamic(() => import('../components/Intro/Intro'));
+const DynamicIntro = dynamic(() => import('../components/Intro/Intro'), {
+    ssr: false,
+});
+const DynamicNavbar = dynamic(() => import('../components/Navbar/Navbar'), {
+    ssr: false,
+});
 const DynamicPortfolioSection = dynamic(() =>
     import('../components/Portfolio/Portfolio')
 );
@@ -24,7 +29,7 @@ export default function Home() {
                 <title>Austin Portfolio</title>
             </Head>
             <Box bgGradient="linear-gradient(190deg, brand.bgWhite, hsla(0,0%,45%,0) 80%)">
-                <NavBar refs={{ aboutRef, portfolioRef }} />
+                <DynamicNavbar refs={{ aboutRef, portfolioRef }} />
 
                 <Element id={'about'} ref={aboutRef}>
                     <DynamicIntro />
