@@ -5,7 +5,6 @@ import Console from './Console';
 import { loadingEntryProps } from '../../constants/framerMotion';
 import Name from './Name';
 import { ArrowDownIcon } from '@chakra-ui/icons';
-import * as PropTypes from 'prop-types';
 import { Link as LinkSmoothScroll } from 'react-scroll';
 
 const rowMarginTop = ['2vh', '2vh', '2vh', '2vh'];
@@ -25,7 +24,7 @@ export const Intro = () => {
                     <MotionBox
                         top={0}
                         position={'relative'}
-                        boxSize={['20vh']}
+                        boxSize={['15vh', '20vh']}
                         {...loadingEntryProps}
                     >
                         <Img src={'/me.png'} alt={'me'} borderRadius={'16px'} />

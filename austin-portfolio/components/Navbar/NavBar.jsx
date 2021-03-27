@@ -6,7 +6,7 @@ import { hoverStyle, tapBounceStyle } from '../../utils/framerMotionStyles';
 import { Icon, Link, Box, Flex, Stack, IconButton } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import { MediaQueryContext } from '../Contexts/MediaQueryContext';
+import { MediaQueryContext } from '../../contexts/MediaQueryContext';
 import { scroller } from 'react-scroll';
 import { AnimatePresence } from 'framer-motion';
 
@@ -152,9 +152,6 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
             <IconButton
                 as={HamburgerIcon}
                 bgColor={'transparent'}
-                border={'0.5px'}
-                borderColor={'gray.200'}
-                boxShadow={'xs'}
                 size={'sm'}
                 mr={5}
                 onClick={toggleMenuOpen}

@@ -10,10 +10,10 @@ import {
 import PortfolioCard from './PortfolioCard';
 import { works } from '../../constants/works';
 import WorkModal from '../WorkModal/WorkModal';
-import { WorkSelectedContext } from '../Contexts/WorkSelectedContext';
+import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
 import { headingSizes } from '../../utils/fontSizes';
 
-const PortfolioSection = () => {
+const Portfolio = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [workSelected, setWorkSelected] = React.useState(works[0]);
 
@@ -32,7 +32,6 @@ const PortfolioSection = () => {
             >
                 <Box>
                     <Flex
-                        m={'0% 10% 0% 10%'}
                         direction={'column'}
                         justify={'center'}
                         align={'center'}
@@ -43,6 +42,7 @@ const PortfolioSection = () => {
 
                         <Wrap
                             spacing={['5%', '4%', '2.5%', '2.5%']}
+                            w={['95vw', '95vw', '80vw', '80vw']}
                             justify={'center'}
                             align={'center'}
                         >
@@ -74,4 +74,4 @@ const PortfolioSection = () => {
     );
 };
 
-export default PortfolioSection;
+export default Portfolio;
