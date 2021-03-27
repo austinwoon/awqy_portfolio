@@ -27,7 +27,7 @@ const boxStyles = {
     pt: '1',
 };
 const portfolioOffsetScroll = -70;
-const NavBar = ({ refs }) => {
+const Navbar = ({ refs }) => {
     const [isMenuOpen, setMenuOpen] = React.useState(false);
     const { isMobile } = React.useContext(MediaQueryContext);
     const [scrolled, setScrolled] = React.useState(false);
@@ -254,4 +254,4 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenu }) => {
         </Box>
     );
 };
-export default NavBar;
+export default Navbar;
