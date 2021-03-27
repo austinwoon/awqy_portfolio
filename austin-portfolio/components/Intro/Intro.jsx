@@ -39,7 +39,7 @@ export const Intro = () => {
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
-                    <Console height={'45vh'} />
+                    <Console />
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
