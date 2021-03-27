@@ -100,7 +100,7 @@ const Console = ({ ...props }) => {
                 h={[6, 6, 9, 9]}
                 borderTopLeftRadius={consoleBorderRadius}
                 borderTopRightRadius={consoleBorderRadius}
-                bgColor={'#E2E8F0'}
+                bgColor={'gray.200'}
                 align={'center'}
                 position={'absolute'}
                 w={'100%'}

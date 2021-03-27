@@ -24,7 +24,7 @@ export const Intro = () => {
                     <MotionBox
                         top={0}
                         position={'relative'}
-                        boxSize={['15vh', '20vh']}
+                        boxSize={['180px', '250px']}
                         {...loadingEntryProps}
                     >
                         <Img src={'/me.png'} alt={'me'} borderRadius={'16px'} />
