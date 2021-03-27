@@ -75,17 +75,19 @@ const ImageCarousel = ({ images }) => {
 
     const swipeHandler = useSwipeable({
         onSwiped: ({ dir }) => {
-            if (dir === 'Right') {
+            // swipe directions are opposite as it makes sense for swiping on mobile
+            if (dir === 'Left') {
                 handleRightClick();
             }
 
-            if (dir === 'Left') {
+            if (dir === 'Right') {
                 handleLeftClick();
             }
         },
         trackMouse: true,
         preventDefaultTouchmoveEvent: true,
     });
+
     const isHidden = (index, positions) => {
         return (
             Object.values(positions).findIndex((i) => Number(i) === index) ===
