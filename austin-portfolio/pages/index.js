@@ -36,7 +36,7 @@ export default function Home() {
             <Head>
                 <title>Austin Portfolio</title>
             </Head>
-            <Box bgGradient="linear-gradient(190deg, blue.50, hsla(0,0%,45%,0) 80%)">
+            <Box bgGradient="linear-gradient(190deg, brand.bgWhite, hsla(0,0%,45%,0) 80%)">
                 <Box
                     zIndex={5}
                     className={scrolled && 'glassMorphism'}
