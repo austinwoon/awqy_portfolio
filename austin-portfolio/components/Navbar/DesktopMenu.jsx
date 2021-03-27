@@ -21,6 +21,7 @@ export const DesktopMenu = () => {
                 fontStyles={fontStyles}
                 content={'About'}
                 scrollId={'about'}
+                scrollOffset={-100}
             />
 
             <HoverLink

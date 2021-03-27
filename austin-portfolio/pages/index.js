@@ -17,22 +17,19 @@ const DynamicPortfolioSection = dynamic(() =>
 export default function Home() {
     const [isMobile] = useMediaQuery(['(max-width: 900px)']);
 
-    const aboutRef = React.useRef();
-    const portfolioRef = React.useRef();
-
     return (
         <MediaQueryContext.Provider value={{ isMobile }}>
             <Head>
                 <title>Austin Portfolio</title>
             </Head>
             <Box bgGradient="linear-gradient(190deg, brand.bgWhite, hsla(0,0%,45%,0) 80%)">
-                <DynamicNavbar refs={{ aboutRef, portfolioRef }} />
+                <DynamicNavbar />
 
-                <Element id={'about'} ref={aboutRef}>
+                <Element id={'about'}>
                     <DynamicIntro />
                 </Element>
 
-                <Element id={'portfolio'} ref={portfolioRef}>
+                <Element id={'portfolio'}>
                     <DynamicPortfolioSection />
                 </Element>
                 <Footer />
