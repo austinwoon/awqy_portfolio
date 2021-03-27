@@ -259,7 +259,7 @@ const ImageCarousel = ({ images }) => {
     );
 };
 
-const ImageDotIndicator = ({ activeIndex }) => {
+const ImageDotIndicator = ({ activeIndex, images }) => {
     const circleStyles = {
         display: 'inline-block',
         h: ['10px', '10px', '12px', '12px'],
