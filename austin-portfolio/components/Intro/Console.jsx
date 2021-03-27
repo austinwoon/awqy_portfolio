@@ -95,6 +95,7 @@ const Console = ({ ...props }) => {
             maxW={['100vw', '100vw', '60vw', '75vw']}
             boxShadow={'xl'}
             position={'relative'}
+            opacity={0}
         >
             <Flex
                 h={[6, 6, 9, 9]}

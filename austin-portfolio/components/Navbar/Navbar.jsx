@@ -5,9 +5,8 @@ import { hoverStyle, tapBounceStyle } from '../../utils/framerMotionStyles';
 import { Icon, Link, Box, Flex, Stack, IconButton } from '@chakra-ui/react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { MediaQueryContext } from '../../contexts/MediaQueryContext';
-import dynamic from 'next/dynamic';
-const HamburgerMenu = dynamic(() => import('./HamburgerMenu'), { ssr: false });
-const DesktopMenu = dynamic(() => import('./DesktopMenu'), { ssr: false });
+import HamburgerMenu from './HamburgerMenu';
+import DesktopMenu from './DesktopMenu';
 
 const fontStyles = {
     color: 'blue.900',
@@ -15,7 +14,7 @@ const fontStyles = {
     fontSize: ['lg', 'xl', '2xl', '2xl'],
 };
 
-const Navbar = ({ refs }) => {
+const Navbar = () => {
     const { isMobile } = React.useContext(MediaQueryContext);
     const [scrolled, setScrolled] = React.useState(false);
 
