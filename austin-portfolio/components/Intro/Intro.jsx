@@ -21,9 +21,7 @@ export const Intro = () => {
             <Box mt={rowMarginTop}>
                 <Flex justify={'center'}>
                     <MotionBox
-                        top={0}
-                        position={'relative'}
-                        boxSize={['180px', '250px']}
+                        boxSize={['180px', '180px', '200px', '250px']}
                         {...loadingEntryProps}
                     >
                         <Img src={'/me.png'} alt={'me'} borderRadius={'16px'} />

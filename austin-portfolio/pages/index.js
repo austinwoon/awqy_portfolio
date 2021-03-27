@@ -7,9 +7,12 @@ import { MediaQueryContext } from '../contexts/MediaQueryContext';
 import { Element } from 'react-scroll';
 import dynamic from 'next/dynamic';
 
-const DynamicIntro = dynamic(() => import('../components/Intro/Intro'));
-const DynamicPortfolioSection = dynamic(() =>
-    import('../components/Portfolio/Portfolio')
+const DynamicIntro = dynamic(() => import('../components/Intro/Intro'), {
+    loading: () => <p>loading...</p>,
+});
+const DynamicPortfolioSection = dynamic(
+    () => import('../components/Portfolio/Portfolio'),
+    { loading: () => <p>loading...</p> }
 );
 
 export default function Home() {
