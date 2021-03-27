@@ -22,6 +22,7 @@ export const Intro = () => {
                 <Flex justify={'center'}>
                     <MotionBox
                         boxSize={['180px', '180px', '200px', '250px']}
+                        opacity={0}
                         {...loadingEntryProps}
                     >
                         <Img src={'/me.png'} alt={'me'} borderRadius={'16px'} />
