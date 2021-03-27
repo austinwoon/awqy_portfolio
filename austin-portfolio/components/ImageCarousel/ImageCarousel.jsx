@@ -1,5 +1,4 @@
 import React from 'react';
-import { WorkSelectedContext } from '../Contexts/WorkSelectedContext';
 import {
     Img,
     Box,
@@ -35,10 +34,7 @@ const imageBoxSizes = {
     xl: 300,
 };
 
-const ImageCarousel = () => {
-    const {
-        workSelected: { images },
-    } = React.useContext(WorkSelectedContext);
+const ImageCarousel = ({ images }) => {
     const { isMobile } = React.useContext(MediaQueryContext);
 
     const [variants, setVariants] = React.useState({
@@ -68,7 +64,7 @@ const ImageCarousel = () => {
             boxShadow: '0 6px 20px 0 rgba(0, 0, 0, 0.19)',
         },
     });
-    // TODO (Austin) : remove hard coded stuff, this assumes always min 3 images
+    // TODO: Handle < 3 images
     const [positions, setPositions] = React.useState({
         left: 0,
         middle: 1,
@@ -252,17 +248,16 @@ const ImageCarousel = () => {
                     `${imageBoxSizes['xl'] * (imageScaleIncrement - 1)}px`,
                 ]}
             >
-                <ImageDotIndicator activeIndex={positions['middle']} />
+                <ImageDotIndicator
+                    activeIndex={positions['middle']}
+                    images={images}
+                />
             </Box>
         </Flex>
     );
 };
 
 const ImageDotIndicator = ({ activeIndex }) => {
-    const {
-        workSelected: { images },
-    } = React.useContext(WorkSelectedContext);
-
     const circleStyles = {
         display: 'inline-block',
         h: ['10px', '10px', '12px', '12px'],
