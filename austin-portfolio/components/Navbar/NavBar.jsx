@@ -197,6 +197,7 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                                 fontStyles={mobileMenuFontStyles}
                                 content={'About'}
                                 onClick={scrollToAbout}
+                                hoverHeight={'1em'}
                             />
                         </Box>
 
@@ -204,6 +205,7 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                             <HoverLink
                                 fontStyles={mobileMenuFontStyles}
                                 content={'Portfolio'}
+                                hoverHeight={'1em'}
                                 onClick={scrollToPortfolio}
                                 scrollOffset={portfolioOffsetScroll}
                             />
@@ -213,6 +215,7 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                             <HoverLink
                                 fontStyles={mobileMenuFontStyles}
                                 content={'Contact'}
+                                hoverHeight={'1em'}
                                 href={'mailto:austinwoonquanyi@gmail.com'}
                             />
                         </Box>

@@ -19,15 +19,14 @@ const variants = {
 const HoverLink = ({
     fontStyles,
     boxStyles,
-    onClick,
+    onClick = () => {},
     content,
     scrollId = '',
     scrollOffset = 0,
+    hoverHeight = '20%',
     href,
     ...props
 }) => {
-    const [hovered, setHovered] = React.useState(false);
-
     return (
         <Box {...boxStyles}>
             {scrollId ? (
@@ -39,16 +38,15 @@ const HoverLink = ({
                 >
                     <LinkContents
                         fontStyles={fontStyles}
-                        hovered={hovered}
-                        setHovered={setHovered}
+                        onClick={onClick}
                         content={content}
+                        hoverHeight={hoverHeight}
                     />
                 </LinkSmoothScroll>
             ) : (
                 <LinkContents
                     fontStyles={fontStyles}
-                    hovered={hovered}
-                    setHovered={setHovered}
+                    hoverHeight={hoverHeight}
                     content={content}
                     onClick={onClick}
                     href={href}
@@ -60,18 +58,16 @@ const HoverLink = ({
 
 const LinkContents = ({
     fontStyles,
-    hovered,
-    setHovered,
     content,
     href = '',
+    hoverHeight,
     onClick = () => {},
 }) => {
+    const [hovered, setHovered] = React.useState(false);
     const LinkContentProps = {
         ...fontStyles,
-        hovered,
-        setHovered,
         onClick,
-        href,
+        href: href && href,
         onMouseEnter: () => setHovered(true),
         onMouseLeave: () => setHovered(false),
         _hover: {
@@ -90,13 +86,9 @@ const LinkContents = ({
                 <Text {...LinkContentProps}>{content}</Text>
             )}
             <MotionBox
-                h={'20%'}
+                h={hoverHeight}
                 width={'100%'}
                 transform={`translateX(-${(hoverWidth - 100) / 2}%)`}
-                initial={{
-                    opacity: 0,
-                    width: '0%',
-                }}
                 animate={hovered ? 'active' : 'hidden'}
                 variants={variants}
                 transition={{ duration: 0.4 }}
