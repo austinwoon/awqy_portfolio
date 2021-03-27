@@ -11,6 +11,7 @@ const variants = {
     },
     active: {
         opacity: 1,
+        backgroundColor: '#1A365D',
         width: `${hoverWidth}%`,
     },
 };
@@ -91,7 +92,6 @@ const LinkContents = ({
             <MotionBox
                 h={'20%'}
                 width={'100%'}
-                bgColor={'blue.900'}
                 transform={`translateX(-${(hoverWidth - 100) / 2}%)`}
                 initial={{
                     opacity: 0,
