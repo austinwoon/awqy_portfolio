@@ -6,9 +6,7 @@ import { MediaQueryContext } from '../contexts/MediaQueryContext';
 import { Element } from 'react-scroll';
 import dynamic from 'next/dynamic';
 
-const DynamicIntro = dynamic(() => import('../components/Intro/Intro'), {
-    ssr: false,
-});
+const DynamicIntro = dynamic(() => import('../components/Intro/Intro'));
 const DynamicNavbar = dynamic(() => import('../components/Navbar/Navbar'), {
     ssr: false,
 });
