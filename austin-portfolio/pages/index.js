@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic';
 const DynamicIntro = dynamic(() => import('../components/Intro/Intro'), {
     ssr: false,
 });
-const DynamicNavbar = dynamic(() => import('../components/Navbar/Navbar'), {
+const DynamicNavbar = dynamic(() => import('../components/Navbar/ForcingRename'), {
     ssr: false,
 });
 const DynamicPortfolioSection = dynamic(() =>
