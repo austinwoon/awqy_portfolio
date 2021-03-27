@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { Box, useMediaQuery } from '@chakra-ui/react';
 import React from 'react';
 import Footer from '../components/Footer/Footer';
-import NavBar from '../components/Navbar/NavBar';
 import { MediaQueryContext } from '../contexts/MediaQueryContext';
 import { Element } from 'react-scroll';
 import dynamic from 'next/dynamic';
