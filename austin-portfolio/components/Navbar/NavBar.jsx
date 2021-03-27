@@ -16,7 +16,7 @@ const fontStyles = {
     fontSize: ['lg', 'xl', '2xl', '2xl'],
 };
 
-const NavBar = ({ refs }) => {
+const Navbar = ({ refs }) => {
     const { isMobile } = React.useContext(MediaQueryContext);
     const [scrolled, setScrolled] = React.useState(false);
 
@@ -102,4 +102,4 @@ const NavBar = ({ refs }) => {
     );
 };
 
-export default NavBar;
+export default Navbar;
