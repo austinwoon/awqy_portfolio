@@ -15,7 +15,6 @@ export const Intro = () => {
             direction="column"
             align={'center'}
             justify={'center'}
-            h="100vh"
             padding={'24px'}
             overflow={'hidden'}
         >
