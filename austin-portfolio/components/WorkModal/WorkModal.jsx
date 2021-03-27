@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
-import { WorkSelectedContext } from '../Contexts/WorkSelectedContext';
+import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
 import { FaGithub } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
 import { fontSizes, headingSizes } from '../../utils/fontSizes';

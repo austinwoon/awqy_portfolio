@@ -12,7 +12,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useSwipeable } from 'react-swipeable';
 import MotionBox from '../FramerMotion/MotionBox';
 import { tapBounceStyle } from '../../utils/framerMotionStyles';
-import { MediaQueryContext } from '../Contexts/MediaQueryContext';
+import { MediaQueryContext } from '../../contexts/MediaQueryContext';
 
 const chevronStyles = {
     fontSize: '12vw',
@@ -26,10 +26,9 @@ const chevronStyles = {
 
 const imageScaleIncrement = 1.3;
 
-// TODO : Dynamically adjust image box size according to view width
-const imageBoxSizes = {
+const imageWidthSizes = {
     sm: 150,
-    md: 150,
+    md: 200,
     lg: 250,
     xl: 300,
 };
@@ -178,17 +177,17 @@ const ImageCarousel = ({ images }) => {
                     justify={'center'}
                     align={'center'}
                     height={[
-                        `${imageBoxSizes['sm'] * imageScaleIncrement}px`,
-                        `${imageBoxSizes['md'] * imageScaleIncrement}px`,
-                        `${imageBoxSizes['lg'] * imageScaleIncrement}px`,
-                        `${imageBoxSizes['xl'] * imageScaleIncrement}px`,
+                        `${imageWidthSizes['sm'] * imageScaleIncrement}px`,
+                        `${imageWidthSizes['md'] * imageScaleIncrement}px`,
+                        `${imageWidthSizes['lg'] * imageScaleIncrement}px`,
+                        `${imageWidthSizes['xl'] * imageScaleIncrement}px`,
                     ]}
                     width={isMobile ? '95vw' : '60vw'}
                     maxWidth={[
-                        `${imageBoxSizes['sm'] * 3}px`,
-                        `${imageBoxSizes['md'] * 3}px`,
-                        `${imageBoxSizes['lg'] * 3}px`,
-                        `${imageBoxSizes['xl'] * 3}px`,
+                        `${imageWidthSizes['sm'] * 3}px`,
+                        `${imageWidthSizes['md'] * 3}px`,
+                        `${imageWidthSizes['lg'] * 3}px`,
+                        `${imageWidthSizes['xl'] * 3}px`,
                     ]}
                     {...swipeHandler}
                 >
@@ -200,9 +199,6 @@ const ImageCarousel = ({ images }) => {
                                 bounce: 100,
                                 duration: 0.4,
                             }}
-                            initial={{
-                                opacity: 1,
-                            }}
                             animate={getAnimationStyle(i)}
                             variants={variants}
                             position={'absolute'}
@@ -211,16 +207,16 @@ const ImageCarousel = ({ images }) => {
                                 src={image.src}
                                 alt={image.alt}
                                 height={[
-                                    `${(imageBoxSizes['sm'] / 4) * 3}px`,
-                                    `${(imageBoxSizes['md'] / 4) * 3}px`,
-                                    `${(imageBoxSizes['lg'] / 4) * 3}px`,
-                                    `${(imageBoxSizes['xl'] / 4) * 3}px`,
+                                    `${(imageWidthSizes['sm'] / 4) * 3}px`,
+                                    `${(imageWidthSizes['md'] / 4) * 3}px`,
+                                    `${(imageWidthSizes['lg'] / 4) * 3}px`,
+                                    `${(imageWidthSizes['xl'] / 4) * 3}px`,
                                 ]}
                                 width={[
-                                    `${imageBoxSizes['sm']}px`,
-                                    `${imageBoxSizes['md']}px`,
-                                    `${imageBoxSizes['lg']}px`,
-                                    `${imageBoxSizes['xl']}px`,
+                                    `${imageWidthSizes['sm']}px`,
+                                    `${imageWidthSizes['md']}px`,
+                                    `${imageWidthSizes['lg']}px`,
+                                    `${imageWidthSizes['xl']}px`,
                                 ]}
                                 style={{
                                     cursor: 'pointer',
@@ -244,10 +240,10 @@ const ImageCarousel = ({ images }) => {
             </Flex>
             <Box
                 mt={[
-                    `${imageBoxSizes['sm'] * (imageScaleIncrement - 1)}px`,
-                    `${imageBoxSizes['md'] * (imageScaleIncrement - 1)}px`,
-                    `${imageBoxSizes['lg'] * (imageScaleIncrement - 1)}px`,
-                    `${imageBoxSizes['xl'] * (imageScaleIncrement - 1)}px`,
+                    `${imageWidthSizes['sm'] * (imageScaleIncrement - 1)}px`,
+                    `${imageWidthSizes['md'] * (imageScaleIncrement - 1)}px`,
+                    `${imageWidthSizes['lg'] * (imageScaleIncrement - 1)}px`,
+                    `${imageWidthSizes['xl'] * (imageScaleIncrement - 1)}px`,
                 ]}
             >
                 <ImageDotIndicator
@@ -273,7 +269,7 @@ const ImageDotIndicator = ({ activeIndex, images }) => {
                 <Box
                     {...circleStyles}
                     key={v.uuid + i + 'dot'}
-                    bgColor={activeIndex === i ? 'gray.300' : 'gray.200'}
+                    bgColor={activeIndex === i ? '#A0AEC0' : '#E2E8F0'}
                 />
             ))}
         </Stack>

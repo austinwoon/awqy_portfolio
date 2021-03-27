@@ -3,13 +3,13 @@ import { Box, useMediaQuery } from '@chakra-ui/react';
 import React from 'react';
 import Footer from '../components/Footer/Footer';
 import NavBar from '../components/Navbar/NavBar';
-import { MediaQueryContext } from '../components/Contexts/MediaQueryContext';
+import { MediaQueryContext } from '../contexts/MediaQueryContext';
 import { Element } from 'react-scroll';
 import dynamic from 'next/dynamic';
 
 const DynamicIntro = dynamic(() => import('../components/Intro/Intro'));
 const DynamicPortfolioSection = dynamic(() =>
-    import('../components/Portfolio/PortfolioSection')
+    import('../components/Portfolio/Portfolio')
 );
 
 export default function Home() {
@@ -40,8 +40,10 @@ export default function Home() {
                 <Box
                     zIndex={5}
                     className={scrolled && 'glassMorphism'}
-                    position={'fixed'}
-                    borderRadius={['8px', '8px', '10px', '10px']}
+                    position={'sticky'}
+                    top="0"
+                    borderBottomLeftRadius={['8px', '8px', '10px', '10px']}
+                    borderBottomRightRadius={['8px', '8px', '10px', '10px']}
                     pt={['0.25vh', '0.5vh', '1vh', '1vh']}
                     pb={['0.25vh', '0.5vh', '1vh', '1vh']}
                     w={'100%'}

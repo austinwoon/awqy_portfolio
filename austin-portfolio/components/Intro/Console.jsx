@@ -71,6 +71,7 @@ const codeStyles = {
     fontSize: ['xs', 'sm', 'md', 'lg'],
 };
 const codeSpacing = [3, 5, 7, 7];
+const consoleBorderRadius = 7;
 
 const Console = ({ ...props }) => {
     const timer = React.useRef(null);
@@ -97,9 +98,9 @@ const Console = ({ ...props }) => {
         >
             <Flex
                 h={[6, 6, 9, 9]}
-                borderTopLeftRadius={7}
-                borderTopRightRadius={7}
-                bgColor={'gray.200'}
+                borderTopLeftRadius={consoleBorderRadius}
+                borderTopRightRadius={consoleBorderRadius}
+                bgColor={'#E2E8F0'}
                 align={'center'}
                 position={'absolute'}
                 w={'100%'}
@@ -119,6 +120,8 @@ const Console = ({ ...props }) => {
                 pl={[5, 5, 10, 10]}
                 overflow={'auto'}
                 maxH={props.height}
+                borderBottomLeftRadius={consoleBorderRadius}
+                borderBottomRightRadius={consoleBorderRadius}
             >
                 {terminalText.map((content) => {
                     if (content.end) {
