@@ -163,7 +163,7 @@ const ImageCarousel = ({ images }) => {
         <Flex direction={'column'} justify={'center'} align={'center'}>
             <Flex justify={'center'} align={'center'}>
                 {!isMobile && (
-                    <MotionBox {...tapBounceStyle}>
+                    <MotionBox {...tapBounceStyle} whileHover={{ x: -5 }}>
                         <IconButton
                             aria-label={'chevron-left'}
                             onClick={handleLeftClick}
@@ -228,7 +228,7 @@ const ImageCarousel = ({ images }) => {
                     ))}
                 </Flex>
                 {!isMobile && (
-                    <MotionBox {...tapBounceStyle}>
+                    <MotionBox {...tapBounceStyle} whileHover={{ x: 5 }}>
                         <IconButton
                             aria-label={'chevron-right'}
                             onClick={handleRightClick}

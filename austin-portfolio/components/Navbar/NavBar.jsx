@@ -30,6 +30,21 @@ const portfolioOffsetScroll = -70;
 const NavBar = ({ refs }) => {
     const [isMenuOpen, setMenuOpen] = React.useState(false);
     const { isMobile } = React.useContext(MediaQueryContext);
+    const [scrolled, setScrolled] = React.useState(false);
+
+    React.useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+    });
+
+    const handleScroll = () => {
+        const offset = window.scrollY;
+        if (offset > 50) {
+            setScrolled(true);
+        } else {
+            setScrolled(false);
+        }
+    };
+
     const toggleMenuOpen = () => {
         setMenuOpen((m) => !m);
     };
@@ -43,6 +58,25 @@ const NavBar = ({ refs }) => {
                 'space-between',
                 'space-between',
             ]}
+            style={
+                scrolled
+                    ? {
+                          backdropFilter: 'blur(17.5px)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                          WebkitBackdropFilter: 'blur(17.5px)',
+                          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+                          borderBottom: '1px solid (255, 255, 255, 0.18)',
+                      }
+                    : {}
+            }
+            position={'sticky'}
+            top="0"
+            borderBottomLeftRadius={['8px', '8px', '10px', '10px']}
+            borderBottomRightRadius={['8px', '8px', '10px', '10px']}
+            pt={['0.25vh', '0.5vh', '1vh', '1vh']}
+            pb={['0.25vh', '0.5vh', '1vh', '1vh']}
+            w={'100%'}
+            zIndex={100}
         >
             <Stack direction="row" align="center" pl={5} h={10} spacing={5}>
                 <Logo />
