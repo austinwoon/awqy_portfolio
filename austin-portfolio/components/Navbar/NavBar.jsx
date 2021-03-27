@@ -12,13 +12,13 @@ import { AnimatePresence } from 'framer-motion';
 
 const fontStyles = {
     color: 'blue.900',
-    fontWeight: 'bold',
+    fontWeight: 'medium',
     fontSize: ['lg', 'xl', '2xl', '2xl'],
 };
 const mobileMenuFontStyles = {
     color: 'blue.900',
-    fontWeight: 'medium',
-    fontSize: '6xl',
+    fontWeight: 'light',
+    fontSize: ['4xl', '4xl', '4xl', '4xl'],
 };
 const boxStyles = {
     pl: ['2', '3', '7', '10'],
@@ -45,19 +45,14 @@ const NavBar = ({ refs }) => {
         }
     };
 
-    const toggleMenuOpen = () => {
+    const toggleMenu = () => {
         setMenuOpen((m) => !m);
     };
 
     return (
         <Flex
             align={'center'}
-            justify={[
-                'space-between',
-                'space-between',
-                'space-between',
-                'space-between',
-            ]}
+            justify={'space-between'}
             style={
                 scrolled
                     ? {
@@ -147,7 +142,7 @@ const NavBar = ({ refs }) => {
                     <HamburgerMenu
                         refs={refs}
                         isMenuOpen={isMenuOpen}
-                        toggleMenuOpen={toggleMenuOpen}
+                        toggleMenu={toggleMenu}
                     />
                 )}
             </Box>
@@ -155,9 +150,9 @@ const NavBar = ({ refs }) => {
     );
 };
 
-const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
+const HamburgerMenu = ({ refs, isMenuOpen, toggleMenu }) => {
     const scrollToAbout = () => {
-        toggleMenuOpen();
+        toggleMenu();
         scroller.scrollTo('about', {
             smooth: true,
             duration: 500,
@@ -165,7 +160,7 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
     };
 
     const scrollToPortfolio = () => {
-        toggleMenuOpen();
+        toggleMenu();
         scroller.scrollTo('portfolio', {
             smooth: true,
             duration: 500,
@@ -188,7 +183,7 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                 bgColor={'transparent'}
                 size={'sm'}
                 mr={5}
-                onClick={toggleMenuOpen}
+                onClick={toggleMenu}
             />
             <AnimatePresence>
                 {isMenuOpen && (
@@ -217,8 +212,8 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                         <IconButton
                             as={CloseIcon}
                             bgColor="transparent"
-                            onClick={toggleMenuOpen}
-                            boxSize={'75px'}
+                            onClick={toggleMenu}
+                            boxSize={'45px'}
                             _hover={{
                                 bgColor: 'transparent',
                             }}
@@ -227,11 +222,11 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
 
                         <Box m={colSpacing}>
                             <HoverLink
-                                onClick={toggleMenuOpen}
+                                onClick={toggleMenu}
                                 fontStyles={mobileMenuFontStyles}
                                 content={'About'}
                                 onClick={scrollToAbout}
-                                hoverHeight={'1em'}
+                                hoverHeight={'0.5em'}
                             />
                         </Box>
 
@@ -239,7 +234,7 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                             <HoverLink
                                 fontStyles={mobileMenuFontStyles}
                                 content={'Portfolio'}
-                                hoverHeight={'1em'}
+                                hoverHeight={'0.5em'}
                                 onClick={scrollToPortfolio}
                                 scrollOffset={portfolioOffsetScroll}
                             />
@@ -249,7 +244,7 @@ const HamburgerMenu = ({ refs, isMenuOpen, toggleMenuOpen }) => {
                             <HoverLink
                                 fontStyles={mobileMenuFontStyles}
                                 content={'Contact'}
-                                hoverHeight={'1em'}
+                                hoverHeight={'0.5em'}
                                 href={'mailto:austinwoonquanyi@gmail.com'}
                             />
                         </Box>
