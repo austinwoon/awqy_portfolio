@@ -9,7 +9,7 @@ import HoverLink from '../HoverLink/HoverLink';
 const mobileMenuFontStyles = {
     color: 'blue.900',
     fontWeight: 'medium',
-    fontSize: '6xl',
+    fontSize: ['4xl', '4xl', '6xl', '6xl'],
 };
 
 const HamburgerMenu = () => {
@@ -80,7 +80,7 @@ const HamburgerMenu = () => {
                             as={CloseIcon}
                             bgColor="transparent"
                             onClick={toggleMenuOpen}
-                            boxSize={'75px'}
+                            boxSize={['40px', '40px', '55px', '55px']}
                             _hover={{
                                 bgColor: 'transparent',
                             }}
