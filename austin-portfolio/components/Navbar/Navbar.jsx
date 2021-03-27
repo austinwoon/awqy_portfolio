@@ -1,5 +1,4 @@
 import React from 'react';
-import HoverLink from '../HoverLink/HoverLink';
 import Logo from '../Logo/Logo';
 import MotionBox from '../FramerMotion/MotionBox';
 import { hoverStyle, tapBounceStyle } from '../../utils/framerMotionStyles';

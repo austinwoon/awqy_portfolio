@@ -1,7 +1,8 @@
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Box, IconButton } from '@chakra-ui/react';
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
+import { scroller } from 'react-scroll';
 import MotionBox from '../FramerMotion/MotionBox';
 import HoverLink from '../HoverLink/HoverLink';
 
