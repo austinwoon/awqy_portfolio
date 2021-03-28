@@ -43,7 +43,7 @@ const WorkModal = ({ onClose, isOpen }) => {
 
                         <Flex justify={'center'} align={'center'}>
                             {workSelected.links.map((linkInfo, i) => (
-                                <Box key={linkInfo.link + i} mr="10">
+                                <Box key={linkInfo.link + i} mr="10" ml="10">
                                     <LinkIcon
                                         {...linkInfo}
                                         mrStyle={
