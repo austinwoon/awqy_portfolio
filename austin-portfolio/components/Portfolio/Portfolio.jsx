@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-    Box,
-    Heading,
-    Flex,
-    useDisclosure,
-    Wrap,
-    WrapItem,
-} from '@chakra-ui/react';
+import { Box, Heading, Flex, useDisclosure, Grid } from '@chakra-ui/react';
 import PortfolioCard from './PortfolioCard';
 import { works } from '../../constants/works';
 import WorkModal from '../WorkModal/WorkModal';
@@ -31,26 +24,23 @@ const Portfolio = () => {
                 }}
             >
                 <Box>
-                    <Flex
-                        direction={'column'}
-                        justify={'center'}
-                        align={'center'}
-                    >
+                    <Flex direction={'column'} align={'center'}>
                         <Heading fontSize={h1Sizes} pt={10} pb={10}>
                             Portfolio
                         </Heading>
 
-                        <Wrap
-                            spacing={['5%', '4%', '2.5%', '2.5%']}
-                            w={['95vw', '95vw', '80vw', '80vw']}
-                            justify={'center'}
-                            align={'center'}
+                        <Grid
+                            gap={['5%', '4%', '2.5%', '2.5%']}
+                            w={['85vw', '85vw', '70vw', '70vw']}
+                            templateColumns={[
+                                'repeat(auto-fit, minmax(300px, 1fr))',
+                                'repeat(auto-fit, minmax(300px, 1fr))',
+                                'repeat(auto-fit, minmax(400px, 1fr))',
+                                'repeat(auto-fit, minmax(500px, 1fr))',
+                            ]}
                         >
                             {works.map((work) => (
-                                <WrapItem
-                                    key={work.uuid}
-                                    w={['300px', '300px', '500px', '500px']}
-                                >
+                                <Box key={work.uuid}>
                                     <PortfolioCard
                                         img={work.img}
                                         title={work.title}
@@ -58,9 +48,9 @@ const Portfolio = () => {
                                         technologies={work.technologies}
                                         onOpen={() => handleViewMoreClick(work)}
                                     />
-                                </WrapItem>
+                                </Box>
                             ))}
-                        </Wrap>
+                        </Grid>
                     </Flex>
                 </Box>
 

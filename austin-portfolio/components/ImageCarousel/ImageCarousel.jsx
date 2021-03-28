@@ -73,9 +73,9 @@ const ImageCarousel = ({ images }) => {
     });
     // TODO: Handle < 3 images
     const [positions, setPositions] = React.useState({
-        left: 0,
-        middle: 1,
-        right: 2,
+        left: images.length - 1,
+        middle: 0,
+        right: 1,
     });
 
     const [isSmallerThan1370] = useMediaQuery(['(max-width: 1370px)']);
@@ -173,7 +173,7 @@ const ImageCarousel = ({ images }) => {
     return (
         <Flex direction={'column'} justify={'center'} align={'center'}>
             <Flex justify={'center'} align={'center'}>
-                {!isMobile && (
+                {!isMobile && images.length > 1 && (
                     <MotionBox {...tapBounceStyle} whileHover={{ x: -5 }}>
                         <IconButton
                             aria-label={'chevron-left'}
@@ -249,13 +249,13 @@ const ImageCarousel = ({ images }) => {
                                     cursor: 'pointer',
                                     imageRendering: 'crisp-edges',
                                 }}
-                                objectFit={'fit'}
+                                objectFit={'cover'}
                                 onClick={() => handleClickImage(i)}
                             />
                         </MotionBox>
                     ))}
                 </Flex>
-                {!isMobile && (
+                {!isMobile && images.length > 1 && (
                     <MotionBox {...tapBounceStyle} whileHover={{ x: 5 }}>
                         <IconButton
                             aria-label={'chevron-right'}

@@ -3,8 +3,13 @@ import {
     AiFillLock,
     AiFillNotification,
     AiFillCustomerService,
+    AiFillRobot,
+    Z,
 } from 'react-icons/ai';
 import { BsPeopleFill } from 'react-icons/Bs';
+import { GiKnapsack } from 'react-icons/gi';
+import { MdSentimentSatisfied } from 'react-icons/md';
+import { BiMapPin } from 'react-icons/Bi';
 
 export const works = [
     {
@@ -16,17 +21,9 @@ export const works = [
             'feedbacks and event history.',
         description: [
             {
-                header: 'Summary',
+                header: 'About',
                 content: [
                     `Our team of six developed a DevOps enabled web platform acted as a CRM and ERP system for our Final Year Project. ` +
-                        `FAEDAS is an Events Matching platform that serves to automate the beneficiary-volunteer pairing process for the Singapore Deaf Association (SADeaf).`,
-                    `It also serves as a single-source of truth for SADeaf’s administrative needs such as tracking of invoices, feedbacks and event history. I was mainly involved in the developement of full-stack product features`,
-                ],
-            },
-            {
-                header: 'Github Pipeline',
-                content: [
-                    `Our team of six developed a DevOps enabled web platform acted as a CRM and ERP system for our Final Year Project.` +
                         `FAEDAS is an Events Matching platform that serves to automate the beneficiary-volunteer pairing process for the Singapore Deaf Association (SADeaf).`,
                     `It also serves as a single-source of truth for SADeaf’s administrative needs such as tracking of invoices, feedbacks and event history. I was mainly involved in the developement of full-stack product features`,
                 ],
@@ -109,7 +106,7 @@ export const works = [
                 link: 'https://github.com/SADEAFxSMU/sadeaf-app',
             },
             {
-                logo: 'External',
+                logo: 'Video',
                 link: 'https://github.com/SADEAFxSMU/sadeaf-app',
             },
         ],
@@ -117,43 +114,101 @@ export const works = [
     {
         uuid: uuidv4(),
         title: 'Travel Itinerary Planner',
-        img: '/sadeaf/admin.png',
-        summary: `Fun project which utilized Knapsack, Graph, K-means clustering and a scoring system to automagically generate travel itineraries. Developed during peak COVID season where would be useful.`,
+        img: '/travel/landing-page.jpg',
+        summary: `Fun project which utilized Knapsack, Graph, K-means clustering and a scoring system to automagically generate travel itineraries.`,
         description: [
             {
-                header: 'Summary',
-                content:
-                    "The travel recommender application allows a user to auto-generate a suitable set of tourist itineraries for a multi-day intra-city trip, depending on the user's preferences.\n",
-            },
-            {
-                header: 'Algorithm Process',
-                content: `We prompt our users for their desired destination, maximum visiting time per day and important traits for places of interests (POI). The traits help contribute to the satisfaction scores of each POI. We then used K-means clustering to cluster POIs in the country and selected a combination of POIs which gave the best satisfaction scores constrained by daily visiting time.`,
+                header: 'About',
+                content: [
+                    "The travel recommender application allows a user to auto-generate a suitable set of tourist itineraries for a multi-day intra-city trip, depending on the user's preferences and their daily visiting time.\n",
+                ],
             },
         ],
         technologies: ['Vue', 'Spring'],
+        features: [
+            {
+                header: 'Personalized Scoring System',
+                icon: MdSentimentSatisfied,
+                description: `Users are able to select what tags match their interests and POIs which contain those tags would have higher scores.`,
+            },
+            {
+                header: 'Knapsack + K-Means Algorithm',
+                icon: GiKnapsack,
+                description: `We used K-means clustering to cluster POIs in the country and selected a combination of POIs which gave the best satisfaction scores constrained by daily visiting time.`,
+            },
+            {
+                header: 'Interactive Maps',
+                icon: BiMapPin,
+                description: `After their generating itinerary, users are able to interact with the maps and visualize the inter-day visiting sequence. They are also able to view photos and details (such as operating hours and cost) of the location.`,
+            },
+        ],
         images: [
             {
                 uuid: uuidv4(),
-                src: '/travel/travel-planner-first.jpg',
-                alt: '/travel/travel-planner-first.jpg',
+                src: '/travel/landing-page.jpg',
+                alt: '/travel/landing-page.jpg',
             },
             {
                 uuid: uuidv4(),
-                src: '/travel/travel-planner-second.jpg',
-                alt: '/travel/travel-planner-second.jpg',
+                src: '/travel/itinerary-tokyo.jpg',
+                alt: '/travel/itinerary-tokyo.jpg',
             },
             {
                 uuid: uuidv4(),
-                src: '/travel/travel-planner-third.jpg',
-                alt: '/travel/travel-planner-third.jpg',
+                src: '/travel/itinerary-tokyo-2.jpg',
+                alt: '/travel/itinerary-tokyo-2.jpg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/travel/itinerary-tokyo-3.jpg',
+                alt: '/travel/itinerary-tokyo-3.jpg',
             },
         ],
         links: [
             {
-                logo: 'Github',
+                logo: 'Bitbucket',
                 link:
                     'https://bitbucket.org/huanlin98_sch/travel-recommender/src/master/',
             },
+            {
+                logo: 'Video',
+                link: 'https://youtu.be/8nxV6UmwJBU',
+            },
         ],
+    },
+    {
+        uuid: uuidv4(),
+        title: 'Automated Trading Bot',
+        img: '/trading/ibkr-trade.jpg',
+        summary: `Automated trading bot that bought/sold based on news indicators and sentiment. Achieved 55% returns from Jan - March 2021 before the early March bond yield scare caused returns to fall 5%. Still a fun project I thought to list :)`,
+        description: [
+            {
+                header: 'About',
+                content: [
+                    'Integrated with Interactive Brokers and deployed on my personal server at home. Tracked market news and bought / sold based on a few personal business rules I came up with while analyzing the market. Mainly traded SPACs. No github link cause secret sauce :)',
+                ],
+            },
+        ],
+        technologies: ['Python', 'Postgresql'],
+        features: [
+            {
+                header: 'Automated Trades',
+                icon: AiFillRobot,
+                description: `Upon breaking news, the bot checks if prices have reacted to the news. This check looks at technical indicators to see if the stock is overbought during when news broke out. If not, set an IOC (immediate or cancel) order at an appropriate ask price (also determined by historical prices).`,
+            },
+            {
+                header: 'Sentiment Analysis',
+                icon: MdSentimentSatisfied,
+                description: `Based on sentiment on the security, I determine if it should be added on the trade watchlist.`,
+            },
+        ],
+        images: [
+            {
+                uuid: uuidv4(),
+                src: '/trading/ibkr-trade.jpg',
+                alt: '/trading/ibkr-trade.jpg',
+            },
+        ],
+        links: [],
     },
 ];

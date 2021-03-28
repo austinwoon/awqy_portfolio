@@ -5,9 +5,10 @@ import {
     SiGraphql,
     SiTerraform,
     SiSpring,
+    SiPython,
+    SiPostgresql,
 } from 'react-icons/si';
-import { Tag, TagLabel, Icon, Text } from '@chakra-ui/react';
-import { fontSizes } from '../../utils/styles';
+import { Tag, TagLabel, Icon, Text, Flex } from '@chakra-ui/react';
 
 const ICON_MAPPINGS = {
     Vue: { icon: FaVuejs, color: 'green.500' },
@@ -17,13 +18,15 @@ const ICON_MAPPINGS = {
     GraphQL: { icon: SiGraphql, color: 'pink.500' },
     Terraform: { icon: SiTerraform, color: 'blue.600' },
     Spring: { icon: SiSpring, color: 'green.600' },
+    Python: { icon: SiPython, color: 'blue.400' },
+    Postgresql: { icon: SiPostgresql, color: 'blue.400' },
 };
 
 const CustomTag = ({ tagName }) => {
     return (
-        <React.Fragment>
+        <Tag boxShadow="base">
             {ICON_MAPPINGS[tagName] ? (
-                <Tag>
+                <Flex>
                     <Icon
                         mr={1}
                         as={ICON_MAPPINGS[tagName].icon}
@@ -32,11 +35,11 @@ const CustomTag = ({ tagName }) => {
                     <TagLabel>
                         <Text>{tagName}</Text>
                     </TagLabel>
-                </Tag>
+                </Flex>
             ) : (
-                <Tag>{tagName}</Tag>
+                <Text>{tagName}</Text>
             )}
-        </React.Fragment>
+        </Tag>
     );
 };
 

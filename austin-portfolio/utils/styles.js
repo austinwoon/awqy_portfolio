@@ -1,4 +1,4 @@
-export const h1Sizes = ['xl', '3xl', '4xl', '5xl'];
+export const h1Sizes = ['2xl', '3xl', '4xl', '5xl'];
 export const h2Sizes = ['xl', 'xl', '2xl', '2xl'];
 export const h3Sizes = ['md', 'md', 'xl', 'xl'];
 export const fontSizes = ['sm', 'sm', 'md', 'lg'];
