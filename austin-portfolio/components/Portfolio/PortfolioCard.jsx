@@ -42,7 +42,7 @@ const PortfolioCard = ({
                 }}
                 bgColor={'brand.bgWhite'}
             >
-                <Box margin={'auto'} pb={'1'} pt={'1'}>
+                <Box mb={8} mt={8} boxShadow="lg">
                     <Img src={img} maxWidth={'100%'} />
                 </Box>
 
