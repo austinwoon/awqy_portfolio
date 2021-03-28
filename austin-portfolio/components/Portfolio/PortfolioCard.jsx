@@ -37,7 +37,11 @@ const PortfolioCard = ({
                 borderRadius={6}
                 border="1px solid rgba(211, 211, 211, 0.5)"
                 transition={'0.3s ease-in-out'}
-                _hover={{ boxShadow: '2xl', border: '3px solid lightblue' }}
+                _hover={{
+                    boxShadow: '2xl',
+                    border: '3px solid lightblue',
+                    zIndex: 100,
+                }}
                 style={{
                     cursor: 'pointer',
                 }}

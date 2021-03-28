@@ -77,7 +77,10 @@ const WorkModal = ({ onClose, isOpen }) => {
 
                             <Box mb="5">
                                 {workSelected.description.map((desc, i) => (
-                                    <Box mb={i !== desc.length - 1 ? 5 : 0}>
+                                    <Box
+                                        mb={i !== desc.length - 1 ? 5 : 0}
+                                        key={desc}
+                                    >
                                         <Heading mb={'3'} fontSize={h2Sizes}>
                                             {desc.header}
                                         </Heading>
@@ -135,7 +138,7 @@ const Description = ({ header, content }) => {
         <Flex direction={'column'} justify={'center'}>
             {content.map((line, i) => (
                 <Text
-                    key={line}
+                    key={line + 'description'}
                     fontSize={fontSizes}
                     align={'left'}
                     mb={i !== content.length - 1 ? 3 : 0}
