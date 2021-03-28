@@ -4,7 +4,7 @@ export const works = [
     {
         uuid: uuidv4(),
         title: 'FAEDAS Web Platform',
-        img: '/sadeaf/admin.png',
+        img: '/sadeaf/admin-panel.jpg',
         summary:
             'FAEDAS is an Events Matching platform that serves to automate the beneficiary-volunteer pairing process for the Singapore Deaf Association (SADeaf). It also serves as a single-source of truth for SADeaf’s administrative needs such as tracking of invoices,\n' +
             'feedbacks and event history.',
@@ -28,23 +28,48 @@ export const works = [
         images: [
             {
                 uuid: uuidv4(),
-                src: '/sadeaf/admin.png',
-                alt: '/sadeaf/admin.png',
+                src: '/sadeaf/admin-panel.jpg',
+                alt: '/sadeaf/admin-panel.jpg',
             },
             {
                 uuid: uuidv4(),
-                src: '/sadeaf/Rocky_balboa.jpeg',
-                alt: '/sadeaf/Rocky_balboa.jpeg',
+                src: '/sadeaf/admin-dashboard.jpg',
+                alt: '/sadeaf/admin-dashboard.jpg',
             },
             {
                 uuid: uuidv4(),
-                src: '/sadeaf/download.jpeg',
-                alt: '/sadeaf/download.jpeg',
+                src: '/sadeaf/admin-user-management.jpg',
+                alt: '/sadeaf/admin-user-management.jpg',
             },
             {
                 uuid: uuidv4(),
-                src: '/sadeaf/1800.jpeg',
-                alt: '/sadeaf/1800.jpeg',
+                src: '/sadeaf/client-create-assignment.jpg',
+                alt: '/sadeaf/client-create-assignment.jpg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/client-give-feedback.jpg',
+                alt: '/sadeaf/client-give-feedback.jpg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/user-profile-view.jpg',
+                alt: '/sadeaf/user-profile-view.jpg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/client-calendar-view.jpg',
+                alt: '/sadeaf/client-calendar-view.jpg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/client-blacklist.jpg',
+                alt: '/sadeaf/client-blacklist.jpg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/sadeaf/volunteer-view.jpg',
+                alt: '/sadeaf/volunteer-view.jpg',
             },
         ],
         links: [
