@@ -33,10 +33,11 @@ const PortfolioCard = ({
             <Flex
                 direction={'column'}
                 padding={'5%'}
-                boxShadow={'base'}
+                boxShadow={'xl'}
                 borderRadius={6}
+                border="1px solid rgba(211, 211, 211, 0.5)"
                 transition={'0.3s ease-in-out'}
-                _hover={{ boxShadow: 'lg', border: '1px solid lightgray' }}
+                _hover={{ boxShadow: '2xl', border: '3px solid lightblue' }}
                 style={{
                     cursor: 'pointer',
                 }}

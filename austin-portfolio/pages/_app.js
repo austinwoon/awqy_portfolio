@@ -16,6 +16,11 @@ const theme = extendTheme({
                 color: '#425466',
             },
         },
+        Divider: {
+            baseStyle: {
+                borderColor: '#e4e3e5',
+            },
+        },
         Code: {
             baseStyle: {
                 fontSize: '16px',
