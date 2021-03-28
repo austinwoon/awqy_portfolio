@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Flex, Divider, Img, Code } from '@chakra-ui/react';
 import MotionBox from '../FramerMotion/MotionBox';
 import Console from './Console';
-import { loadingEntryProps } from '../../constants/framerMotion';
+import { loadingEntryProps } from '../../utils/framerMotionStyles';
 import Name from './Name';
 import { ArrowDownIcon } from '@chakra-ui/icons';
 import { Link as LinkSmoothScroll } from 'react-scroll';
