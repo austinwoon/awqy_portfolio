@@ -29,13 +29,21 @@ const imageScaleIncrement = 1.3;
 const imageWidthSizes = {
     sm: 150,
     md: 200,
-    lg: 250,
-    xl: 300,
+    lg: 350,
+    xl: 450,
+};
+
+const carouselTransformLeftRight = {
+    desktop: { left: -0.65, right: 0.65 },
+    mobile: { left: -0.45, right: 0.45 },
 };
 
 const ImageCarousel = ({ images }) => {
     const { isMobile } = React.useContext(MediaQueryContext);
-
+    const [shiftImagesX, setShiftImagesX] = React.useState({
+        left: carouselTransformLeftRight.desktop.left,
+        right: carouselTransformLeftRight.desktop.right,
+    });
     const [variants, setVariants] = React.useState({
         rightClick: {
             opacity: 0.5,
@@ -53,21 +61,21 @@ const ImageCarousel = ({ images }) => {
             x: '0%',
         },
         left: {
-            x: '-100%',
+            x: carouselTransformLeftRight.desktop.left,
             opacity: 0.3,
             boxShadow: '0 6px 20px 0 rgba(0, 0, 0, 0.19)',
         },
         right: {
-            x: '100%',
+            x: carouselTransformLeftRight.desktop.right,
             opacity: 0.3,
             boxShadow: '0 6px 20px 0 rgba(0, 0, 0, 0.19)',
         },
     });
     // TODO: Handle < 3 images
     const [positions, setPositions] = React.useState({
-        left: 0,
-        middle: 1,
-        right: 2,
+        left: images.length - 1,
+        middle: 0,
+        right: 1,
     });
 
     const [isSmallerThan1370] = useMediaQuery(['(max-width: 1370px)']);
@@ -141,28 +149,31 @@ const ImageCarousel = ({ images }) => {
     };
 
     React.useEffect(() => {
-        let [transformXLeft, transformXRight] = ['-100%', '100%'];
+        let { left, right } = carouselTransformLeftRight.desktop;
         if (isSmallerThan1370) {
-            [transformXLeft, transformXRight] = ['-60%', '60%'];
+            left = carouselTransformLeftRight.mobile.left;
+            right = carouselTransformLeftRight.mobile.right;
         }
 
         setVariants((variants) => ({
             ...variants,
             ['left']: {
                 ...variants.left,
-                x: transformXLeft,
+                x: left.toLocaleString('en', { style: 'percent' }),
             },
             ['right']: {
                 ...variants.right,
-                x: transformXRight,
+                x: right.toLocaleString('en', { style: 'percent' }),
             },
         }));
+
+        setShiftImagesX({ left, right });
     }, [isSmallerThan1370]);
 
     return (
         <Flex direction={'column'} justify={'center'} align={'center'}>
             <Flex justify={'center'} align={'center'}>
-                {!isMobile && (
+                {!isMobile && images.length > 1 && (
                     <MotionBox {...tapBounceStyle} whileHover={{ x: -5 }}>
                         <IconButton
                             aria-label={'chevron-left'}
@@ -177,10 +188,26 @@ const ImageCarousel = ({ images }) => {
                     justify={'center'}
                     align={'center'}
                     height={[
-                        `${imageWidthSizes['sm'] * imageScaleIncrement}px`,
-                        `${imageWidthSizes['md'] * imageScaleIncrement}px`,
-                        `${imageWidthSizes['lg'] * imageScaleIncrement}px`,
-                        `${imageWidthSizes['xl'] * imageScaleIncrement}px`,
+                        `${
+                            (imageWidthSizes['sm'] / 16) *
+                            9 *
+                            imageScaleIncrement
+                        }px`,
+                        `${
+                            (imageWidthSizes['md'] / 16) *
+                            9 *
+                            imageScaleIncrement
+                        }px`,
+                        `${
+                            (imageWidthSizes['lg'] / 16) *
+                            9 *
+                            imageScaleIncrement
+                        }px`,
+                        `${
+                            (imageWidthSizes['xl'] / 16) *
+                            9 *
+                            imageScaleIncrement
+                        }px`,
                     ]}
                     width={isMobile ? '95vw' : '60vw'}
                     maxWidth={[
@@ -207,10 +234,10 @@ const ImageCarousel = ({ images }) => {
                                 src={image.src}
                                 alt={image.alt}
                                 height={[
-                                    `${(imageWidthSizes['sm'] / 4) * 3}px`,
-                                    `${(imageWidthSizes['md'] / 4) * 3}px`,
-                                    `${(imageWidthSizes['lg'] / 4) * 3}px`,
-                                    `${(imageWidthSizes['xl'] / 4) * 3}px`,
+                                    `${(imageWidthSizes['sm'] / 16) * 9}px`,
+                                    `${(imageWidthSizes['md'] / 16) * 9}px`,
+                                    `${(imageWidthSizes['lg'] / 16) * 9}px`,
+                                    `${(imageWidthSizes['xl'] / 16) * 9}px`,
                                 ]}
                                 width={[
                                     `${imageWidthSizes['sm']}px`,
@@ -220,6 +247,7 @@ const ImageCarousel = ({ images }) => {
                                 ]}
                                 style={{
                                     cursor: 'pointer',
+                                    imageRendering: 'crisp-edges',
                                 }}
                                 objectFit={'cover'}
                                 onClick={() => handleClickImage(i)}
@@ -227,7 +255,7 @@ const ImageCarousel = ({ images }) => {
                         </MotionBox>
                     ))}
                 </Flex>
-                {!isMobile && (
+                {!isMobile && images.length > 1 && (
                     <MotionBox {...tapBounceStyle} whileHover={{ x: 5 }}>
                         <IconButton
                             aria-label={'chevron-right'}

@@ -11,15 +11,17 @@ import {
     Divider,
     Heading,
     Link,
+    Box,
     Icon,
+    Wrap,
+    WrapItem,
 } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
-import { FaGithub } from 'react-icons/fa';
-import MotionBox from '../FramerMotion/MotionBox';
-import { fontSizes, headingSizes } from '../../utils/fontSizes';
-import { hoverStyle, tapBounceStyle } from '../../utils/framerMotionStyles';
+import { fontSizes, h1Sizes, h2Sizes, h3Sizes } from '../../utils/styles';
+import Features from './Features';
+import CustomTag from '../Portfolio/CustomTag';
+import LinkIcon from '../LinkIcon/LinkIcon';
 
 const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
@@ -35,16 +37,13 @@ const WorkModal = ({ onClose, isOpen }) => {
                         direction={'column'}
                         mt={'5vh'}
                     >
-                        <Heading
-                            color="blue.700"
-                            mb={'2vh'}
-                            fontSize={headingSizes}
-                        >
+                        <Heading color="blue.700" mb={'2vh'} fontSize={h1Sizes}>
                             {workSelected.title}
                         </Heading>
+
                         <Flex justify={'center'} align={'center'}>
                             {workSelected.links.map((linkInfo, i) => (
-                                <React.Fragment key={linkInfo.link + i}>
+                                <Box key={linkInfo.link + i} mr="10" ml="10">
                                     <LinkIcon
                                         {...linkInfo}
                                         mrStyle={
@@ -58,7 +57,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                                             ]
                                         }
                                     />
-                                </React.Fragment>
+                                </Box>
                             ))}
                         </Flex>
                     </Flex>
@@ -69,14 +68,64 @@ const WorkModal = ({ onClose, isOpen }) => {
                 <ModalBody>
                     <Flex direction={'column'}>
                         <ImageCarousel images={workSelected.images} />
-                        <Divider margin="2vh auto 2vh auto" maxWidth={'50vw'} />
-                        {workSelected.description.map((desc) => (
-                            <Description
-                                key={desc.header + workSelected.uuid}
-                                header={desc.header}
-                                desc={desc.content}
-                            />
-                        ))}
+
+                        <Box
+                            ml={['1vw', '1vw', '15vw', '20vw']}
+                            mr={['1vw', '1vw', '15vw', '20vw']}
+                        >
+                            <Divider mt="5" mb="5" />
+
+                            <Box mb="5">
+                                {workSelected.description.map((desc, i) => (
+                                    <Box
+                                        mb={i !== desc.length - 1 ? 5 : 0}
+                                        key={desc}
+                                    >
+                                        <Heading mb={'3'} fontSize={h2Sizes}>
+                                            {desc.header}
+                                        </Heading>
+
+                                        {desc.header === 'About' && (
+                                            <Wrap
+                                                direction={'row'}
+                                                wrap={'wrap'}
+                                                mb={'3'}
+                                            >
+                                                {workSelected.technologies.map(
+                                                    (name) => (
+                                                        <WrapItem
+                                                            key={
+                                                                name +
+                                                                workSelected.title
+                                                            }
+                                                        >
+                                                            <CustomTag
+                                                                tagName={name}
+                                                            />
+                                                        </WrapItem>
+                                                    )
+                                                )}
+                                            </Wrap>
+                                        )}
+
+                                        <Description
+                                            key={
+                                                desc.header + workSelected.uuid
+                                            }
+                                            header={desc.header}
+                                            content={desc.content}
+                                        />
+                                    </Box>
+                                ))}
+                            </Box>
+
+                            <Heading fontSize={h2Sizes} mb="3">
+                                Highlighted Features
+                            </Heading>
+                            <Box mb="5">
+                                <Features features={workSelected.features} />
+                            </Box>
+                        </Box>
                     </Flex>
                 </ModalBody>
             </ModalContent>
@@ -84,51 +133,19 @@ const WorkModal = ({ onClose, isOpen }) => {
     );
 };
 
-const LinkIcon = ({ logo, link, mrStyle }) => {
-    const getButton = (logo) => {
-        if (logo === 'Github') {
-            return (
-                <Icon
-                    color="blue.400"
-                    boxSize={['30px', '40px', '40px', '50px']}
-                    as={FaGithub}
-                />
-            );
-        }
-        return (
-            <ExternalLinkIcon
-                color="blue.400"
-                boxSize={['30px', '40px', '40px', '50px']}
-            />
-        );
-    };
+const Description = ({ header, content }) => {
     return (
-        <Link
-            isExternal
-            _focus={{
-                border: '0px',
-            }}
-            href={link}
-            mr={mrStyle}
-        >
-            <MotionBox {...hoverStyle} {...tapBounceStyle}>
-                {getButton(logo)}
-            </MotionBox>
-        </Link>
-    );
-};
-
-const Description = ({ header, desc }) => {
-    return (
-        <Flex mb="5" direction={'column'} align={'center'} justify={'center'}>
-            <Heading mb={'5'}>{header}</Heading>
-            <Text
-                fontSize={fontSizes}
-                maxWidth={['100vw', '100vw', '50vw', '50vw']}
-                align={'justify'}
-            >
-                {desc}
-            </Text>
+        <Flex direction={'column'} justify={'center'}>
+            {content.map((line, i) => (
+                <Text
+                    key={line + 'description'}
+                    fontSize={fontSizes}
+                    align={'left'}
+                    mb={i !== content.length - 1 ? 3 : 0}
+                >
+                    {line}
+                </Text>
+            ))}
         </Flex>
     );
 };

@@ -13,7 +13,7 @@ const boxStyles = {
     pb: '1',
     pt: '1',
 };
-const DesktopMenu = () => {
+export const DesktopMenu = () => {
     return (
         <Stack direction={'row'}>
             <HoverLink
@@ -21,6 +21,7 @@ const DesktopMenu = () => {
                 fontStyles={fontStyles}
                 content={'About'}
                 scrollId={'about'}
+                scrollOffset={-100}
             />
 
             <HoverLink

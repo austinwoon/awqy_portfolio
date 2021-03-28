@@ -11,7 +11,7 @@ import {
     WrapItem,
 } from '@chakra-ui/react';
 import CustomTag from './CustomTag';
-import { fontSizes } from '../../utils/fontSizes';
+import { fontSizes, h2Sizes } from '../../utils/styles';
 import MotionBox from '../FramerMotion/MotionBox';
 import { tapBounceStyle, hoverStyle } from '../../utils/framerMotionStyles';
 
@@ -33,20 +33,25 @@ const PortfolioCard = ({
             <Flex
                 direction={'column'}
                 padding={'5%'}
-                boxShadow={'base'}
+                boxShadow={'xl'}
                 borderRadius={6}
+                border="1px solid rgba(211, 211, 211, 0.5)"
                 transition={'0.3s ease-in-out'}
-                _hover={{ boxShadow: 'lg', border: '1px solid lightgray' }}
+                _hover={{
+                    boxShadow: '2xl',
+                    border: '3px solid lightblue',
+                    zIndex: 100,
+                }}
                 style={{
                     cursor: 'pointer',
                 }}
                 bgColor={'brand.bgWhite'}
             >
-                <Box margin={'auto'} pb={'1'} pt={'1'}>
-                    <Img src={img} maxWidth={'100%'} />
+                <Box mb={'5%'} boxShadow="lg">
+                    <Img src={img} maxWidth={'100%'} objectFit="cover" />
                 </Box>
 
-                <Wrap direction={'row'} wrap={'wrap'} pb={'1'} pt={'1'}>
+                <Wrap direction={'row'} wrap={'wrap'} pb={'2'} pt={'1'}>
                     {technologies.map((name) => (
                         <WrapItem key={name + title}>
                             <CustomTag tagName={name} />
@@ -54,13 +59,11 @@ const PortfolioCard = ({
                     ))}
                 </Wrap>
 
-                <Box mb={'2%'} mt={'2%'}>
-                    <Heading fontSize={['xl', 'xl', '3xl', '3xl']}>
-                        {title}
-                    </Heading>
+                <Box>
+                    <Heading fontSize={h2Sizes}>{title}</Heading>
                 </Box>
 
-                <Box mb={'2%'} mt={'2%'}>
+                <Box mb={'2'} mt={'2'}>
                     <Text align={'justify'} fontSize={fontSizes}>
                         {summary}
                     </Text>

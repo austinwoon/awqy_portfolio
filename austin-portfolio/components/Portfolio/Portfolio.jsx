@@ -4,14 +4,21 @@ import {
     Heading,
     Flex,
     useDisclosure,
-    Wrap,
-    WrapItem,
+    Grid,
+    SimpleGrid,
 } from '@chakra-ui/react';
 import PortfolioCard from './PortfolioCard';
 import { works } from '../../constants/works';
 import WorkModal from '../WorkModal/WorkModal';
 import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
-import { headingSizes } from '../../utils/fontSizes';
+import { h1Sizes } from '../../utils/styles';
+
+const gridOptions = [
+    { gap: 20, width: 300 },
+    { gap: 20, width: 300 },
+    { gap: 30, width: 400 },
+    { gap: 20, width: 500 },
+];
 
 const Portfolio = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -30,39 +37,30 @@ const Portfolio = () => {
                     setWork: setWorkSelected,
                 }}
             >
-                <Box>
-                    <Flex
-                        direction={'column'}
-                        justify={'center'}
-                        align={'center'}
-                    >
-                        <Heading fontSize={headingSizes} pt={10} pb={10}>
-                            Portfolio
-                        </Heading>
+                <Flex direction={'column'} align={'center'}>
+                    <Heading fontSize={h1Sizes} pt={10} pb={10}>
+                        Portfolio
+                    </Heading>
 
-                        <Wrap
-                            spacing={['5%', '4%', '2.5%', '2.5%']}
-                            w={['95vw', '95vw', '80vw', '80vw']}
-                            justify={'center'}
-                            align={'center'}
-                        >
-                            {works.map((work) => (
-                                <WrapItem
-                                    key={work.uuid}
-                                    w={['300px', '300px', '500px', '500px']}
-                                >
-                                    <PortfolioCard
-                                        img={work.img}
-                                        title={work.title}
-                                        summary={work.summary}
-                                        technologies={work.technologies}
-                                        onOpen={() => handleViewMoreClick(work)}
-                                    />
-                                </WrapItem>
-                            ))}
-                        </Wrap>
-                    </Flex>
-                </Box>
+                    <SimpleGrid
+                        autoRows
+                        gap={gridOptions.map((o) => `${o.gap}px`)}
+                        w={['85vw', '85vw', '70vw', '70vw']}
+                        minChildWidth={gridOptions.map((o) => `${o.width}px`)}
+                    >
+                        {works.map((work) => (
+                            <Box key={work.uuid}>
+                                <PortfolioCard
+                                    img={work.img}
+                                    title={work.title}
+                                    summary={work.summary}
+                                    technologies={work.technologies}
+                                    onOpen={() => handleViewMoreClick(work)}
+                                />
+                            </Box>
+                        ))}
+                    </SimpleGrid>
+                </Flex>
 
                 <WorkModal
                     workSelected={workSelected}

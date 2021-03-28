@@ -18,7 +18,7 @@ export default function Home() {
     return (
         <MediaQueryContext.Provider value={{ isMobile }}>
             <Head>
-                <title>Austin Portfolio</title>
+                <title>Austin Woon Quan Portfolio</title>
             </Head>
             <Box bgGradient="linear-gradient(190deg, brand.bgWhite, hsla(0,0%,45%,0) 80%)">
                 <DynamicNavbar />

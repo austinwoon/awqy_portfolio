@@ -2,7 +2,7 @@ import { Code, Flex } from '@chakra-ui/react';
 import { FaChevronRight } from 'react-icons/fa';
 import { GoTriangleRight } from 'react-icons/go';
 
-const Logo = () => (
+export const Logo = () => (
     <Flex
         align={'center'}
         justify={'center'}

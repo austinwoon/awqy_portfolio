@@ -3,7 +3,7 @@ import '../styles/globals.css';
 
 const theme = extendTheme({
     colors: {
-        brand: { bgWhite: '#FAFAFF' },
+        brand: { bgWhite: '#FAFAFF', purple: '#7A73FF' },
     },
     components: {
         Heading: {
@@ -14,6 +14,11 @@ const theme = extendTheme({
         Text: {
             baseStyle: {
                 color: '#425466',
+            },
+        },
+        Divider: {
+            baseStyle: {
+                borderColor: '#e4e3e5',
             },
         },
         Code: {
