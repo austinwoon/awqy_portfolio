@@ -9,7 +9,7 @@ import {
 import { BsPeopleFill } from 'react-icons/bs';
 import { GiKnapsack } from 'react-icons/gi';
 import { MdSentimentSatisfied } from 'react-icons/md';
-import { BiMapPin } from 'react-icons/Bi';
+import { BiMapPin } from 'react-icons/bi';
 
 export const works = [
     {
