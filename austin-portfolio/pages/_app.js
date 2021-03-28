@@ -3,7 +3,7 @@ import '../styles/globals.css';
 
 const theme = extendTheme({
     colors: {
-        brand: { bgWhite: '#FAFAFF' },
+        brand: { bgWhite: '#FAFAFF', purple: '#7A73FF' },
     },
     components: {
         Heading: {

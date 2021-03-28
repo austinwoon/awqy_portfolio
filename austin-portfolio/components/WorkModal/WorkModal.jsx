@@ -11,6 +11,7 @@ import {
     Divider,
     Heading,
     Link,
+    Box,
     Icon,
 } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
@@ -18,8 +19,9 @@ import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
 import { FaGithub } from 'react-icons/fa';
 import MotionBox from '../FramerMotion/MotionBox';
-import { fontSizes, headingSizes } from '../../utils/fontSizes';
+import { fontSizes, h1Sizes, h2Sizes, h3Sizes } from '../../utils/styles';
 import { hoverStyle, tapBounceStyle } from '../../utils/framerMotionStyles';
+import Features from './Features';
 
 const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
@@ -35,11 +37,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                         direction={'column'}
                         mt={'5vh'}
                     >
-                        <Heading
-                            color="blue.700"
-                            mb={'2vh'}
-                            fontSize={headingSizes}
-                        >
+                        <Heading color="blue.700" mb={'2vh'} fontSize={h1Sizes}>
                             {workSelected.title}
                         </Heading>
                         <Flex justify={'center'} align={'center'}>
@@ -69,14 +67,27 @@ const WorkModal = ({ onClose, isOpen }) => {
                 <ModalBody>
                     <Flex direction={'column'}>
                         <ImageCarousel images={workSelected.images} />
-                        <Divider margin="2vh auto 2vh auto" maxWidth={'50vw'} />
-                        {workSelected.description.map((desc) => (
-                            <Description
-                                key={desc.header + workSelected.uuid}
-                                header={desc.header}
-                                desc={desc.content}
-                            />
-                        ))}
+
+                        <Box
+                            ml={['1vw', '1vw', '15vw', '20vw']}
+                            mr={['1vw', '1vw', '15vw', '20vw']}
+                        >
+                            <Divider mt="2vh" mb="2vh" />
+                            {workSelected.description.map((desc) => (
+                                <Description
+                                    key={desc.header + workSelected.uuid}
+                                    header={desc.header}
+                                    content={desc.content}
+                                />
+                            ))}
+
+                            <Heading fontSize={h2Sizes} mb="5">
+                                Highlighted Features
+                            </Heading>
+                            <Box mb="5">
+                                <Features features={workSelected.features} />
+                            </Box>
+                        </Box>
                     </Flex>
                 </ModalBody>
             </ModalContent>
@@ -118,17 +129,22 @@ const LinkIcon = ({ logo, link, mrStyle }) => {
     );
 };
 
-const Description = ({ header, desc }) => {
+const Description = ({ header, content }) => {
     return (
-        <Flex mb="5" direction={'column'} align={'center'} justify={'center'}>
-            <Heading mb={'5'}>{header}</Heading>
-            <Text
-                fontSize={fontSizes}
-                maxWidth={['100vw', '100vw', '50vw', '50vw']}
-                align={'justify'}
-            >
-                {desc}
-            </Text>
+        <Flex mb="5" direction={'column'} justify={'center'}>
+            <Heading mb={'5'} fontSize={h2Sizes}>
+                {header}
+            </Heading>
+            {content.map((line) => (
+                <Text
+                    key={line}
+                    fontSize={fontSizes}
+                    align={'left'}
+                    mb={[3, 3, 4, 4]}
+                >
+                    {line}
+                </Text>
+            ))}
         </Flex>
     );
 };

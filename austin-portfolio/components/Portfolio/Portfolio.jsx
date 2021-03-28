@@ -11,7 +11,7 @@ import PortfolioCard from './PortfolioCard';
 import { works } from '../../constants/works';
 import WorkModal from '../WorkModal/WorkModal';
 import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
-import { headingSizes } from '../../utils/fontSizes';
+import { h1Sizes } from '../../utils/styles';
 
 const Portfolio = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,7 +36,7 @@ const Portfolio = () => {
                         justify={'center'}
                         align={'center'}
                     >
-                        <Heading fontSize={headingSizes} pt={10} pb={10}>
+                        <Heading fontSize={h1Sizes} pt={10} pb={10}>
                             Portfolio
                         </Heading>
 

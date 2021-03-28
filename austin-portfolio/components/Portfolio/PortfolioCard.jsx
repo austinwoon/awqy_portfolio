@@ -11,7 +11,7 @@ import {
     WrapItem,
 } from '@chakra-ui/react';
 import CustomTag from './CustomTag';
-import { fontSizes } from '../../utils/fontSizes';
+import { fontSizes } from '../../utils/styles';
 import MotionBox from '../FramerMotion/MotionBox';
 import { tapBounceStyle, hoverStyle } from '../../utils/framerMotionStyles';
 
@@ -42,8 +42,8 @@ const PortfolioCard = ({
                 }}
                 bgColor={'brand.bgWhite'}
             >
-                <Box mb={8} mt={8} boxShadow="lg">
-                    <Img src={img} maxWidth={'100%'} />
+                <Box mb={'5%'} boxShadow="lg">
+                    <Img src={img} maxWidth={'100%'} objectFit="cover" />
                 </Box>
 
                 <Wrap direction={'row'} wrap={'wrap'} pb={'1'} pt={'1'}>

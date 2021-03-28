@@ -1,4 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
+import {
+    AiFillLock,
+    AiFillNotification,
+    AiFillCustomerService,
+} from 'react-icons/ai';
+import { BsPeopleFill } from 'react-icons/Bs';
 
 export const works = [
     {
@@ -11,20 +17,45 @@ export const works = [
         description: [
             {
                 header: 'Summary',
-                content:
-                    `Our team of six developed a DevOps enabled web platform acted as a CRM and ERP system for our Final Year Project.` +
-                    'FAEDAS is an Events Matching platform that serves to automate the beneficiary-volunteer pairing process for the Singapore Deaf Association (SADeaf). It also serves as a single-source of truth for SADeaf’s administrative needs such as tracking of invoices,\n' +
-                    'feedbacks and event history.' +
-                    `I was mainly involved in the developement of full-stack product features`,
+                content: [
+                    `Our team of six developed a DevOps enabled web platform acted as a CRM and ERP system for our Final Year Project. ` +
+                        `FAEDAS is an Events Matching platform that serves to automate the beneficiary-volunteer pairing process for the Singapore Deaf Association (SADeaf).`,
+                    `It also serves as a single-source of truth for SADeaf’s administrative needs such as tracking of invoices, feedbacks and event history. I was mainly involved in the developement of full-stack product features`,
+                ],
             },
             {
                 header: 'Github Pipeline',
-                content:
-                    'FAEDAS is an Events Matching platform that serves to automate the beneficiary-volunteer pairing process for the Singapore Deaf Association (SADeaf). It also serves as a single-source of truth for SADeaf’s administrative needs such as tracking of invoices,\n' +
-                    'feedbacks and event history.',
+                content: [
+                    `Our team of six developed a DevOps enabled web platform acted as a CRM and ERP system for our Final Year Project.` +
+                        `FAEDAS is an Events Matching platform that serves to automate the beneficiary-volunteer pairing process for the Singapore Deaf Association (SADeaf).`,
+                    `It also serves as a single-source of truth for SADeaf’s administrative needs such as tracking of invoices, feedbacks and event history. I was mainly involved in the developement of full-stack product features`,
+                ],
             },
         ],
         technologies: ['Vue', 'AWS', 'Terraform', 'Github Actions', 'GraphQL'],
+        features: [
+            {
+                header: 'Authentication',
+                icon: AiFillLock,
+                description:
+                    'Users are able to register on the portal as clients or volunteers, subject to the SADeaf administrators’ approvals. Authentication and authorization on the application is feature-complete - email verification, password resets and easily configurable role-based permissions.',
+            },
+            {
+                header: 'Service Management Request',
+                icon: AiFillCustomerService,
+                description: `Handles the start-to-end service (note-taking and interpretation) request process from creation to completion. Clients and volunteers are able to keep track of their service requests easily in a simple calendar while SADeaf administrators can view the service requests of all clients on an operations dashboard.`,
+            },
+            {
+                header: 'Notification',
+                icon: AiFillNotification,
+                description: `Event-based system to send critical updates to clients and volunteers via Telegram and Email. Users are able to customise notification preferences to control what types of notifications are pushed to them.`,
+            },
+            {
+                header: 'Client and Volunteer Management',
+                icon: BsPeopleFill,
+                description: `Clients and Volunteers are able to create profiles. SADeaf administrators can approve or reject new client and volunteer sign-ups and view the profile information, history and activities of individual users.`,
+            },
+        ],
         images: [
             {
                 uuid: uuidv4(),

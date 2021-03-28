@@ -7,6 +7,7 @@ import { DesktopMenu } from './DesktopMenu';
 import { Logo } from '../Logo/Logo';
 import { tapBounceStyle, hoverStyle } from '../../utils/framerMotionStyles';
 import MotionBox from '../FramerMotion/MotionBox';
+import { glassMorphism } from '../../utils/styles';
 
 const fontStyles = {
     color: 'blue.900',
@@ -38,10 +39,7 @@ const Navbar = () => {
             style={
                 scrolled
                     ? {
-                          backdropFilter: 'blur(17.5px)',
-                          backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                          WebkitBackdropFilter: 'blur(17.5px)',
-                          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+                          ...glassMorphism,
                           borderBottom: '1px solid (255, 255, 255, 0.18)',
                       }
                     : {}

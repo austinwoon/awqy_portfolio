@@ -6,7 +6,8 @@ import {
     SiTerraform,
     SiSpring,
 } from 'react-icons/si';
-import { Tag, TagLabel, Icon } from '@chakra-ui/react';
+import { Tag, TagLabel, Icon, Text } from '@chakra-ui/react';
+import { fontSizes } from '../../utils/styles';
 
 const ICON_MAPPINGS = {
     Vue: { icon: FaVuejs, color: 'green.500' },
@@ -28,7 +29,9 @@ const CustomTag = ({ tagName }) => {
                         as={ICON_MAPPINGS[tagName].icon}
                         color={ICON_MAPPINGS[tagName].color}
                     />
-                    <TagLabel>{tagName}</TagLabel>
+                    <TagLabel>
+                        <Text>{tagName}</Text>
+                    </TagLabel>
                 </Tag>
             ) : (
                 <Tag>{tagName}</Tag>
