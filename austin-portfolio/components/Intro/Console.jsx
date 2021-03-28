@@ -2,8 +2,8 @@ import React from 'react';
 import { Flex, Text, Box, Code, Stack, Link } from '@chakra-ui/react';
 import MotionBox from '../FramerMotion/MotionBox';
 import { cursorBlinkTimeInterval } from '../../constants/introduction';
-import { loadingEntryProps } from '../../utils/framerMotionStyles';
 import { v4 as uuidv4 } from 'uuid';
+import { loadingEntryStyle } from '../../utils/framerMotionStyles';
 
 const terminalText = [
     {
@@ -91,11 +91,10 @@ const Console = ({ ...props }) => {
 
     return (
         <MotionBox
-            {...loadingEntryProps}
+            {...loadingEntryStyle}
             maxW={['100vw', '100vw', '60vw', '75vw']}
             boxShadow={'xl'}
             position={'relative'}
-            opacity={0}
         >
             <Flex
                 h={[6, 6, 9, 9]}

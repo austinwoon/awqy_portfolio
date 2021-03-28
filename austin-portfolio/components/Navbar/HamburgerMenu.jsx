@@ -12,7 +12,7 @@ const mobileMenuFontStyles = {
     fontSize: ['4xl', '4xl', '6xl', '6xl'],
 };
 
-const HamburgerMenu = () => {
+export const HamburgerMenu = () => {
     const [isMenuOpen, setMenuOpen] = React.useState(false);
     const scrollToAbout = () => {
         toggleMenuOpen();

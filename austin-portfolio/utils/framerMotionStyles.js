@@ -17,7 +17,7 @@ export const hoverStyle = {
     },
 };
 
-export const loadingEntryProps = {
+export const loadingEntryStyle = {
     initial: {
         scale: 0,
         opacity: 0,
