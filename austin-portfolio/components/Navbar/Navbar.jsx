@@ -93,7 +93,13 @@ const Navbar = () => {
                 </Flex>
             </Stack>
 
-            <Box>{!isMobile ? <DesktopMenu /> : <HamburgerMenu />}</Box>
+            {!isMobile ? (
+                <Box overflow="hidden">
+                    <DesktopMenu />
+                </Box>
+            ) : (
+                <HamburgerMenu />
+            )}
         </Flex>
     );
 };
