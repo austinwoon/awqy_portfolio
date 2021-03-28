@@ -6,7 +6,7 @@ import {
     AiFillRobot,
     Z,
 } from 'react-icons/ai';
-import { BsPeopleFill } from 'react-icons/Bs';
+import { BsPeopleFill } from 'react-icons/bs';
 import { GiKnapsack } from 'react-icons/gi';
 import { MdSentimentSatisfied } from 'react-icons/md';
 import { BiMapPin } from 'react-icons/Bi';

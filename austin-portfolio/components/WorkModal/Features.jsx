@@ -11,13 +11,6 @@ import {
     Divider,
 } from '@chakra-ui/react';
 import React from 'react';
-import { FaLock } from 'react-icons/fa';
-import {
-    AiFillCustomerService,
-    AiFillLock,
-    AiFillNotification,
-} from 'react-icons/Ai';
-import { BsPeopleFill } from 'react-icons/bs';
 import {
     h2Sizes,
     h3Sizes,
