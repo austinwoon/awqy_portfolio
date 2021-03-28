@@ -60,7 +60,9 @@ const PortfolioCard = ({
                 </Wrap>
 
                 <Box>
-                    <Heading fontSize={h2Sizes}>{title}</Heading>
+                    <Heading fontSize={h2Sizes} fontWeight="semibold">
+                        {title}
+                    </Heading>
                 </Box>
 
                 <Box mb={'2'} mt={'2'}>

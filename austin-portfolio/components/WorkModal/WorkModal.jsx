@@ -81,7 +81,11 @@ const WorkModal = ({ onClose, isOpen }) => {
                                         mb={i !== desc.length - 1 ? 5 : 0}
                                         key={desc}
                                     >
-                                        <Heading mb={'3'} fontSize={h2Sizes}>
+                                        <Heading
+                                            mb={'3'}
+                                            fontWeight="semibold"
+                                            fontSize={h2Sizes}
+                                        >
                                             {desc.header}
                                         </Heading>
 
@@ -112,14 +116,17 @@ const WorkModal = ({ onClose, isOpen }) => {
                                             key={
                                                 desc.header + workSelected.uuid
                                             }
-                                            header={desc.header}
                                             content={desc.content}
                                         />
                                     </Box>
                                 ))}
                             </Box>
 
-                            <Heading fontSize={h2Sizes} mb="3">
+                            <Heading
+                                fontSize={h2Sizes}
+                                mb="3"
+                                fontWeight="semibold"
+                            >
                                 Highlighted Features
                             </Heading>
                             <Box mb="5">
@@ -133,7 +140,7 @@ const WorkModal = ({ onClose, isOpen }) => {
     );
 };
 
-const Description = ({ header, content }) => {
+const Description = ({ content }) => {
     return (
         <Flex direction={'column'} justify={'center'}>
             {content.map((line, i) => (
