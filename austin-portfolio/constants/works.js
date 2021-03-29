@@ -264,5 +264,6 @@ export const works = [
                 link: 'https://youtu.be/Ctmi1kqyCas',
             },
         ],
+        links: [],
     },
 ];
