@@ -31,6 +31,14 @@ export const HamburgerMenu = () => {
         });
     };
 
+    const scrollToContact = () => {
+        toggleMenuOpen();
+        scroller.scrollTo('contact', {
+            smooth: true,
+            duration: 500,
+        });
+    };
+
     const colSpacing = [4, 4, 7, 7];
 
     const variants = {
@@ -55,7 +63,7 @@ export const HamburgerMenu = () => {
             <AnimatePresence>
                 {isMenuOpen && (
                     <MotionBox
-                        bgColor={'brand.bgWhite'}
+                        bgColor={'brand.bgPrimary'}
                         alignItems={'center'}
                         justifyContent={'center'}
                         display={'flex'}
@@ -112,7 +120,7 @@ export const HamburgerMenu = () => {
                                 fontStyles={mobileMenuFontStyles}
                                 content={'Contact'}
                                 hoverHeight={'1em'}
-                                href={'mailto:austinwoonquanyi@gmail.com'}
+                                onClick={scrollToContact}
                             />
                         </Box>
                     </MotionBox>

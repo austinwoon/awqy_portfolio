@@ -8,6 +8,7 @@ import { Logo } from '../Logo/Logo';
 import { tapBounceStyle, hoverStyle } from '../../utils/framerMotionStyles';
 import MotionBox from '../FramerMotion/MotionBox';
 import { glassMorphism } from '../../utils/styles';
+import Contact from '../Contact/Contact';
 
 const fontStyles = {
     color: 'blue.900',
@@ -62,35 +63,7 @@ const Navbar = () => {
                     h={[5, 5, 6, 6]}
                 />
 
-                <Flex align={'center'}>
-                    <MotionBox {...tapBounceStyle} {...hoverStyle}>
-                        <Link
-                            isExternal
-                            href={'https://linkedin.com/in/awqy'}
-                            color={'blue.900'}
-                        >
-                            <Icon
-                                as={FaLinkedinIn}
-                                fontSize={fontStyles.fontSize}
-                            />
-                        </Link>
-                    </MotionBox>
-                </Flex>
-
-                <Flex align={'center'}>
-                    <MotionBox {...tapBounceStyle} {...hoverStyle}>
-                        <Link
-                            isExternal
-                            href={'https://github.com/austinwoon'}
-                            color={'blue.900'}
-                        >
-                            <Icon
-                                as={FaGithub}
-                                fontSize={fontStyles.fontSize}
-                            />
-                        </Link>
-                    </MotionBox>
-                </Flex>
+                <Contact iconBoxSizes={['30px', '30px']} mr={3} ml={3} />
             </Stack>
 
             {!isMobile ? (

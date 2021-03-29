@@ -6,7 +6,11 @@ import { glassMorphism } from '../../utils/styles';
 import { hoverStyle } from '../../utils/framerMotionStyles';
 import MotionBox from '../FramerMotion/MotionBox';
 
-export const Contact = () => {
+export const Contact = ({
+    iconBoxSizes = ['20px', '40px'],
+    mr = 5,
+    ml = 5,
+}) => {
     return (
         <Flex align="center">
             <MotionBox {...hoverStyle}>
@@ -14,10 +18,10 @@ export const Contact = () => {
                     isExternal
                     href={'mailto:austinwoonquanyi@gmail.com'}
                     color={'blue.900'}
-                    mr={5}
-                    ml={5}
+                    mr={mr}
+                    ml={ml}
                 >
-                    <Icon as={FaGithub} boxSize={['25px', '40px']} />
+                    <Icon as={FaGithub} boxSize={iconBoxSizes} />
                 </Link>
             </MotionBox>
 
@@ -26,10 +30,10 @@ export const Contact = () => {
                     isExternal
                     href={'mailto:austinwoonquanyi@gmail.com'}
                     color={'blue.900'}
-                    mr={5}
-                    ml={5}
+                    mr={mr}
+                    ml={ml}
                 >
-                    <Icon as={EmailIcon} boxSize={['25px', '40px']} />
+                    <Icon as={EmailIcon} boxSize={iconBoxSizes} />
                 </Link>
             </MotionBox>
 
@@ -38,10 +42,10 @@ export const Contact = () => {
                     isExternal
                     href={'https://linkedin.com/in/awqy'}
                     color={'blue.900'}
-                    mr={5}
-                    ml={5}
+                    mr={mr}
+                    ml={ml}
                 >
-                    <Icon as={FaLinkedin} boxSize={['25px', '40px']} />
+                    <Icon as={FaLinkedin} boxSize={iconBoxSizes} />
                 </Link>
             </MotionBox>
         </Flex>

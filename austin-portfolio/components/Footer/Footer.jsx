@@ -1,12 +1,19 @@
-import { Stack, Text, Flex, Box, Divider } from '@chakra-ui/react';
-import { glassMorphism } from '../../utils/styles';
+import { Stack, Text, Flex, Box, Divider, Heading } from '@chakra-ui/react';
 import Contact from '../Contact/Contact';
+import { h3Sizes } from '../../utils/styles';
+
 const Footer = () => {
     return (
         <Flex direction="column" align="center" mb="10">
             <Stack direction="column" align="center" justify="center">
                 <Box mb="2vh">
                     <Divider w="75vw" />
+                </Box>
+
+                <Box mb="1vh">
+                    <Heading fontSize={h3Sizes} fontWeight="normal">
+                        Contact Me
+                    </Heading>
                 </Box>
                 <Box mb="1vh">
                     <Contact />
