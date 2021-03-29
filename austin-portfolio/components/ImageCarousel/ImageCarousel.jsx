@@ -53,7 +53,7 @@ const ImageCarousel = ({ images }) => {
             opacity: 1,
             scale: imageScaleIncrement,
             zIndex: 1,
-            boxShadow: '0 15px 30px 0 rgba(0, 0, 0, 0.60)',
+            boxShadow: '0 15px 30px 0 rgba(0, 0, 0, 0.25)',
         },
         hidden: {
             opacity: 0,
