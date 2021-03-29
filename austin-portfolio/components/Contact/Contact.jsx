@@ -19,7 +19,7 @@ export const Contact = ({
                     href={'mailto:austinwoonquanyi@gmail.com'}
                     color={'blue.900'}
                     mr={mr}
-                    ml={ml}
+                    // ml={ml}
                 >
                     <Icon as={FaGithub} boxSize={iconBoxSizes} />
                 </Link>
@@ -42,7 +42,7 @@ export const Contact = ({
                     isExternal
                     href={'https://linkedin.com/in/awqy'}
                     color={'blue.900'}
-                    mr={mr}
+                    // mr={mr}
                     ml={ml}
                 >
                     <Icon as={FaLinkedin} boxSize={iconBoxSizes} />

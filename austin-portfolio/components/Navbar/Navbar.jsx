@@ -63,7 +63,11 @@ const Navbar = () => {
                     h={[5, 5, 6, 6]}
                 />
 
-                <Contact iconBoxSizes={['30px', '30px']} mr={3} ml={3} />
+                <Contact
+                    iconBoxSizes={['20px', '20px', '30px', '30px']}
+                    mr={[2, 2, 3, 3]}
+                    ml={[2, 2, 3, 3]}
+                />
             </Stack>
 
             {!isMobile ? (
