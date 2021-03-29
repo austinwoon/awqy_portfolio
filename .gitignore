@@ -35,3 +35,10 @@ yarn-error.log*
 
 *.xml
 *.idea
+austin-portfolio/components/Intro/Console.jsx
+austin-portfolio/components/Logo/Logo.jsx
+austin-portfolio/components/Portfolio/PortfolioCard.jsx
+austin-portfolio/components/WorkModal/Features.jsx
+austin-portfolio/components/WorkModal/WorkModal.jsx
+austin-portfolio/pages/index.js
+austin-portfolio/utils/styles.js

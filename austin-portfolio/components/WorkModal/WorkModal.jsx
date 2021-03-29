@@ -18,18 +18,20 @@ import {
 } from '@chakra-ui/react';
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
-import { fontSizes, h1Sizes, h2Sizes, h3Sizes } from '../../utils/styles';
+import { fontSizes, h1Sizes, h2Sizes } from '../../utils/styles';
 import Features from './Features';
 import CustomTag from '../Portfolio/CustomTag';
 import LinkIcon from '../LinkIcon/LinkIcon';
 
+const marginBetweenSections = [8, 9, 10, 12];
+const marginInterSection = [3, 4, 4, 5];
 const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
 
     return (
         <Modal isOpen={isOpen} onClose={onClose} size={'full'}>
             <ModalOverlay />
-            <ModalContent bgGradient="linear-gradient(190deg, blue.50, hsla(0,0%,45%,0) 100%)">
+            <ModalContent bgColor="brand.bgWhite">
                 <ModalHeader>
                     <Flex
                         align={'center'}
@@ -66,23 +68,26 @@ const WorkModal = ({ onClose, isOpen }) => {
                 <ModalCloseButton size={'lg'} />
 
                 <ModalBody>
-                    <Flex direction={'column'}>
+                    <Flex direction={'column'} mb={'5vh'}>
                         <ImageCarousel images={workSelected.images} />
 
                         <Box
                             ml={['1vw', '1vw', '15vw', '20vw']}
                             mr={['1vw', '1vw', '15vw', '20vw']}
                         >
-                            <Divider mt="5" mb="5" />
+                            <Divider
+                                mt={marginBetweenSections}
+                                mb={marginBetweenSections}
+                            />
 
-                            <Box mb="5">
+                            <Box mb={marginBetweenSections}>
                                 {workSelected.description.map((desc, i) => (
                                     <Box
                                         mb={i !== desc.length - 1 ? 5 : 0}
                                         key={desc}
                                     >
                                         <Heading
-                                            mb={'3'}
+                                            mb={marginInterSection}
                                             fontWeight="semibold"
                                             fontSize={h2Sizes}
                                         >
@@ -93,7 +98,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                                             <Wrap
                                                 direction={'row'}
                                                 wrap={'wrap'}
-                                                mb={'3'}
+                                                mb={marginInterSection}
                                             >
                                                 {workSelected.technologies.map(
                                                     (name) => (
@@ -124,12 +129,12 @@ const WorkModal = ({ onClose, isOpen }) => {
 
                             <Heading
                                 fontSize={h2Sizes}
-                                mb="3"
+                                mb={marginInterSection}
                                 fontWeight="semibold"
                             >
                                 Highlighted Features
                             </Heading>
-                            <Box mb="5">
+                            <Box mb={marginBetweenSections}>
                                 <Features features={workSelected.features} />
                             </Box>
                         </Box>

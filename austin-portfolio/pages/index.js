@@ -20,7 +20,7 @@ export default function Home() {
             <Head>
                 <title>Austin Woon Quan Portfolio</title>
             </Head>
-            <Box bgGradient="linear-gradient(190deg, brand.bgWhite, hsla(0,0%,45%,0) 80%)">
+            <Box bgColor="brand.bgWhite">
                 <DynamicNavbar />
 
                 <Element id={'about'}>
