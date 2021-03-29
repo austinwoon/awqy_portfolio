@@ -35,40 +35,27 @@ const WorkModal = ({ onClose, isOpen }) => {
                 <ModalHeader>
                     <Flex
                         align={'center'}
-                        justify={'center'}
                         direction={'column'}
-                        mt={'5vh'}
+                        mt={marginBetweenSections}
                     >
-                        <Heading color="blue.700" mb={'2vh'} fontSize={h1Sizes}>
+                        <Heading color="blue.700" fontSize={h1Sizes}>
                             {workSelected.title}
                         </Heading>
 
-                        <Flex justify={'center'} align={'center'}>
-                            {workSelected.links.map((linkInfo, i) => (
-                                <Box key={linkInfo.link + i} mr="10" ml="10">
-                                    <LinkIcon
-                                        {...linkInfo}
-                                        mrStyle={
-                                            i !==
-                                                workSelected.links.length -
-                                                    1 && [
-                                                '30px',
-                                                '40px',
-                                                '40px',
-                                                '50px',
-                                            ]
-                                        }
-                                    />
-                                </Box>
-                            ))}
-                        </Flex>
+                        <Box mt={marginInterSection}>
+                            <LinksToWork
+                                links={workSelected.links}
+                                ml={5}
+                                mr={5}
+                            />
+                        </Box>
                     </Flex>
                 </ModalHeader>
 
                 <ModalCloseButton size={'lg'} />
 
                 <ModalBody>
-                    <Flex direction={'column'} mb={'5vh'}>
+                    <Flex direction={'column'} mb={'5vh'} align="center">
                         <ImageCarousel images={workSelected.images} />
 
                         <Box
@@ -86,13 +73,14 @@ const WorkModal = ({ onClose, isOpen }) => {
                                         mb={i !== desc.length - 1 ? 5 : 0}
                                         key={desc}
                                     >
-                                        <Heading
-                                            mb={marginInterSection}
-                                            fontWeight="semibold"
-                                            fontSize={h2Sizes}
-                                        >
-                                            {desc.header}
-                                        </Heading>
+                                        <Box mb={marginInterSection}>
+                                            <Heading
+                                                fontWeight="semibold"
+                                                fontSize={h2Sizes}
+                                            >
+                                                {desc.header}
+                                            </Heading>
+                                        </Box>
 
                                         {desc.header === 'About' && (
                                             <Wrap
@@ -110,6 +98,10 @@ const WorkModal = ({ onClose, isOpen }) => {
                                                         >
                                                             <CustomTag
                                                                 tagName={name}
+                                                                tagSize={[
+                                                                    'md',
+                                                                    'lg',
+                                                                ]}
                                                             />
                                                         </WrapItem>
                                                     )
@@ -157,6 +149,23 @@ const Description = ({ content }) => {
                 >
                     {line}
                 </Text>
+            ))}
+        </Flex>
+    );
+};
+
+const LinksToWork = ({ links, ml, mr }) => {
+    return (
+        <Flex justify={'center'} align={'center'}>
+            {links.map((linkInfo, i) => (
+                <Box
+                    key={linkInfo.link + i}
+                    ml={ml}
+                    mr={mr}
+                    color="brand.purple"
+                >
+                    <LinkIcon {...linkInfo} />
+                </Box>
             ))}
         </Flex>
     );

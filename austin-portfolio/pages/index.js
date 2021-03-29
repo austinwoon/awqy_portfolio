@@ -29,7 +29,9 @@ export default function Home() {
                 </Element>
 
                 <Element id={'portfolio'}>
-                    <DynamicPortfolioSection />
+                    <Box>
+                        <DynamicPortfolioSection />
+                    </Box>
                 </Element>
 
                 <Flex
@@ -38,6 +40,7 @@ export default function Home() {
                     direction="column"
                     position="relative"
                     mt={5}
+                    overflow="hidden"
                 >
                     <Element id={'contact'}>
                         <Footer />

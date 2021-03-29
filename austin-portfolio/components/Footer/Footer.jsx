@@ -34,7 +34,7 @@ const Footer = () => {
                 </Flex>
             </Stack>
 
-            {/* <Box>
+            {/* <Box position="absolute" bottom="0" left="0">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 1440 320"

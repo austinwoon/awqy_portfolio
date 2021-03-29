@@ -22,7 +22,7 @@ export const Features = ({ features }) => {
                         <Box
                             left={0}
                             top={0}
-                            h="20px"
+                            h={['25px', '30px', '32px']}
                             borderLeftWidth="1px"
                             borderColor="brand.purple"
                         />
@@ -32,7 +32,7 @@ export const Features = ({ features }) => {
                     <Stack direction="column" spacing={2}>
                         <Icon
                             as={f.icon}
-                            boxSize={'20px'}
+                            boxSize={['25px', '30px', '32px']}
                             color="brand.purple"
                         />
                         <Heading fontSize={h3Sizes} fontWeight="medium">
