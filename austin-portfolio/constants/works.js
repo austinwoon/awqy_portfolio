@@ -107,7 +107,7 @@ export const works = [
             },
             {
                 logo: 'Video',
-                link: 'https://github.com/SADEAFxSMU/sadeaf-app',
+                link: 'https://youtu.be/OYmzHJ0YE8g',
             },
         ],
     },
