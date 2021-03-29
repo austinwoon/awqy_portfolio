@@ -6,12 +6,7 @@ import MotionBox from '../FramerMotion/MotionBox';
 
 export const Logo = () => (
     <MotionBox {...hoverStyle}>
-        <LinkSmoothScroll
-            offset={-70}
-            to={'about'}
-            smooth={true}
-            duration={500}
-        >
+        <LinkSmoothScroll to={'about'} smooth={true} duration={500}>
             <Button p="0" variant="subtle">
                 <Flex
                     align={'center'}

@@ -65,7 +65,7 @@ const Portfolio = () => {
                 <WorkModal
                     workSelected={workSelected}
                     onClose={onClose}
-                    isOpen={true}
+                    isOpen={isOpen}
                 />
             </WorkSelectedContext.Provider>
         </Box>

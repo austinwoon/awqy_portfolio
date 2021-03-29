@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import MotionBox from '../FramerMotion/MotionBox';
 import React from 'react';
 import { Box } from '@chakra-ui/react';
+import { MediaQueryContext } from '../../contexts/MediaQueryContext';
 
 const variants = {
     topRight: {
@@ -48,22 +49,21 @@ const variants = {
 export const ExpansionIcon = ({
     color = 'black',
     onClick,
-    height = '60',
-    width = '60',
+    boxSize = '60px',
+    mobileBoxSize = '40px',
+    isHovered,
 }) => {
-    const [isHovered, setIsHovered] = React.useState(false);
+    const { isMobile } = React.useContext(MediaQueryContext);
     return (
         <Box
             onClick={onClick}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
             _hover={{
                 cursor: 'pointer',
             }}
         >
             <svg
-                width={width}
-                height={height}
+                width={isMobile ? mobileBoxSize : boxSize}
+                height={isMobile ? mobileBoxSize : boxSize}
                 viewBox={'-8 -8 100 100'}
                 xmlns="http://www.w3.org/2000/svg"
             >
