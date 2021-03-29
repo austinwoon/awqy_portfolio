@@ -10,3 +10,5 @@ export const glassMorphism = {
     WebkitBackdropFilter: 'blur(17.5px)',
     boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
 };
+
+export const themeBlue900 = '#1A365D';

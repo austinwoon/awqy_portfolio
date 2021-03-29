@@ -26,8 +26,12 @@ const PortfolioCard = ({
     return (
         <MotionBox
             {...props}
-            {...tapBounceStyle}
-            {...hoverStyle}
+            whileHover={{
+                scale: 1.05,
+            }}
+            transition={{
+                duration: 0.4,
+            }}
             onClick={onOpen}
         >
             <Flex
@@ -37,11 +41,6 @@ const PortfolioCard = ({
                 borderRadius={6}
                 border="1px solid rgba(211, 211, 211, 0.5)"
                 transition={'0.3s ease-in-out'}
-                _hover={{
-                    boxShadow: '2xl',
-                    border: '1px solid lightblue',
-                    zIndex: 100,
-                }}
                 style={{
                     cursor: 'pointer',
                 }}
