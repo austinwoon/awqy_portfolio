@@ -13,7 +13,10 @@ export const tapBounceStyle = {
 
 export const hoverStyle = {
     whileHover: {
-        scale: 1.05,
+        scale: 1.15,
+    },
+    transition: {
+        duration: 0.4,
     },
 };
 

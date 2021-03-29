@@ -213,9 +213,9 @@ export const works = [
     },
     {
         uuid: uuidv4(),
-        title: 'Travel Dashboard',
+        title: 'Travue',
         img: '/travue/travue-dashboard.jpg',
-        summary: `POC Travel application which helps streamline and ease the travel planning process by: (1) Aggregating frequently access Place of Interest (POI) data on a dashboard (2) Ease-free storing of said data above (3) Easy planning of itinerary with a kanban board`,
+        summary: `Travue is an application which helps streamline and ease the travel planning process by: (1) Aggregating frequently access Place of Interest (POI) data on a dashboard (2) Ease-free storing of said data above (3) Easy planning of itinerary with a kanban board`,
         description: [
             {
                 header: 'About',
@@ -264,6 +264,5 @@ export const works = [
                 link: 'https://youtu.be/Ctmi1kqyCas',
             },
         ],
-        links: [],
     },
 ];

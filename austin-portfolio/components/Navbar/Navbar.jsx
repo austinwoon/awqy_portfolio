@@ -45,7 +45,7 @@ const Navbar = () => {
                       }
                     : {}
             }
-            position={'sticky'}
+            position={'fixed'}
             top="0"
             borderBottomLeftRadius={['8px', '8px', '10px', '10px']}
             borderBottomRightRadius={['8px', '8px', '10px', '10px']}
