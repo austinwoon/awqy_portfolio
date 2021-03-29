@@ -172,7 +172,7 @@ export const works = [
             },
             {
                 logo: 'Video',
-                link: 'https://youtu.be/8nxV6UmwJBU',
+                link: 'https://youtu.be/D8_PMRM1vFI',
             },
         ],
     },
