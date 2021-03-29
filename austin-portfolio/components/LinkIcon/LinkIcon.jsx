@@ -14,8 +14,7 @@ export const LinkIcon = ({ logo, link }) => {
     const getButton = (logo) => {
         return (
             <Icon
-                color="blue.400"
-                boxSize={['30px', '40px', '40px', '50px']}
+                boxSize={['25px', '25px', '25px', '30px']}
                 as={iconMappings[logo]}
             />
         );

@@ -8,7 +8,7 @@ import {
     SiPython,
     SiPostgresql,
 } from 'react-icons/si';
-import { Tag, TagLabel, Icon, Text, Flex } from '@chakra-ui/react';
+import { Tag, TagLabel, Icon, Text, Flex, TagLeftIcon } from '@chakra-ui/react';
 
 const ICON_MAPPINGS = {
     Vue: { icon: FaVuejs, color: 'green.500' },
@@ -24,20 +24,32 @@ const ICON_MAPPINGS = {
 
 const CustomTag = ({ tagName }) => {
     return (
-        <Tag boxShadow="base">
+        <Tag boxShadow="base" size={'md'}>
             {ICON_MAPPINGS[tagName] ? (
-                <Flex>
-                    <Icon
-                        mr={1}
+                <Flex align="center" justify="center">
+                    <TagLeftIcon
+                        boxSize={['14px', '14px', '16px', '18px']}
                         as={ICON_MAPPINGS[tagName].icon}
                         color={ICON_MAPPINGS[tagName].color}
                     />
                     <TagLabel>
-                        <Text>{tagName}</Text>
+                        <Text
+                            fontSize={['14px', '14px', '16px', '18px']}
+                            mt={[0, 0, 0, 1]}
+                            mb={[0, 0, 0, 1]}
+                        >
+                            {tagName}
+                        </Text>
                     </TagLabel>
                 </Flex>
             ) : (
-                <Text>{tagName}</Text>
+                <Text
+                    fontSize={['14px', '14px', '16px', '18px']}
+                    mt={[0, 0, 0, 1]}
+                    mb={[0, 0, 0, 1]}
+                >
+                    {tagName}
+                </Text>
             )}
         </Tag>
     );

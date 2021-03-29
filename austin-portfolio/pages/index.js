@@ -1,10 +1,11 @@
 import Head from 'next/head';
-import { Box, useMediaQuery } from '@chakra-ui/react';
+import { Box, useMediaQuery, Flex } from '@chakra-ui/react';
 import React from 'react';
 import Footer from '../components/Footer/Footer';
 import { MediaQueryContext } from '../contexts/MediaQueryContext';
 import { Element } from 'react-scroll';
 import dynamic from 'next/dynamic';
+import Contact from '../components/Contact/Contact';
 
 const DynamicIntro = dynamic(() => import('../components/Intro/Intro'));
 const DynamicNavbar = dynamic(() => import('../components/Navbar/Navbar'));
@@ -20,7 +21,7 @@ export default function Home() {
             <Head>
                 <title>Austin Woon Quan Portfolio</title>
             </Head>
-            <Box bgGradient="linear-gradient(190deg, brand.bgWhite, hsla(0,0%,45%,0) 80%)">
+            <Box bgColor="brand.bgPrimary">
                 <DynamicNavbar />
 
                 <Element id={'about'}>
@@ -28,9 +29,23 @@ export default function Home() {
                 </Element>
 
                 <Element id={'portfolio'}>
-                    <DynamicPortfolioSection />
+                    <Box>
+                        <DynamicPortfolioSection />
+                    </Box>
                 </Element>
-                <Footer />
+
+                <Flex
+                    align="center"
+                    justify="center"
+                    direction="column"
+                    position="relative"
+                    mt={5}
+                    overflow="hidden"
+                >
+                    <Element id={'contact'}>
+                        <Footer />
+                    </Element>
+                </Flex>
             </Box>
         </MediaQueryContext.Provider>
     );

@@ -18,78 +18,75 @@ import {
 } from '@chakra-ui/react';
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
-import { fontSizes, h1Sizes, h2Sizes, h3Sizes } from '../../utils/styles';
+import { fontSizes, h1Sizes, h2Sizes } from '../../utils/styles';
 import Features from './Features';
 import CustomTag from '../Portfolio/CustomTag';
 import LinkIcon from '../LinkIcon/LinkIcon';
 
+const marginBetweenSections = [8, 9, 10, 12];
+const marginInterSection = [3, 4, 4, 5];
 const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
 
     return (
         <Modal isOpen={isOpen} onClose={onClose} size={'full'}>
             <ModalOverlay />
-            <ModalContent bgGradient="linear-gradient(190deg, blue.50, hsla(0,0%,45%,0) 100%)">
+            <ModalContent bgColor="brand.bgWhite">
                 <ModalHeader>
                     <Flex
                         align={'center'}
-                        justify={'center'}
                         direction={'column'}
-                        mt={'5vh'}
+                        mt={marginBetweenSections}
                     >
-                        <Heading color="blue.700" mb={'2vh'} fontSize={h1Sizes}>
+                        <Heading color="blue.700" fontSize={h1Sizes}>
                             {workSelected.title}
                         </Heading>
 
-                        <Flex justify={'center'} align={'center'}>
-                            {workSelected.links.map((linkInfo, i) => (
-                                <Box key={linkInfo.link + i} mr="10" ml="10">
-                                    <LinkIcon
-                                        {...linkInfo}
-                                        mrStyle={
-                                            i !==
-                                                workSelected.links.length -
-                                                    1 && [
-                                                '30px',
-                                                '40px',
-                                                '40px',
-                                                '50px',
-                                            ]
-                                        }
-                                    />
-                                </Box>
-                            ))}
-                        </Flex>
+                        <Box mt={marginInterSection}>
+                            <LinksToWork
+                                links={workSelected.links}
+                                ml={5}
+                                mr={5}
+                            />
+                        </Box>
                     </Flex>
                 </ModalHeader>
 
                 <ModalCloseButton size={'lg'} />
 
                 <ModalBody>
-                    <Flex direction={'column'}>
+                    <Flex direction={'column'} mb={'5vh'} align="center">
                         <ImageCarousel images={workSelected.images} />
 
                         <Box
                             ml={['1vw', '1vw', '15vw', '20vw']}
                             mr={['1vw', '1vw', '15vw', '20vw']}
                         >
-                            <Divider mt="5" mb="5" />
+                            <Divider
+                                mt={marginBetweenSections}
+                                mb={marginBetweenSections}
+                            />
 
-                            <Box mb="5">
+                            <Box mb={marginBetweenSections}>
                                 {workSelected.description.map((desc, i) => (
                                     <Box
                                         mb={i !== desc.length - 1 ? 5 : 0}
                                         key={desc}
                                     >
-                                        <Heading mb={'3'} fontSize={h2Sizes}>
-                                            {desc.header}
-                                        </Heading>
+                                        <Box mb={marginInterSection}>
+                                            <Heading
+                                                fontWeight="semibold"
+                                                fontSize={h2Sizes}
+                                            >
+                                                {desc.header}
+                                            </Heading>
+                                        </Box>
 
                                         {desc.header === 'About' && (
                                             <Wrap
                                                 direction={'row'}
                                                 wrap={'wrap'}
-                                                mb={'3'}
+                                                mb={marginInterSection}
                                             >
                                                 {workSelected.technologies.map(
                                                     (name) => (
@@ -101,6 +98,10 @@ const WorkModal = ({ onClose, isOpen }) => {
                                                         >
                                                             <CustomTag
                                                                 tagName={name}
+                                                                tagSize={[
+                                                                    'md',
+                                                                    'lg',
+                                                                ]}
                                                             />
                                                         </WrapItem>
                                                     )
@@ -112,17 +113,20 @@ const WorkModal = ({ onClose, isOpen }) => {
                                             key={
                                                 desc.header + workSelected.uuid
                                             }
-                                            header={desc.header}
                                             content={desc.content}
                                         />
                                     </Box>
                                 ))}
                             </Box>
 
-                            <Heading fontSize={h2Sizes} mb="3">
+                            <Heading
+                                fontSize={h2Sizes}
+                                mb={marginInterSection}
+                                fontWeight="semibold"
+                            >
                                 Highlighted Features
                             </Heading>
-                            <Box mb="5">
+                            <Box mb={marginBetweenSections}>
                                 <Features features={workSelected.features} />
                             </Box>
                         </Box>
@@ -133,7 +137,7 @@ const WorkModal = ({ onClose, isOpen }) => {
     );
 };
 
-const Description = ({ header, content }) => {
+const Description = ({ content }) => {
     return (
         <Flex direction={'column'} justify={'center'}>
             {content.map((line, i) => (
@@ -145,6 +149,23 @@ const Description = ({ header, content }) => {
                 >
                     {line}
                 </Text>
+            ))}
+        </Flex>
+    );
+};
+
+const LinksToWork = ({ links, ml, mr }) => {
+    return (
+        <Flex justify={'center'} align={'center'}>
+            {links.map((linkInfo, i) => (
+                <Box
+                    key={linkInfo.link + i}
+                    ml={ml}
+                    mr={mr}
+                    color="brand.purple"
+                >
+                    <LinkIcon {...linkInfo} />
+                </Box>
             ))}
         </Flex>
     );

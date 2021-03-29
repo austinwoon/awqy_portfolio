@@ -4,11 +4,11 @@ import {
     AiFillNotification,
     AiFillCustomerService,
     AiFillRobot,
-    Z,
+    AiFillApi,
 } from 'react-icons/ai';
 import { BsPeopleFill } from 'react-icons/bs';
 import { GiKnapsack } from 'react-icons/gi';
-import { MdSentimentSatisfied } from 'react-icons/md';
+import { MdSentimentSatisfied, MdComputer } from 'react-icons/md';
 import { BiMapPin } from 'react-icons/bi';
 
 export const works = [
@@ -107,7 +107,7 @@ export const works = [
             },
             {
                 logo: 'Video',
-                link: 'https://github.com/SADEAFxSMU/sadeaf-app',
+                link: 'https://youtu.be/OYmzHJ0YE8g',
             },
         ],
     },
@@ -172,7 +172,7 @@ export const works = [
             },
             {
                 logo: 'Video',
-                link: 'https://youtu.be/8nxV6UmwJBU',
+                link: 'https://youtu.be/D8_PMRM1vFI',
             },
         ],
     },
@@ -207,6 +207,61 @@ export const works = [
                 uuid: uuidv4(),
                 src: '/trading/ibkr-trade.jpg',
                 alt: '/trading/ibkr-trade.jpg',
+            },
+        ],
+        links: [],
+    },
+    {
+        uuid: uuidv4(),
+        title: 'Travel Dashboard',
+        img: '/travue/travue-dashboard.jpg',
+        summary: `POC Travel application which helps streamline and ease the travel planning process by: (1) Aggregating frequently access Place of Interest (POI) data on a dashboard (2) Ease-free storing of said data above (3) Easy planning of itinerary with a kanban board`,
+        description: [
+            {
+                header: 'About',
+                content: [
+                    'Built with a team of four when we first started learning Vue. The travel planning process was tedious and this app aims to help solve that painpoint for tourists. Purely client side app as it was a proof of concept.',
+                ],
+            },
+        ],
+        technologies: ['Vue'],
+        features: [
+            {
+                header: 'Aggregates Critical Information',
+                icon: AiFillApi,
+                description: `Aggregates frequently access information like photos, videos, weather, safety, nearby places, google reviews, news articles about a venue through FourSquare, Google, News API, Open Cage, Youtube, and Weather API.`,
+            },
+            {
+                header: 'Kanban and Dashboard views',
+                icon: MdComputer,
+                description: `Dashboard view intuitively presents data. Kanban planner allows for easy planning of itineraries`,
+            },
+        ],
+        images: [
+            {
+                uuid: uuidv4(),
+                src: '/travue/travue-dashboard.jpg',
+                alt: '/travue/travue-dashboard.jpg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/travue/travue-kanban.jpg',
+                alt: '/travue/travue-kanban.jpg',
+            },
+            {
+                uuid: uuidv4(),
+                src: '/travue/travue-landing.jpg',
+                alt: '/travue/travue-landing.jpg',
+            },
+        ],
+        links: [
+            {
+                logo: 'Github',
+                link: 'https://github.com/weiyuan95/travue-buddy',
+            },
+            {
+                logo: 'Video',
+                link: 'https://youtu.be/Ctmi1kqyCas',
             },
         ],
         links: [],

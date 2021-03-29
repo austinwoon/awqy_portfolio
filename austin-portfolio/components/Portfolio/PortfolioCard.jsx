@@ -39,13 +39,13 @@ const PortfolioCard = ({
                 transition={'0.3s ease-in-out'}
                 _hover={{
                     boxShadow: '2xl',
-                    border: '3px solid lightblue',
+                    border: '1px solid lightblue',
                     zIndex: 100,
                 }}
                 style={{
                     cursor: 'pointer',
                 }}
-                bgColor={'brand.bgWhite'}
+                bgColor={'white'}
             >
                 <Box mb={'5%'} boxShadow="lg">
                     <Img src={img} maxWidth={'100%'} objectFit="cover" />
@@ -60,7 +60,9 @@ const PortfolioCard = ({
                 </Wrap>
 
                 <Box>
-                    <Heading fontSize={h2Sizes}>{title}</Heading>
+                    <Heading fontSize={h2Sizes} fontWeight="semibold">
+                        {title}
+                    </Heading>
                 </Box>
 
                 <Box mb={'2'} mt={'2'}>

@@ -36,7 +36,8 @@ export const DesktopMenu = () => {
                 boxStyles={boxStyles}
                 fontStyles={fontStyles}
                 content={'Contact'}
-                href={'mailto:austinwoonquanyi@gmail.com'}
+                scrollId={'contact'}
+                scrollOffset={-70}
             />
         </Stack>
     );
