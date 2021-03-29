@@ -70,12 +70,12 @@ const Navbar = () => {
                 />
             </Stack>
 
-            {!isMobile ? (
+            {isMobile ? (
+                <HamburgerMenu />
+            ) : (
                 <Box overflow="hidden">
                     <DesktopMenu />
                 </Box>
-            ) : (
-                <HamburgerMenu />
             )}
         </Flex>
     );

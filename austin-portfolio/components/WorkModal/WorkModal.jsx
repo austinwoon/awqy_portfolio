@@ -45,9 +45,13 @@ const WorkModal = ({ onClose, isOpen }) => {
     const toggleImageExpanded = () => {
         setIsImageExpanded((expanded) => !expanded);
     };
+    const handleCloseModal = () => {
+        setIsImageExpanded(false);
+        onClose();
+    };
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose} size={'full'}>
+        <Modal isOpen={isOpen} onClose={handleCloseModal} size={'full'}>
             <ModalOverlay />
             <ModalContent bgColor="brand.bgWhite">
                 <ModalCloseButton size={'lg'} />
