@@ -16,7 +16,7 @@ export const Contact = ({
             <MotionBox {...hoverStyle}>
                 <Link
                     isExternal
-                    href={'mailto:austinwoonquanyi@gmail.com'}
+                    href={'https://github.com/austinwoon'}
                     color={'blue.900'}
                     mr={mr}
                     // ml={ml}
