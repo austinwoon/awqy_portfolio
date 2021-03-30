@@ -64,28 +64,26 @@ export const ExpansionIcon = ({
                 viewBox={'0 0 100 100'}
                 xmlns="http://www.w3.org/2000/svg"
             >
-                <g clip-path="url(#clip0)">
-                    <motion.path
-                        variants={variants.bottomLeft}
-                        d="M6.5 90C6.5 91.3807 7.61929 92.5 9 92.5H31.5C32.8807 92.5 34 91.3807 34 90C34 88.6193 32.8807 87.5 31.5 87.5H11.5V67.5C11.5 66.1193 10.3807 65 9 65C7.61929 65 6.5 66.1193 6.5 67.5L6.5 90ZM38.2322 57.2322L7.23224 88.2322L10.7678 91.7678L41.7678 60.7678L38.2322 57.2322Z"
-                        animate={isHovered ? 'active' : 'inactive'}
-                        transition={{
-                            ease: 'easeInOut',
-                            duration,
-                        }}
-                        fill={color}
-                    />
-                    <motion.path
-                        variants={variants.topRight}
-                        d="M93.5 9C93.5 7.61929 92.3807 6.5 91 6.5L68.5 6.5C67.1193 6.5 66 7.61929 66 9C66 10.3807 67.1193 11.5 68.5 11.5H88.5V31.5C88.5 32.8807 89.6193 34 91 34C92.3807 34 93.5 32.8807 93.5 31.5V9ZM61.7678 41.7678L92.7678 10.7678L89.2322 7.23224L58.2322 38.2322L61.7678 41.7678Z"
-                        animate={isHovered ? 'active' : 'inactive'}
-                        transition={{
-                            ease: 'easeInOut',
-                            duration,
-                        }}
-                        fill={color}
-                    />
-                </g>
+                <motion.path
+                    variants={variants.bottomLeft}
+                    d="M6.5 90C6.5 91.3807 7.61929 92.5 9 92.5H31.5C32.8807 92.5 34 91.3807 34 90C34 88.6193 32.8807 87.5 31.5 87.5H11.5V67.5C11.5 66.1193 10.3807 65 9 65C7.61929 65 6.5 66.1193 6.5 67.5L6.5 90ZM38.2322 57.2322L7.23224 88.2322L10.7678 91.7678L41.7678 60.7678L38.2322 57.2322Z"
+                    animate={isHovered ? 'active' : 'inactive'}
+                    transition={{
+                        ease: 'easeInOut',
+                        duration,
+                    }}
+                    fill={color}
+                />
+                <motion.path
+                    variants={variants.topRight}
+                    d="M93.5 9C93.5 7.61929 92.3807 6.5 91 6.5L68.5 6.5C67.1193 6.5 66 7.61929 66 9C66 10.3807 67.1193 11.5 68.5 11.5H88.5V31.5C88.5 32.8807 89.6193 34 91 34C92.3807 34 93.5 32.8807 93.5 31.5V9ZM61.7678 41.7678L92.7678 10.7678L89.2322 7.23224L58.2322 38.2322L61.7678 41.7678Z"
+                    animate={isHovered ? 'active' : 'inactive'}
+                    transition={{
+                        ease: 'easeInOut',
+                        duration,
+                    }}
+                    fill={color}
+                />
             </svg>
         </Box>
     );

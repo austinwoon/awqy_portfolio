@@ -11,7 +11,7 @@ import {
     Divider,
 } from '@chakra-ui/react';
 import React from 'react';
-import { h3Sizes, fontSizesSmall } from '../../utils/styles';
+import { h3Sizes, fontSizes } from '../../utils/styles';
 
 export const Features = ({ features }) => {
     return (
@@ -38,7 +38,7 @@ export const Features = ({ features }) => {
                         <Heading fontSize={h3Sizes} fontWeight="medium">
                             {f.header}
                         </Heading>
-                        <Text fontSize={fontSizesSmall}>{f.description}</Text>
+                        <Text fontSize={fontSizes}>{f.description}</Text>
                     </Stack>
                 </Flex>
             ))}
