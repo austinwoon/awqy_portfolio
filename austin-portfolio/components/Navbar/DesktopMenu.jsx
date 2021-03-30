@@ -4,9 +4,9 @@ import HoverLink from '../HoverLink/HoverLink';
 
 const fontStyles = {
     color: 'blue.900',
-    fontWeight: 'bold',
-    letterSpacing: 0.5,
-    fontSize: ['lg', 'lg', 'lg', 'xl'],
+    fontWeight: 'medium',
+    letterSpacing: 1.5,
+    fontSize: ['sm', 'sm', 'md', 'lg'],
 };
 
 const boxStyles = {

@@ -3,7 +3,7 @@ import React from 'react';
 import MotionBox from '../FramerMotion/MotionBox';
 import { Link as LinkSmoothScroll } from 'react-scroll';
 
-const hoverWidth = 115;
+const hoverWidth = 100;
 const variants = {
     hidden: {
         opacity: 0,
@@ -88,7 +88,7 @@ const LinkContents = ({
             <MotionBox
                 h={hoverHeight}
                 width={'100%'}
-                transform={`translateX(-${(hoverWidth - 100) / 2}%)`}
+                // transform={`translateX(-${(hoverWidth - 100) / 2}%)`}
                 animate={hovered ? 'active' : 'hidden'}
                 variants={variants}
                 transition={{ duration: 0.4 }}

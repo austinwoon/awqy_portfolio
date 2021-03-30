@@ -57,7 +57,7 @@ const Navbar = () => {
                 direction="row"
                 align="center"
                 h={10}
-                spacing={5}
+                spacing={[4, 4, 6, 6]}
                 pl={landingPageSideMargins}
             >
                 <Logo />
@@ -69,7 +69,7 @@ const Navbar = () => {
                 />
 
                 <Contact
-                    iconBoxSizes={['20px', '20px', '30px', '30px']}
+                    iconBoxSizes={['14px', '14px', '18px', '18px']}
                     mr={[2, 2, 3, 3]}
                     ml={[2, 2, 3, 3]}
                 />
