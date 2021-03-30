@@ -150,11 +150,6 @@ export const works = [
             },
             {
                 uuid: uuidv4(),
-                src: '/travel/itinerary-tokyo.jpg',
-                alt: '/travel/itinerary-tokyo.jpg',
-            },
-            {
-                uuid: uuidv4(),
                 src: '/travel/itinerary-tokyo-2.jpg',
                 alt: '/travel/itinerary-tokyo-2.jpg',
             },
