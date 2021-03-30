@@ -17,7 +17,7 @@ const fontStyles = {
 };
 
 const Navbar = () => {
-    const { isMobile } = React.useContext(MediaQueryContext);
+    const { isTablet } = React.useContext(MediaQueryContext);
     const [scrolled, setScrolled] = React.useState(false);
 
     React.useEffect(() => {
@@ -69,7 +69,7 @@ const Navbar = () => {
                 />
             </Stack>
 
-            {isMobile ? (
+            {isTablet ? (
                 <HamburgerMenu />
             ) : (
                 <Box overflow="hidden">

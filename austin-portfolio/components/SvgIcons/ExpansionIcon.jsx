@@ -30,12 +30,24 @@ const variants = {
 export const ExpansionIcon = ({
     color = 'black',
     onClick,
-    boxSize = '35px',
-    mobileBoxSize = '30px',
+    boxSize = '34px',
+    tabletBoxSize = '26px',
+    mobileBoxSize = '20px',
     duration = 0.4,
     isHovered,
 }) => {
-    const { isMobile } = React.useContext(MediaQueryContext);
+    const { isMobile, isTablet } = React.useContext(MediaQueryContext);
+    const [svgBoxSize, setBoxSize] = React.useState(boxSize);
+
+    React.useEffect(() => {
+        if (isMobile) {
+            setBoxSize(mobileBoxSize);
+        } else if (isTablet) {
+            setBoxSize(tabletBoxSize);
+        } else {
+            setBoxSize(boxSize);
+        }
+    }, [isMobile, isTablet]);
     return (
         <Box
             onClick={onClick}
@@ -47,8 +59,8 @@ export const ExpansionIcon = ({
             padding={1}
         >
             <svg
-                width={isMobile ? mobileBoxSize : boxSize}
-                height={isMobile ? mobileBoxSize : boxSize}
+                width={svgBoxSize}
+                height={svgBoxSize}
                 viewBox={'0 0 100 100'}
                 xmlns="http://www.w3.org/2000/svg"
             >

@@ -14,10 +14,13 @@ const DynamicPortfolioSection = dynamic(() =>
 );
 
 export default function Home() {
-    const [isMobile] = useMediaQuery(['(max-width: 900px)']);
+    const [isTablet, isMobile] = useMediaQuery([
+        '(max-width: 900px)',
+        '(max-width: 500px)',
+    ]);
 
     return (
-        <MediaQueryContext.Provider value={{ isMobile }}>
+        <MediaQueryContext.Provider value={{ isTablet, isMobile }}>
             <Head>
                 <title>Austin Woon Quan Portfolio</title>
             </Head>
