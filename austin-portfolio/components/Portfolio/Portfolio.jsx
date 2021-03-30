@@ -14,10 +14,10 @@ import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
 import { h1Sizes } from '../../utils/styles';
 
 const gridOptions = [
+    { gap: 15, width: 250 },
+    { gap: 15, width: 250 },
     { gap: 20, width: 300 },
-    { gap: 20, width: 300 },
-    { gap: 30, width: 400 },
-    { gap: 20, width: 500 },
+    { gap: 20, width: 400 },
 ];
 
 const Portfolio = () => {

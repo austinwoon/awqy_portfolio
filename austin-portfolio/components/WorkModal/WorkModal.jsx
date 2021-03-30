@@ -35,7 +35,7 @@ import LinkIcon from '../LinkIcon/LinkIcon';
 import MotionBox from '../FramerMotion/MotionBox';
 import { AnimatePresence } from 'framer-motion';
 import { TiArrowBack } from 'react-icons/ti';
-import { ExpansionIcon } from '../SvgIcons/ExpansionIcon';
+import { ExpandedImageIcon } from '../SvgIcons/ExpandedImageIcon';
 
 const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
@@ -294,7 +294,7 @@ const ExpandImages = ({ onClick }) => {
             }}
         >
             <Flex align="center" justify="center" direction="column">
-                <ExpansionIcon
+                <ExpandedImageIcon
                     onClick={onClick}
                     color={themeBlue900}
                     isHovered={isHovered}
