@@ -7,7 +7,7 @@ import { DesktopMenu } from './DesktopMenu';
 import { Logo } from '../Logo/Logo';
 import { tapBounceStyle, hoverStyle } from '../../utils/framerMotionStyles';
 import MotionBox from '../FramerMotion/MotionBox';
-import { glassMorphism } from '../../utils/styles';
+import { glassMorphism, landingPageSideMargins } from '../../utils/styles';
 import Contact from '../Contact/Contact';
 
 const fontStyles = {
@@ -53,7 +53,13 @@ const Navbar = () => {
             w={'100%'}
             zIndex={100}
         >
-            <Stack direction="row" align="center" pl={5} h={10} spacing={5}>
+            <Stack
+                direction="row"
+                align="center"
+                h={10}
+                spacing={5}
+                pl={landingPageSideMargins}
+            >
                 <Logo />
                 <Box
                     bgColor={'gray.300'}

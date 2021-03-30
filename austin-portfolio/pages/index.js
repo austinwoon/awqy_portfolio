@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer';
 import { MediaQueryContext } from '../contexts/MediaQueryContext';
 import { Element } from 'react-scroll';
 import dynamic from 'next/dynamic';
-import Contact from '../components/Contact/Contact';
+import { landingPageSideMargins } from '../utils/styles';
 
 const DynamicIntro = dynamic(() => import('../components/Intro/Intro'));
 const DynamicNavbar = dynamic(() => import('../components/Navbar/Navbar'));
@@ -32,7 +32,10 @@ export default function Home() {
                 </Element>
 
                 <Element id={'portfolio'}>
-                    <Box>
+                    <Box
+                        ml={landingPageSideMargins}
+                        mr={landingPageSideMargins}
+                    >
                         <DynamicPortfolioSection />
                     </Box>
                 </Element>

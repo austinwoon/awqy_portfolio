@@ -45,7 +45,7 @@ const Portfolio = () => {
                     <SimpleGrid
                         autoRows
                         gap={gridOptions.map((o) => `${o.gap}px`)}
-                        w={['85vw', '85vw', '70vw', '70vw']}
+                        // w={['85vw', '85vw', '70vw', '70vw']}
                         minChildWidth={gridOptions.map((o) => `${o.width}px`)}
                     >
                         {works.map((work) => (

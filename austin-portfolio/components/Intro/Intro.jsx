@@ -21,7 +21,7 @@ export const Intro = () => {
             <Box mt={rowMarginTop}>
                 <Flex justify={'center'}>
                     <MotionBox
-                        boxSize={['140px', '160px', '180px', '220px']}
+                        boxSize={['130px', '140px', '160px', '180px']}
                         opacity={0}
                         {...loadingEntryStyle}
                     >

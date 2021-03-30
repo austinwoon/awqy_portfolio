@@ -68,7 +68,7 @@ const consoleButtonStyles = {
     borderRadius: '50%',
 };
 const codeStyles = {
-    fontSize: ['xs', 'sm', 'md', 'lg'],
+    fontSize: ['xs', 'sm', 'md', 'md'],
 };
 const codeSpacing = [3, 5, 7, 7];
 const consoleBorderRadius = 7;
@@ -92,7 +92,7 @@ const Console = ({ ...props }) => {
     return (
         <MotionBox
             {...loadingEntryStyle}
-            maxW={['100vw', '100vw', '60vw', '75vw']}
+            maxW={['90vw', '90vw', '80vw', '80vw']}
             boxShadow={'xl'}
             position={'relative'}
         >
@@ -116,8 +116,8 @@ const Console = ({ ...props }) => {
                 zIndex={100}
                 mt={[6, 6, 9, 9]}
                 pt={[3, 3, 5, 5]}
-                pr={[5, 5, 10, 10]}
-                pl={[5, 5, 10, 10]}
+                pr={[3, 4, 5, 7]}
+                pl={[3, 4, 5, 7]}
                 overflow={'auto'}
                 maxH={props.height}
                 borderBottomLeftRadius={consoleBorderRadius}

@@ -1,41 +1,43 @@
 import { Stack } from '@chakra-ui/react';
+import { landingPageSideMargins } from '../../utils/styles';
 import HoverLink from '../HoverLink/HoverLink';
 
 const fontStyles = {
     color: 'blue.900',
-    fontWeight: 'medium',
-    fontSize: ['lg', 'xl', '2xl', '2xl'],
+    fontWeight: 'bold',
+    letterSpacing: 0.5,
+    fontSize: ['lg', 'lg', 'lg', 'xl'],
 };
 
 const boxStyles = {
-    pl: ['2', '3', '7', '10'],
-    pr: ['2', '3', '7', '10'],
+    pl: ['1', '1', '1', '2'],
+    pr: ['1', '1', '1', '2'],
     pb: '1',
     pt: '1',
 };
 export const DesktopMenu = () => {
     return (
-        <Stack direction={'row'}>
+        <Stack direction={'row'} mr={landingPageSideMargins}>
             <HoverLink
-                boxStyles={boxStyles}
+                boxStyles={{ ...boxStyles, pl: [] }}
                 fontStyles={fontStyles}
-                content={'About'}
+                content={'ABOUT'}
                 scrollId={'about'}
-                scrollOffset={-100}
+                // scrollOffset={-100}
             />
 
             <HoverLink
                 boxStyles={boxStyles}
                 fontStyles={fontStyles}
-                content={'Portfolio'}
+                content={'PORTFOLIO'}
                 scrollId={'portfolio'}
                 scrollOffset={-70}
             />
 
             <HoverLink
-                boxStyles={boxStyles}
+                boxStyles={{ ...boxStyles, pr: [] }}
                 fontStyles={fontStyles}
-                content={'Contact'}
+                content={'CONTACT'}
                 scrollId={'contact'}
                 scrollOffset={-70}
             />

@@ -18,4 +18,6 @@ export const glassMorphism = (isBoxShadowTop) => ({
 export const marginBetweenSections = [8, 9, 10, 12];
 export const marginInterSection = [3, 4, 4, 5];
 
+export const landingPageSideMargins = ['5vw', '5vw', '10vw', '10vw'];
+
 export const themeBlue900 = '#1A365D';
