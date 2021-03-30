@@ -29,13 +29,20 @@ const Name = ({ ...props }) => {
         return clearInterval;
     }, []);
 
+    React.useEffect(() => {
+        if (showNameIndex === name.length - 1) {
+            clearInterval(cursorTimer.current);
+            setShowCursor(false);
+        }
+    }, [showNameIndex]);
+
     return (
         <Flex align="center" height={props.height}>
-            <Code color="blue.800" fontSize={props.height}>
-                > {name.slice(0, showNameIndex)}
+            <Code color="blue.900" fontSize={props.height}>
+                {'>'} {name.slice(0, showNameIndex)}
             </Code>
             <Box
-                bgColor={showCursor && 'blue.800'}
+                bgColor={showCursor && 'blue.900'}
                 w={['8px', '8px', '12px', '15px']}
                 h={props.height}
             />

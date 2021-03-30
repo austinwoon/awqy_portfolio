@@ -121,10 +121,13 @@ const WorkModal = ({ onClose, isOpen }) => {
                             <Flex
                                 align={'center'}
                                 direction={'column'}
-                                mt={marginBetweenSections}
+                                // mt={marginBetweenSections}
                                 mb={marginBetweenSections}
                             >
-                                <Heading color="blue.700" fontSize={h1Sizes}>
+                                <Heading
+                                    color="blue.700"
+                                    fontSize={['2xl', '2xl', '3xl', '4xl']}
+                                >
                                     {workSelected.title}
                                 </Heading>
 
