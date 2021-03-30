@@ -32,6 +32,7 @@ export const ExpansionIcon = ({
     onClick,
     boxSize = '35px',
     mobileBoxSize = '30px',
+    duration = 0.4,
     isHovered,
 }) => {
     const { isMobile } = React.useContext(MediaQueryContext);
@@ -58,7 +59,7 @@ export const ExpansionIcon = ({
                         animate={isHovered ? 'active' : 'inactive'}
                         transition={{
                             ease: 'easeInOut',
-                            duration: 0.2,
+                            duration,
                         }}
                         fill={color}
                     />
@@ -68,7 +69,7 @@ export const ExpansionIcon = ({
                         animate={isHovered ? 'active' : 'inactive'}
                         transition={{
                             ease: 'easeInOut',
-                            duration: 0.2,
+                            duration,
                         }}
                         fill={color}
                     />
