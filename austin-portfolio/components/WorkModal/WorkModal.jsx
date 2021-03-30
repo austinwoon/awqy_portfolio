@@ -103,15 +103,20 @@ const WorkModal = ({ onClose, isOpen }) => {
                                                     color="blue.900"
                                                     as={TiArrowBack}
                                                     boxSize={[
-                                                        '50px',
-                                                        '50px',
+                                                        '40px',
+                                                        '40px',
+                                                        '60px',
                                                         '70px',
-                                                        '80px',
                                                     ]}
                                                 />
                                                 <Heading
                                                     color="blue.900"
-                                                    {...h2Sizes}
+                                                    fontSize={[
+                                                        '2xl',
+                                                        '2xl',
+                                                        '3xl',
+                                                        '4xl',
+                                                    ]}
                                                 >
                                                     Return
                                                 </Heading>

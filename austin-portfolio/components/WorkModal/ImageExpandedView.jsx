@@ -13,6 +13,7 @@ export const ImageExpandedView = ({ images }) => {
         >
             {images.map((image, i) => (
                 <MotionBox
+                    key={`expandedView-${image.src}`}
                     initial={{ x: '125%', opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{
@@ -30,7 +31,11 @@ export const ImageExpandedView = ({ images }) => {
                         boxShadow={'xl'}
                         border={'1px solid lightgray'}
                     >
-                        <Img src={image.src} alt={image.alt} w={'80vw'} />
+                        <Img
+                            src={image.src}
+                            alt={image.alt}
+                            w={['70vw', '70vw', '70vw', '80vw']}
+                        />
                     </WrapItem>
                 </MotionBox>
             ))}
