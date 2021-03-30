@@ -11,9 +11,10 @@ import {
     WrapItem,
 } from '@chakra-ui/react';
 import CustomTag from './CustomTag';
-import { fontSizes, h2Sizes } from '../../utils/styles';
+import { fontSizes, h2Sizes, themeBlue900 } from '../../utils/styles';
 import MotionBox from '../FramerMotion/MotionBox';
 import { tapBounceStyle, hoverStyle } from '../../utils/framerMotionStyles';
+import ExpansionIcon from '../SvgIcons/ExpansionIcon';
 
 const PortfolioCard = ({
     title,
@@ -23,9 +24,12 @@ const PortfolioCard = ({
     onOpen,
     ...props
 }) => {
+    const [cardHovered, setCardHovered] = React.useState(false);
     return (
         <MotionBox
             {...props}
+            onMouseEnter={() => setCardHovered(true)}
+            onMouseLeave={() => setCardHovered(false)}
             whileHover={{
                 scale: 1.05,
             }}
@@ -70,10 +74,20 @@ const PortfolioCard = ({
                     </Text>
                 </Box>
 
-                <Flex justify={'flex-end'} pt={'1'}>
-                    <Link onClick={onOpen} fontSize={fontSizes}>
-                        View More
-                    </Link>
+                <Flex justify={'flex-end'} pt={'1'} align="center">
+                    <Box>
+                        <ExpansionIcon
+                            isHovered={cardHovered}
+                            boxSize="40"
+                            onClick={onOpen}
+                            color={themeBlue900}
+                        />
+                    </Box>
+                    {/* <Box>
+                        <Link onClick={onOpen} fontSize={fontSizes}>
+                            View More
+                        </Link>
+                    </Box> */}
                 </Flex>
             </Flex>
         </MotionBox>

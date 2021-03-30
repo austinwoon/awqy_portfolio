@@ -268,10 +268,26 @@ const ImageCarousel = ({ images }) => {
             </Flex>
             <Box
                 mt={[
-                    `${imageWidthSizes['sm'] * (imageScaleIncrement - 1)}px`,
-                    `${imageWidthSizes['md'] * (imageScaleIncrement - 1)}px`,
-                    `${imageWidthSizes['lg'] * (imageScaleIncrement - 1)}px`,
-                    `${imageWidthSizes['xl'] * (imageScaleIncrement - 1)}px`,
+                    `${
+                        (imageWidthSizes['sm'] / 16) *
+                        9 *
+                        (imageScaleIncrement - 1)
+                    }px`,
+                    `${
+                        (imageWidthSizes['md'] / 16) *
+                        9 *
+                        (imageScaleIncrement - 1)
+                    }px`,
+                    `${
+                        (imageWidthSizes['lg'] / 16) *
+                        9 *
+                        (imageScaleIncrement - 1)
+                    }px`,
+                    `${
+                        (imageWidthSizes['xl'] / 16) *
+                        9 *
+                        (imageScaleIncrement - 1)
+                    }px`,
                 ]}
             >
                 <ImageDotIndicator
