@@ -31,7 +31,7 @@ const PortfolioCard = ({
             onMouseEnter={() => setCardHovered(true)}
             onMouseLeave={() => setCardHovered(false)}
             whileHover={{
-                scale: 1.05,
+                scale: 1.02,
             }}
             transition={{
                 duration: 0.4,
