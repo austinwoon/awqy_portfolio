@@ -39,7 +39,7 @@ const carouselTransformLeftRight = {
 };
 
 const ImageCarousel = ({ images }) => {
-    const { isMobile } = React.useContext(MediaQueryContext);
+    const { isTablet } = React.useContext(MediaQueryContext);
     const [shiftImagesX, setShiftImagesX] = React.useState({
         left: carouselTransformLeftRight.desktop.left,
         right: carouselTransformLeftRight.desktop.right,
@@ -173,7 +173,7 @@ const ImageCarousel = ({ images }) => {
     return (
         <Flex direction={'column'} justify={'center'} align={'center'}>
             <Flex justify={'center'} align={'center'}>
-                {!isMobile && images.length > 1 && (
+                {!isTablet && images.length > 1 && (
                     <MotionBox {...tapBounceStyle} whileHover={{ x: -5 }}>
                         <IconButton
                             aria-label={'chevron-left'}
@@ -209,7 +209,7 @@ const ImageCarousel = ({ images }) => {
                             imageScaleIncrement
                         }px`,
                     ]}
-                    width={isMobile ? '95vw' : '60vw'}
+                    width={isTablet ? '95vw' : '60vw'}
                     maxWidth={[
                         `${imageWidthSizes['sm'] * 3}px`,
                         `${imageWidthSizes['md'] * 3}px`,
@@ -255,7 +255,7 @@ const ImageCarousel = ({ images }) => {
                         </MotionBox>
                     ))}
                 </Flex>
-                {!isMobile && images.length > 1 && (
+                {!isTablet && images.length > 1 && (
                     <MotionBox {...tapBounceStyle} whileHover={{ x: 5 }}>
                         <IconButton
                             aria-label={'chevron-right'}

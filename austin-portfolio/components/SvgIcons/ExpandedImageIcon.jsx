@@ -29,11 +29,23 @@ const variants = {
 export const ExpandedImageIcon = ({
     color = 'black',
     onClick,
-    boxSize = '60px',
-    mobileBoxSize = '40px',
+    boxSize = '48px',
+    tabletBoxSize = '38px',
+    mobileBoxSize = '32px',
     isHovered,
 }) => {
-    const { isMobile } = React.useContext(MediaQueryContext);
+    const { isMobile, isTablet } = React.useContext(MediaQueryContext);
+    const [svgBoxSize, setBoxSize] = React.useState(boxSize);
+
+    React.useEffect(() => {
+        if (isMobile) {
+            setBoxSize(mobileBoxSize);
+        } else if (isTablet) {
+            setBoxSize(tabletBoxSize);
+        } else {
+            setBoxSize(boxSize);
+        }
+    }, [isMobile, isTablet]);
     return (
         <Box
             onClick={onClick}
@@ -42,8 +54,8 @@ export const ExpandedImageIcon = ({
             }}
         >
             <svg
-                width={isMobile ? mobileBoxSize * 1.04 : boxSize * 1.04}
-                height={isMobile ? mobileBoxSize : boxSize}
+                width={svgBoxSize * 1.04}
+                height={svgBoxSize}
                 viewBox={'-8 -5 104 100'}
                 xmlns="http://www.w3.org/2000/svg"
             >

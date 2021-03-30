@@ -78,7 +78,6 @@ const PortfolioCard = ({
                     <Box>
                         <ExpansionIcon
                             isHovered={cardHovered}
-                            boxSize="40"
                             onClick={onOpen}
                             color={themeBlue900}
                         />
