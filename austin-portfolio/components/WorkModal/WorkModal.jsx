@@ -132,6 +132,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                                 <Heading
                                     color="blue.700"
                                     fontSize={['2xl', '2xl', '3xl', '4xl']}
+                                    textAlign="center"
                                 >
                                     {workSelected.title}
                                 </Heading>
