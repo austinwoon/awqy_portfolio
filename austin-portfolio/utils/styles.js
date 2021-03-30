@@ -11,4 +11,7 @@ export const glassMorphism = {
     boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
 };
 
+export const marginBetweenSections = [8, 9, 10, 12];
+export const marginInterSection = [3, 4, 4, 5];
+
 export const themeBlue900 = '#1A365D';

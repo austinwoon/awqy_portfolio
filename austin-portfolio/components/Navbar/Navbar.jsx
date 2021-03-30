@@ -58,7 +58,7 @@ const Navbar = () => {
                 <Logo />
                 <Box
                     bgColor={'gray.300'}
-                    w="3px"
+                    w="1px"
                     opacity={0.8}
                     h={[5, 5, 6, 6]}
                 />

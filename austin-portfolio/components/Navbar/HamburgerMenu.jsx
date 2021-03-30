@@ -84,45 +84,78 @@ export const HamburgerMenu = () => {
                         position={'fixed'}
                         zIndex={300}
                     >
-                        <IconButton
-                            as={CloseIcon}
-                            bgColor="transparent"
-                            onClick={toggleMenuOpen}
-                            boxSize={['40px', '40px', '55px', '55px']}
-                            _hover={{
-                                bgColor: 'transparent',
-                            }}
-                            m={colSpacing}
-                        />
-
-                        <Box m={colSpacing}>
-                            <HoverLink
+                        <MotionBox
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, ease: 'easeInOut' }}
+                        >
+                            <IconButton
+                                as={CloseIcon}
+                                bgColor="transparent"
                                 onClick={toggleMenuOpen}
-                                fontStyles={mobileMenuFontStyles}
-                                content={'About'}
-                                onClick={scrollToAbout}
-                                hoverHeight={'1em'}
+                                boxSize={['40px', '40px', '55px', '55px']}
+                                _hover={{
+                                    bgColor: 'transparent',
+                                }}
+                                m={colSpacing}
                             />
-                        </Box>
+                        </MotionBox>
 
-                        <Box m={colSpacing}>
-                            <HoverLink
-                                fontStyles={mobileMenuFontStyles}
-                                content={'Portfolio'}
-                                hoverHeight={'1em'}
-                                onClick={scrollToPortfolio}
-                                scrollOffset={-70}
-                            />
-                        </Box>
+                        <MotionBox
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{
+                                duration: 0.5 + 0.05,
+                                ease: 'easeInOut',
+                            }}
+                        >
+                            <Box m={colSpacing}>
+                                <HoverLink
+                                    onClick={toggleMenuOpen}
+                                    fontStyles={mobileMenuFontStyles}
+                                    content={'About'}
+                                    onClick={scrollToAbout}
+                                    hoverHeight={'1em'}
+                                />
+                            </Box>
+                        </MotionBox>
 
-                        <Box m={colSpacing}>
-                            <HoverLink
-                                fontStyles={mobileMenuFontStyles}
-                                content={'Contact'}
-                                hoverHeight={'1em'}
-                                onClick={scrollToContact}
-                            />
-                        </Box>
+                        <MotionBox
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{
+                                duration: 0.5 + 0.1,
+                                ease: 'easeInOut',
+                            }}
+                        >
+                            <Box m={colSpacing}>
+                                <HoverLink
+                                    fontStyles={mobileMenuFontStyles}
+                                    content={'Portfolio'}
+                                    hoverHeight={'1em'}
+                                    onClick={scrollToPortfolio}
+                                    scrollOffset={-70}
+                                />
+                            </Box>
+                        </MotionBox>
+
+                        <MotionBox
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{
+                                duration: 0.5 + 0.15,
+                                ease: 'easeInOut',
+                            }}
+                        >
+                            <Box m={colSpacing}>
+                                <HoverLink
+                                    fontStyles={mobileMenuFontStyles}
+                                    content={'Contact'}
+                                    hoverHeight={'1em'}
+                                    onClick={scrollToContact}
+                                />
+                            </Box>
+                        </MotionBox>
                     </MotionBox>
                 )}
             </AnimatePresence>

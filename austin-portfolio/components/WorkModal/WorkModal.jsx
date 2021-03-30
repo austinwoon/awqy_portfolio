@@ -12,7 +12,6 @@ import {
     Heading,
     Img,
     Box,
-    IconButton,
     Icon,
     Wrap,
     WrapItem,
@@ -20,13 +19,15 @@ import {
 } from '@chakra-ui/react';
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import { WorkSelectedContext } from '../../contexts/WorkSelectedContext';
+import ImageExpandedView from './ImageExpandedView';
 import {
     fontSizes,
-    fontSizesSmall,
     glassMorphism,
     h1Sizes,
     h2Sizes,
     themeBlue900,
+    marginBetweenSections,
+    marginInterSection,
 } from '../../utils/styles';
 import Features from './Features';
 import CustomTag from '../Portfolio/CustomTag';
@@ -36,8 +37,6 @@ import { AnimatePresence } from 'framer-motion';
 import { TiArrowBack } from 'react-icons/ti';
 import { ExpansionIcon } from '../SvgIcons/ExpansionIcon';
 
-const marginBetweenSections = [8, 9, 10, 12];
-const marginInterSection = [3, 4, 4, 5];
 const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
 
@@ -55,7 +54,7 @@ const WorkModal = ({ onClose, isOpen }) => {
             <ModalOverlay />
             <ModalContent bgColor="brand.bgWhite">
                 <ModalCloseButton size={'lg'} />
-                {isImageExpanded && <ModalHeader></ModalHeader>}
+                <ModalHeader> </ModalHeader>
 
                 <ModalBody>
                     <Box
@@ -247,36 +246,6 @@ const WorkModal = ({ onClose, isOpen }) => {
                 </ModalBody>
             </ModalContent>
         </Modal>
-    );
-};
-
-const ImageExpandedView = ({ images }) => {
-    return (
-        <Wrap
-            spacing={marginBetweenSections}
-            align="center"
-            justify="center"
-            direction="column"
-        >
-            {images.map((image, i) => (
-                <MotionBox
-                    initial={{ x: '125%', opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    // exit={{ x: '-125%', opacity: 1 }}
-                    transition={{
-                        duration: 0.3 + i * 0.06,
-                        ease: 'easeInOut',
-                    }}
-                >
-                    <WrapItem
-                        key={`${image.src}+expanded_view`}
-                        boxShadow={'xl'}
-                    >
-                        <Img src={image.src} alt={image.alt} w={'80vw'} />
-                    </WrapItem>
-                </MotionBox>
-            ))}
-        </Wrap>
     );
 };
 

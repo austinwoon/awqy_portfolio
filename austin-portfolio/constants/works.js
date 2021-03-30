@@ -115,7 +115,7 @@ export const works = [
         uuid: uuidv4(),
         title: 'Travel Itinerary Planner',
         img: '/travel/landing-page.jpg',
-        summary: `Fun project which utilized Knapsack, Graph, K-means clustering and a scoring system to automagically generate travel itineraries.`,
+        summary: `A travel planner app which utilized Knapsack, Graph, K-means clustering and a scoring system to automagically generate travel itineraries.`,
         description: [
             {
                 header: 'About',
