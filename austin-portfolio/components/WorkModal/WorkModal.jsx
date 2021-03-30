@@ -103,21 +103,13 @@ const WorkModal = ({ onClose, isOpen }) => {
                                                     color="blue.900"
                                                     as={TiArrowBack}
                                                     boxSize={[
-                                                        '40px',
-                                                        '40px',
-                                                        '60px',
+                                                        '50px',
+                                                        '50px',
                                                         '70px',
+                                                        '80px',
                                                     ]}
                                                 />
-                                                <Heading
-                                                    color="blue.900"
-                                                    fontSize={[
-                                                        '2xl',
-                                                        '2xl',
-                                                        '3xl',
-                                                        '4xl',
-                                                    ]}
-                                                >
+                                                <Heading color="blue.900">
                                                     Return
                                                 </Heading>
                                             </Button>
