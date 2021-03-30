@@ -28,6 +28,7 @@ export const ImageExpandedView = ({ images }) => {
                     <WrapItem
                         key={`${image.src}+expanded_view`}
                         boxShadow={'xl'}
+                        border={'1px solid lightgray'}
                     >
                         <Img src={image.src} alt={image.alt} w={'80vw'} />
                     </WrapItem>

@@ -4,12 +4,16 @@ export const h3Sizes = ['lg', 'lg', 'lg', 'xl'];
 export const fontSizes = ['sm', 'md', 'md', 'md'];
 export const fontSizesSmall = ['sm', 'sm', 'md', 'md'];
 
-export const glassMorphism = {
+export const glassMorphism = (isBoxShadowTop) => ({
     backdropFilter: 'blur(17.5px)',
     backgroundColor: 'rgba(255, 255, 255, 0.25)',
     WebkitBackdropFilter: 'blur(17.5px)',
-    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
-};
+    borderBottom: !isBoxShadowTop && '1px solid (255, 255, 255, 0.18)',
+    borderTop: isBoxShadowTop && '1px solid (255, 255, 255, 0.18)',
+    boxShadow: `0 ${
+        isBoxShadowTop ? '-8px' : '8px'
+    } 32px 0 rgba(31, 38, 135, 0.15)`,
+});
 
 export const marginBetweenSections = [8, 9, 10, 12];
 export const marginInterSection = [3, 4, 4, 5];

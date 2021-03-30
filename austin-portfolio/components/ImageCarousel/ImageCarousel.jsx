@@ -21,7 +21,7 @@ const chevronStyles = {
         border: '0px',
     },
     color: 'blue.700',
-    zIndex: 2,
+    zIndex: 2000,
 };
 
 const imageScaleIncrement = 1.3;
