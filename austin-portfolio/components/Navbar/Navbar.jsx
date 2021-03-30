@@ -72,6 +72,7 @@ const Navbar = () => {
                     iconBoxSizes={['14px', '14px', '18px', '18px']}
                     mr={[2, 2, 3, 3]}
                     ml={[2, 2, 3, 3]}
+                    iconColor="gray.600"
                 />
             </Stack>
 

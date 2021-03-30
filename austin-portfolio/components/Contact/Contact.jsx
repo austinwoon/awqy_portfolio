@@ -10,18 +10,24 @@ export const Contact = ({
     iconBoxSizes = ['20px', '40px'],
     mr = 5,
     ml = 5,
+    iconColor = 'blue.900',
 }) => {
     return (
+        // TODO: Fix  hover animation to use MotionBox instead of ChakraUI _hover prop
         <Flex align="center">
             <MotionBox {...hoverStyle}>
                 <Link
                     isExternal
                     href={'https://github.com/austinwoon'}
-                    color={'blue.900'}
+                    color={iconColor}
                     mr={mr}
                     // ml={ml}
                 >
-                    <Icon as={FaGithub} boxSize={iconBoxSizes} />
+                    <Icon
+                        as={FaGithub}
+                        boxSize={iconBoxSizes}
+                        _hover={{ color: 'blue.900' }}
+                    />
                 </Link>
             </MotionBox>
 
@@ -29,11 +35,15 @@ export const Contact = ({
                 <Link
                     isExternal
                     href={'mailto:austinwoonquanyi@gmail.com'}
-                    color={'blue.900'}
+                    color={iconColor}
                     mr={mr}
                     ml={ml}
                 >
-                    <Icon as={EmailIcon} boxSize={iconBoxSizes} />
+                    <Icon
+                        as={EmailIcon}
+                        boxSize={iconBoxSizes}
+                        _hover={{ color: 'blue.900' }}
+                    />
                 </Link>
             </MotionBox>
 
@@ -41,11 +51,15 @@ export const Contact = ({
                 <Link
                     isExternal
                     href={'https://linkedin.com/in/awqy'}
-                    color={'blue.900'}
+                    color={iconColor}
                     // mr={mr}
                     ml={ml}
                 >
-                    <Icon as={FaLinkedin} boxSize={iconBoxSizes} />
+                    <Icon
+                        as={FaLinkedin}
+                        boxSize={iconBoxSizes}
+                        _hover={{ color: 'blue.900' }}
+                    />
                 </Link>
             </MotionBox>
         </Flex>

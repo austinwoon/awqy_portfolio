@@ -3,7 +3,7 @@ import { landingPageSideMargins } from '../../utils/styles';
 import HoverLink from '../HoverLink/HoverLink';
 
 const fontStyles = {
-    color: 'blue.900',
+    color: 'gray.600',
     fontWeight: 'medium',
     letterSpacing: 1.5,
     fontSize: ['sm', 'sm', 'md', 'lg'],
@@ -21,15 +21,14 @@ export const DesktopMenu = () => {
             <HoverLink
                 boxStyles={{ ...boxStyles, pl: [] }}
                 fontStyles={fontStyles}
-                content={'ABOUT'}
+                content={'About'}
                 scrollId={'about'}
-                // scrollOffset={-100}
             />
 
             <HoverLink
                 boxStyles={boxStyles}
                 fontStyles={fontStyles}
-                content={'PORTFOLIO'}
+                content={'Portfolio'}
                 scrollId={'portfolio'}
                 scrollOffset={-70}
             />
@@ -37,7 +36,7 @@ export const DesktopMenu = () => {
             <HoverLink
                 boxStyles={{ ...boxStyles, pr: [] }}
                 fontStyles={fontStyles}
-                content={'CONTACT'}
+                content={'Contact'}
                 scrollId={'contact'}
                 scrollOffset={-70}
             />

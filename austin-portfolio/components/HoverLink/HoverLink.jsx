@@ -2,19 +2,10 @@ import { Link, Flex, Text, Box } from '@chakra-ui/layout';
 import React from 'react';
 import MotionBox from '../FramerMotion/MotionBox';
 import { Link as LinkSmoothScroll } from 'react-scroll';
+import { SiBluetooth } from 'react-icons/si';
+import { themeBlue900 } from '../../utils/styles';
 
 const hoverWidth = 100;
-const variants = {
-    hidden: {
-        opacity: 0,
-        width: '0%',
-    },
-    active: {
-        opacity: 1,
-        backgroundColor: '#1A365D',
-        width: `${hoverWidth}%`,
-    },
-};
 
 const HoverLink = ({
     fontStyles,
@@ -61,9 +52,23 @@ const LinkContents = ({
     content,
     href = '',
     hoverHeight,
+    activeFontColor = 'blue.900',
     onClick = () => {},
 }) => {
     const [hovered, setHovered] = React.useState(false);
+    const variants = {
+        hidden: {
+            opacity: 0,
+            width: '0%',
+        },
+        active: {
+            opacity: 1,
+            backgroundColor: '#1A365D',
+            width: `${hoverWidth}%`,
+        },
+    };
+    // TODO: Fix  hover animation to use MotionBox instead of ChakraUI _hover prop
+
     const LinkContentProps = {
         ...fontStyles,
         onClick,
@@ -71,13 +76,12 @@ const LinkContents = ({
         onMouseEnter: () => setHovered(true),
         onMouseLeave: () => setHovered(false),
         _hover: {
+            color: activeFontColor,
             underline: false,
             cursor: 'pointer',
         },
-        _focus: {
-            border: '0px',
-        },
     };
+
     return (
         <React.Fragment>
             {href ? (
