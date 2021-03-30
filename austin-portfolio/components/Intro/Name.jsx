@@ -16,7 +16,7 @@ const Name = ({ ...props }) => {
                     setShowNameIndex((i) => i + 1);
                 }
             }, 100);
-        }, 1500);
+        }, 1200);
 
         return clearInterval;
     }, []);

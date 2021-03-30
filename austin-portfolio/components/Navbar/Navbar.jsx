@@ -40,8 +40,7 @@ const Navbar = () => {
             style={
                 scrolled
                     ? {
-                          ...glassMorphism,
-                          borderBottom: '1px solid (255, 255, 255, 0.18)',
+                          ...glassMorphism(false),
                       }
                     : {}
             }

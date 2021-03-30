@@ -41,9 +41,23 @@ const WorkModal = ({ onClose, isOpen }) => {
     const { workSelected } = React.useContext(WorkSelectedContext);
 
     const [isImageExpanded, setIsImageExpanded] = React.useState(false);
+    // show content is used to render modal content.
+    // A timeout is set to wait for imageexpanded view animation to finish before renderring content
+    const [showContent, setShowContent] = React.useState(true);
     const toggleImageExpanded = () => {
         setIsImageExpanded((expanded) => !expanded);
     };
+
+    React.useEffect(() => {
+        if (isImageExpanded === true) {
+            setShowContent(false);
+        } else {
+            // wait for exit image duration to finish
+            const timeout = setTimeout(() => setShowContent(true), 300);
+            clearTimeout(timeout.id);
+        }
+    }, [isImageExpanded]);
+
     const handleCloseModal = () => {
         setIsImageExpanded(false);
         onClose();
@@ -57,14 +71,10 @@ const WorkModal = ({ onClose, isOpen }) => {
                 <ModalHeader> </ModalHeader>
 
                 <ModalBody>
-                    <Box
-                        mt={['2vh', '2vh', '3vh', '3vh']}
-                        mb="8vh"
-                        id="modal-top"
-                    >
+                    <Box mt={['2vh', '2vh', '3vh', '3vh']} id="modal-top">
                         <AnimatePresence>
                             {isImageExpanded && (
-                                <Box>
+                                <Box mb="8vh">
                                     <ImageExpandedView
                                         images={workSelected.images}
                                     />
@@ -79,9 +89,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                                         align="center"
                                         p={5}
                                         style={{
-                                            ...glassMorphism,
-                                            borderTop:
-                                                '1px solid (255, 255, 255, 0.18)',
+                                            ...glassMorphism(true),
                                         }}
                                         zIndex={5000}
                                     >
@@ -116,7 +124,7 @@ const WorkModal = ({ onClose, isOpen }) => {
                     </Box>
 
                     {/* // TODO :Clean up this mess */}
-                    {!isImageExpanded && (
+                    {showContent && (
                         <MotionBox>
                             <Flex
                                 align={'center'}
