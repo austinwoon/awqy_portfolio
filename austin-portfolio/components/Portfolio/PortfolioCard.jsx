@@ -58,6 +58,12 @@ const PortfolioCard = ({
                         alt={img}
                         boxShadow="base"
                         width={['400px', '400px', '400px', '500px']}
+                        height={[
+                            `${400 * 0.5}px`,
+                            `${400 * 0.5}px`,
+                            `${400 * 0.5}px`,
+                            `${500 * 0.5}px`,
+                        ]}
                         borderRadius={[8, 8, 12, 12]}
                         objectFit="cover"
                     />
