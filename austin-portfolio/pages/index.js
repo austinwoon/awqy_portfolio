@@ -23,6 +23,19 @@ export default function Home() {
         <MediaQueryContext.Provider value={{ isTablet, isMobile }}>
             <Head>
                 <title>Austin Woon Quan Portfolio</title>
+
+                <meta
+                    property="og:title"
+                    content="Austin Woon Portfolio"
+                    key="title"
+                />
+                <meta
+                    property="og:description"
+                    content="Austin Woon Portfolio"
+                    key="description"
+                />
+
+                <meta name="og:author" content="Austin Woon" key="author" />
             </Head>
             <Box bgColor="brand.bgPrimary">
                 <DynamicNavbar />
