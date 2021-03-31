@@ -38,25 +38,26 @@ const PortfolioCard = ({
             }}
             onClick={onOpen}
         >
-            <Wrap
+            <Flex
                 direction={'column'}
-                padding={'5%'}
+                pb={'5%'}
                 boxShadow={'xl'}
-                borderRadius={6}
+                borderRadius={[8, 8, 12, 12]}
                 border="1px solid rgba(211, 211, 211, 0.5)"
                 transition={'0.3s ease-in-out'}
                 style={{
                     cursor: 'pointer',
                 }}
                 bgColor={'white'}
-                spacing={[2, 2, 3, 3]}
-                pl="5"
-                pr="5"
             >
-                <Flex justify="center">
+                {/* // TODO: Redo image style */}
+                <Flex justify="center" m={[2, 2, 3, 3]}>
                     <Img
                         src={img}
+                        alt={img}
+                        boxShadow="base"
                         width={['400px', '400px', '400px', '500px']}
+                        borderRadius={[8, 8, 12, 12]}
                         height={[
                             `${400 * 0.5}px`,
                             `${400 * 0.5}px`,
@@ -64,45 +65,42 @@ const PortfolioCard = ({
                             `${500 * 0.5}px`,
                         ]}
                         objectFit="cover"
-                        boxShadow="lg"
                     />
                 </Flex>
-
-                <Wrap direction={'row'} wrap={'wrap'}>
-                    {technologies.map((name) => (
-                        <WrapItem key={name + title}>
-                            <CustomTag tagName={name} />
-                        </WrapItem>
-                    ))}
-                </Wrap>
-
-                <Box>
-                    <Heading fontSize={h2Sizes} fontWeight="semibold">
-                        {title}
-                    </Heading>
-                </Box>
-
-                <Box>
-                    <Text align={'justify'} fontSize={fontSizes}>
-                        {summary}
-                    </Text>
-                </Box>
-
-                <Flex justify={'flex-end'} align="center">
+                <Wrap direction="column" spacing={[2, 2, 3, 3]} pl="5" pr="5">
+                    <Wrap direction={'row'} wrap={'wrap'}>
+                        {technologies.map((name) => (
+                            <WrapItem key={name + title}>
+                                <CustomTag tagName={name} />
+                            </WrapItem>
+                        ))}
+                    </Wrap>
                     <Box>
-                        <ExpansionIcon
-                            isHovered={cardHovered}
-                            onClick={onOpen}
-                            color={themeBlue900}
-                        />
+                        <Heading fontSize={h2Sizes} fontWeight="semibold">
+                            {title}
+                        </Heading>
                     </Box>
-                    {/* <Box>
+                    <Box>
+                        <Text align={'justify'} fontSize={fontSizes}>
+                            {summary}
+                        </Text>
+                    </Box>
+                    <Flex justify={'flex-end'} align="center">
+                        <Box>
+                            <ExpansionIcon
+                                isHovered={cardHovered}
+                                onClick={onOpen}
+                                color={themeBlue900}
+                            />
+                        </Box>
+                        {/* <Box>
                         <Link onClick={onOpen} fontSize={fontSizes}>
                             View More
                         </Link>
                     </Box> */}
-                </Flex>
-            </Wrap>
+                    </Flex>
+                </Wrap>
+            </Flex>
         </MotionBox>
     );
 };

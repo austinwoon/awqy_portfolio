@@ -71,7 +71,7 @@ const codeStyles = {
     fontSize: ['xs', 'sm', 'md', 'md'],
 };
 const codeSpacing = [3, 5, 7, 7];
-const consoleBorderRadius = 7;
+const consoleBorderRadius = [8, 8, 12, 12];
 
 const Console = ({ ...props }) => {
     const timer = React.useRef(null);
