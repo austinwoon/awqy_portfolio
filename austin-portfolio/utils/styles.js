@@ -1,7 +1,7 @@
 export const h1Sizes = ['3xl', '4xl', '4xl', '5xl'];
 export const h2Sizes = ['xl', 'xl', '2xl', '2xl'];
 export const h3Sizes = ['lg', 'lg', 'lg', 'xl'];
-export const fontSizes = ['sm', 'md', 'md', 'md'];
+export const fontSizes = ['sm', 'md', 'md', 'lg'];
 export const fontSizesSmall = ['xs', 'sm', 'sm', 'sm'];
 
 export const glassMorphism = (isBoxShadowTop) => ({

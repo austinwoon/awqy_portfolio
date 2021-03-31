@@ -34,10 +34,6 @@ export const Intro = () => {
                 </Flex>
 
                 <Flex mt={rowMarginTop} justify={'center'}>
-                    <Divider maxWidth="50vw" />
-                </Flex>
-
-                <Flex mt={rowMarginTop} justify={'center'}>
                     <Console />
                 </Flex>
 
