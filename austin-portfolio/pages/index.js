@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Box, useMediaQuery, Flex } from '@chakra-ui/react';
+import { Box, useMediaQuery, Flex, Divider } from '@chakra-ui/react';
 import React from 'react';
 import Footer from '../components/Footer/Footer';
 import { MediaQueryContext } from '../contexts/MediaQueryContext';
@@ -36,6 +36,7 @@ export default function Home() {
                         ml={landingPageSideMargins}
                         mr={landingPageSideMargins}
                     >
+                        <Divider />
                         <DynamicPortfolioSection />
                     </Box>
                 </Element>
@@ -46,8 +47,11 @@ export default function Home() {
                     direction="column"
                     position="relative"
                     mt={5}
+                    ml={landingPageSideMargins}
+                    mr={landingPageSideMargins}
                     overflow="hidden"
                 >
+                    <Divider />
                     <Element id={'contact'}>
                         <Footer />
                     </Element>

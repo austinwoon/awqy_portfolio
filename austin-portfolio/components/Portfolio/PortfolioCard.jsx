@@ -38,7 +38,7 @@ const PortfolioCard = ({
             }}
             onClick={onOpen}
         >
-            <Flex
+            <Wrap
                 direction={'column'}
                 padding={'5%'}
                 boxShadow={'xl'}
@@ -49,12 +49,26 @@ const PortfolioCard = ({
                     cursor: 'pointer',
                 }}
                 bgColor={'white'}
+                spacing={[2, 2, 3, 3]}
+                pl="5"
+                pr="5"
             >
-                <Box mb={'5%'} boxShadow="lg">
-                    <Img src={img} maxWidth={'100%'} objectFit="cover" />
-                </Box>
+                <Flex justify="center">
+                    <Img
+                        src={img}
+                        width={['400px', '400px', '400px', '500px']}
+                        height={[
+                            `${400 * 0.5}px`,
+                            `${400 * 0.5}px`,
+                            `${400 * 0.5}px`,
+                            `${500 * 0.5}px`,
+                        ]}
+                        objectFit="cover"
+                        boxShadow="lg"
+                    />
+                </Flex>
 
-                <Wrap direction={'row'} wrap={'wrap'} pb={'2'} pt={'1'}>
+                <Wrap direction={'row'} wrap={'wrap'}>
                     {technologies.map((name) => (
                         <WrapItem key={name + title}>
                             <CustomTag tagName={name} />
@@ -68,13 +82,13 @@ const PortfolioCard = ({
                     </Heading>
                 </Box>
 
-                <Box mb={'2'} mt={'2'}>
+                <Box>
                     <Text align={'justify'} fontSize={fontSizes}>
                         {summary}
                     </Text>
                 </Box>
 
-                <Flex justify={'flex-end'} pt={'1'} align="center">
+                <Flex justify={'flex-end'} align="center">
                     <Box>
                         <ExpansionIcon
                             isHovered={cardHovered}
@@ -88,7 +102,7 @@ const PortfolioCard = ({
                         </Link>
                     </Box> */}
                 </Flex>
-            </Flex>
+            </Wrap>
         </MotionBox>
     );
 };

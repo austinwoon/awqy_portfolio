@@ -25,8 +25,9 @@ const Navbar = () => {
     });
 
     const handleScroll = () => {
-        const offset = window.scrollY;
-        if (offset > 50) {
+        const scrollY = window.scrollY;
+        const offset = window.pageYOffset;
+        if (offset > 50 || scrollY > 50) {
             setScrolled(true);
         } else {
             setScrolled(false);
@@ -69,10 +70,10 @@ const Navbar = () => {
                 />
 
                 <Contact
-                    iconBoxSizes={['14px', '14px', '18px', '18px']}
+                    iconBoxSizes={['18px', '18px', '22px', '22px']}
                     mr={[2, 2, 3, 3]}
                     ml={[2, 2, 3, 3]}
-                    iconColor="gray.600"
+                    iconColor={['blue.900', 'blue.900', 'gray.500', 'gray.500']}
                 />
             </Stack>
 

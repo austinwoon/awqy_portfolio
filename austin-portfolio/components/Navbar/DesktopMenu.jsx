@@ -3,7 +3,7 @@ import { landingPageSideMargins } from '../../utils/styles';
 import HoverLink from '../HoverLink/HoverLink';
 
 const fontStyles = {
-    color: 'gray.600',
+    color: 'gray.500',
     fontWeight: 'medium',
     letterSpacing: 1.5,
     fontSize: ['sm', 'sm', 'md', 'lg'],
