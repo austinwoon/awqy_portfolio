@@ -32,7 +32,7 @@ export default function Home() {
 
                 <meta
                     property="og:title"
-                    content="Title of the article"
+                    content="Austin Woon Portfolio"
                     key="og-title"
                 />
                 <meta
@@ -46,7 +46,11 @@ export default function Home() {
                     key="og-description"
                 />
                 <meta property="og:url" content="austinwoon.dev" key="og-url" />
-                <meta name="og:author" content="Austin Woon" key="og-author" />
+                <meta
+                    property="og:author"
+                    content="Austin Woon Quan"
+                    key="og-author"
+                />
             </Head>
             <Box bgColor="brand.bgPrimary">
                 <DynamicNavbar />
