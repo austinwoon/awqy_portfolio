@@ -25,6 +25,11 @@ export default function Home() {
                 <title>Austin Woon Quan Portfolio</title>
 
                 <meta
+                    name="description"
+                    content="Austin Woon Portfolio"
+                    key="description2"
+                />
+                <meta
                     property="og:title"
                     content="Austin Woon Portfolio"
                     key="title"
