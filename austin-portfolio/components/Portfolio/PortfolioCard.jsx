@@ -49,9 +49,10 @@ const PortfolioCard = ({
                     cursor: 'pointer',
                 }}
                 bgColor={'white'}
+                p={[5, 5, 5, 5]}
             >
                 {/* // TODO: Redo image style */}
-                <Flex justify="center" m={[2, 2, 3, 3]}>
+                <Flex justify="center" mb="5">
                     <Img
                         src={img}
                         alt={img}
@@ -67,7 +68,7 @@ const PortfolioCard = ({
                         objectFit="cover"
                     />
                 </Flex>
-                <Wrap direction="column" spacing={[2, 2, 3, 3]} pl="5" pr="5">
+                <Wrap direction="column" spacing={[3, 3, 3, 3]}>
                     <Wrap direction={'row'} wrap={'wrap'}>
                         {technologies.map((name) => (
                             <WrapItem key={name + title}>
