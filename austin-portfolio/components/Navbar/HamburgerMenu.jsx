@@ -3,6 +3,7 @@ import { Box, IconButton } from '@chakra-ui/react';
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { scroller } from 'react-scroll';
+import { landingPageSideMargins } from '../../utils/styles';
 import MotionBox from '../FramerMotion/MotionBox';
 import HoverLink from '../HoverLink/HoverLink';
 
@@ -57,7 +58,7 @@ export const HamburgerMenu = () => {
                 as={HamburgerIcon}
                 bgColor={'transparent'}
                 size={'sm'}
-                mr={5}
+                mr={landingPageSideMargins}
                 onClick={toggleMenuOpen}
             />
             <AnimatePresence>
