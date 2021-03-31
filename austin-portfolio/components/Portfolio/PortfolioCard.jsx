@@ -59,12 +59,6 @@ const PortfolioCard = ({
                         boxShadow="base"
                         width={['400px', '400px', '400px', '500px']}
                         borderRadius={[8, 8, 12, 12]}
-                        height={[
-                            `${400 * 0.5}px`,
-                            `${400 * 0.5}px`,
-                            `${400 * 0.5}px`,
-                            `${500 * 0.5}px`,
-                        ]}
                         objectFit="cover"
                     />
                 </Flex>

@@ -34,7 +34,8 @@ export const ImageExpandedView = ({ images }) => {
                         <Img
                             src={image.src}
                             alt={image.alt}
-                            w={['70vw', '70vw', '70vw', '80vw']}
+                            width={['500px', '700px', '1000px', '1400px']}
+                            maxW={['70vw', '70vw', '70vw', '80vw']}
                         />
                     </WrapItem>
                 </MotionBox>
