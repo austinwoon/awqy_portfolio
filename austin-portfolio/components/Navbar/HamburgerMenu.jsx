@@ -79,7 +79,7 @@ export const HamburgerMenu = () => {
                             x: 1000,
                         }}
                         transition={{
-                            duration: 0.45,
+                            duration: 0.2,
                         }}
                         variants={variants}
                         position={'fixed'}
@@ -88,7 +88,7 @@ export const HamburgerMenu = () => {
                         <MotionBox
                             initial={{ x: 300, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.45, ease: 'easeInOut' }}
+                            transition={{ duration: 0.2, ease: 'easeInOut' }}
                         >
                             <IconButton
                                 as={CloseIcon}
@@ -106,7 +106,7 @@ export const HamburgerMenu = () => {
                             initial={{ x: 300, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{
-                                duration: 0.45 + 0.05,
+                                duration: 0.2 + 0.05,
                                 ease: 'easeInOut',
                             }}
                         >
@@ -125,7 +125,7 @@ export const HamburgerMenu = () => {
                             initial={{ x: 300, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{
-                                duration: 0.45 + 0.1,
+                                duration: 0.2 + 0.07,
                                 ease: 'easeInOut',
                             }}
                         >
@@ -144,7 +144,7 @@ export const HamburgerMenu = () => {
                             initial={{ x: 300, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{
-                                duration: 0.45 + 0.15,
+                                duration: 0.2 + 0.09,
                                 ease: 'easeInOut',
                             }}
                         >
