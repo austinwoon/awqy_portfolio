@@ -23,13 +23,13 @@ export default function Home() {
         <MediaQueryContext.Provider value={{ isTablet, isMobile }}>
             <Head>
                 <title>Austin Woon Quan Portfolio</title>
-
+                <meta name="title" content="Austin Woon Quan Portfolio" />
                 <meta
                     name="description"
-                    content="Austin Woon Portfolio"
+                    content="Hello! I'm Austin, a Software Developer from Singapore.This is my dev portfolio to showcase a few fun projects I've done with friends."
                     key="description2"
                 />
-
+                <meta property="og:type" content="website" />
                 <meta
                     property="og:title"
                     content="Austin Woon Portfolio"
@@ -42,7 +42,7 @@ export default function Home() {
                 />
                 <meta
                     property="og:description"
-                    content="Austin Woon Portfolio"
+                    content="Hello! I'm Austin, a Software Developer from Singapore.This is my dev portfolio to showcase a few fun projects I've done with friends."
                     key="og-description"
                 />
                 <meta property="og:url" content="austinwoon.dev" key="og-url" />
@@ -51,6 +51,20 @@ export default function Home() {
                     content="Austin Woon Quan"
                     key="og-author"
                 />
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta
+                    property="twitter:url"
+                    content="https://austinwoon.dev/"
+                />
+                <meta
+                    property="twitter:title"
+                    content="Austin Woon Quan Portfolio"
+                />
+                <meta
+                    property="twitter:description"
+                    content="Hello! I'm Austin, a Software Developer from Singapore.This is my dev portfolio to showcase a few fun projects I've done with friends."
+                />
+                <meta property="twitter:image" content="/meta-image.jpg" />
             </Head>
             <Box bgColor="brand.bgPrimary">
                 <DynamicNavbar />
