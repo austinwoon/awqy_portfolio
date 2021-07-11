@@ -22,7 +22,7 @@ const terminalText = [
         header: '> Austin.resume',
         link: {
             text: 'austin_resume.pdf',
-            link: '/austin_resume.pdf',
+            link: 'https://smu-my.sharepoint.com/:b:/g/personal/austinwoon_2017_sis_smu_edu_sg/EVaZY1gW19tDozQQ0Kzj2ewB3q7qVwqn-vot9NwnrblHfQ?e=Qs6idU'
         },
     },
     {
