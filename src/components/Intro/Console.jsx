@@ -35,6 +35,7 @@ const terminalText = [
             'hiking',
             'tennis',
             'ultimate frisbee',
+            'poker',
             'drinking?',
         ],
     },
