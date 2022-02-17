@@ -21,7 +21,7 @@ const chevronStyles = {
         border: '0px',
     },
     color: 'blue.700',
-    zIndex: 2000,
+    zIndex: 5,
 };
 
 const imageScaleIncrement = 1.3;
@@ -40,12 +40,11 @@ const carouselTransformLeftRight = {
 
 const ImageCarousel = ({ images }) => {
     const { isTablet } = React.useContext(MediaQueryContext);
-    const [shiftImagesX, setShiftImagesX] = React.useState({
-        left: carouselTransformLeftRight.desktop.left,
-        right: carouselTransformLeftRight.desktop.right,
-    });
     const [variants, setVariants] = React.useState({
         rightClick: {
+            opacity: 0.5,
+        },
+        leftClick: {
             opacity: 0.5,
         },
         active: {
@@ -101,6 +100,7 @@ const ImageCarousel = ({ images }) => {
             -1
         );
     };
+
     const cyclicIndexSetter = (index, direction) => {
         index = Number(index);
         if (direction === 'left') {
@@ -166,15 +166,17 @@ const ImageCarousel = ({ images }) => {
                 x: right.toLocaleString('en', { style: 'percent' }),
             },
         }));
-
-        setShiftImagesX({ left, right });
     }, [isSmallerThan1370]);
 
     return (
         <Flex direction={'column'} justify={'center'} align={'center'}>
             <Flex justify={'center'} align={'center'}>
                 {!isTablet && images.length > 1 && (
-                    <MotionBox {...tapBounceStyle} whileHover={{ x: -5 }}>
+                    <MotionBox
+                        {...tapBounceStyle}
+                        zIndex="5"
+                        whileHover={{ x: -5 }}
+                    >
                         <IconButton
                             aria-label={'chevron-left'}
                             onClick={handleLeftClick}
