@@ -22,7 +22,8 @@ const terminalText = [
         header: '> Austin.resume',
         link: {
             text: 'austin_resume.pdf',
-            link: 'https://smu-my.sharepoint.com/:b:/g/personal/austinwoon_2017_sis_smu_edu_sg/EVaZY1gW19tDozQQ0Kzj2ewB3q7qVwqn-vot9NwnrblHfQ?e=Qs6idU'
+            link:
+                'https://smu-my.sharepoint.com/:b:/g/personal/austinwoon_2017_sis_smu_edu_sg/EVaZY1gW19tDozQQ0Kzj2ewB3q7qVwqn-vot9NwnrblHfQ?e=Qs6idU',
         },
     },
     {
@@ -33,25 +34,22 @@ const terminalText = [
             'food hunting',
             'hitting the gym',
             'hiking',
-            'tennis',
-            'ultimate frisbee',
+            'sports',
             'poker',
-            'drinking?',
         ],
     },
     {
         uuid: uuidv4(),
         header: '> Austin.skills',
         arr: [
-            'React',
-            'Redux',
-            'Vue',
-            'Node',
-            'GraphQL',
             'Javascript',
-            'AWS',
+            'Typescript',
             'Python',
             'Java',
+            'React',
+            'Node',
+            'GraphQL',
+            'AWS',
         ],
     },
     {
